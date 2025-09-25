@@ -5,6 +5,8 @@
 @theme {
   --font-poppins: 'Poppins', sans-serif;
   --color-active-link: #034fa7;
+  --color-btn-primary: #694ef2;
+  --color-hover: #492dd4;
 }
 
 html,
@@ -23,11 +25,31 @@ body {
     @apply fixed z-50 w-full;
 
     div {
-      @apply container mx-auto flex flex-col items-center gap-5 px-5 py-5 md:flex-row md:justify-between lg:px-0;
+      @apply flex max-w-full flex-row items-center justify-between gap-5 bg-white px-3 py-2 md:px-5 md:py-3 2xl:mx-36;
 
-      ul {
-        @apply hidden items-center gap-6 md:flex;
+      .desktop-ul {
+        @apply hidden items-center gap-4 lg:flex;
+
+        li {
+          @apply relative font-medium tracking-wide;
+        }
       }
+    }
+
+    .mobile-btn {
+      @apply text-gray-700 hover:text-gray-900 focus:text-gray-900 focus:outline-none md:hidden;
+    }
+
+    .submenu-btn {
+      @apply hover:text-active-link focus:text-active-link flex cursor-pointer items-center justify-center text-gray-700 transition-colors duration-200 focus:outline-none;
+    }
+
+    .dropdown_menu-ul {
+      @apply absolute top-full left-0 z-50 mt-3 block w-48 flex-col rounded border border-gray-600 bg-[#232528] text-left shadow-lg;
+    }
+
+    .contact-btn {
+      @apply bg-btn-primary hover:bg-hover ml-4 cursor-pointer rounded-[8px] border px-7 py-3 text-[0.875rem] font-semibold tracking-wide text-white uppercase;
     }
   }
 }

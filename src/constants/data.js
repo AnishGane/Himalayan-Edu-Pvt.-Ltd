@@ -1,10 +1,10 @@
 const navLinks = [
   {
-    name: 'HOME',
+    name: 'home',
     link: '/',
   },
   {
-    name: 'ABOUT',
+    name: 'about',
     subMenu: [
       { name: 'About Us', link: '/about' },
       { name: 'Message From MD', link: '/about/message' },
@@ -13,11 +13,11 @@ const navLinks = [
     ],
   },
   {
-    name: 'SERVICES',
+    name: 'services',
     link: '/services',
   },
   {
-    name: 'Our Courses',
+    name: 'our courses',
     subMenu: [
       { name: 'N5 (Basic Level)', link: '/courses/n5' },
       { name: 'N4 (Elementary Level)', link: '/courses/n4' },
@@ -30,7 +30,7 @@ const navLinks = [
     ],
   },
   {
-    name: 'CLASS',
+    name: 'class',
     subMenu: [
       {
         name: 'JLPT',
@@ -47,13 +47,13 @@ const navLinks = [
     ],
   },
   {
-    name: 'GALLERY',
+    name: 'gallery',
     link: '/gallery',
   },
-  {
-    name: 'CONTACT',
-    link: '/contacts',
-  },
+  // {
+  //   name: 'CONTACT',
+  //   link: '/contacts',
+  // },
 ];
 
 export default navLinks;

@@ -33,6 +33,10 @@ const App = () => {
   return (
     <main>
       <Navbar />
+
+      {/* Spacer to offset fixed navbar height */}
+      <div aria-hidden className="h-[72px] md:h-[88px]" />
+
       <Routes>
         {/* Home */}
         <Route path="/" element={<Home />} />
