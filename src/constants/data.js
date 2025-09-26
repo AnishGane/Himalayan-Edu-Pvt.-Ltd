@@ -76,4 +76,45 @@ const socials = [
   },
 ];
 
-export { navLinks, socials };
+// const CarouselImages = [
+//   '/images/carousel_img1.jpg',
+//   '/images/carousel_img2.jpg',
+//   '/images/carousel_img3.jpg',
+//   '/images/carousel_img4.jpg',
+// ];
+
+const CarouselSlides = [
+  {
+    src: '/images/carousel_img1.jpg',
+    tagline: 'Study in best environment',
+    subtitle: 'Guiding you to your dream university',
+    headline: 'Fulfill your Dream here.',
+    cta: 'Learn More',
+    href: '/about',
+  },
+  {
+    src: '/images/carousel_img2.jpg',
+    tagline: 'Trusted by thousands',
+    subtitle: 'Building brighter futures abroad',
+    headline: 'Your journey starts with us.',
+    cta: 'Explore Now',
+    href: '/services',
+  },
+  {
+    src: '/images/carousel_img3.jpg',
+    tagline: 'Expert guidance',
+    subtitle: 'Personalized counseling for every student',
+    headline: 'Achieve journey with us together.',
+    cta: 'Get Started',
+    href: '/contacts',
+  },
+  // {
+  //   src: '/images/carousel_img4.jpg',
+  //   tagline: 'Global opportunities',
+  //   subtitle: 'Connecting you with the world’s top universities',
+  //   headline: 'Step into a <span class="text-green-400">Brighter Future</span>',
+  //   cta: 'Join Us',
+  // },
+];
+
+export { navLinks, socials, CarouselSlides };

@@ -28,14 +28,18 @@ import NAT from './pages/Courses/NAT';
 import JLPTClass from './pages/Class/JLPT';
 import NATClass from './pages/Class/NAT';
 import IFTSSW from './pages/Class/IFTSSW';
+import Banner from './components/Banner';
 
 const App = () => {
   return (
     <main>
-      <Navbar />
+      <header className="fixed top-0 left-0 z-50 w-full bg-white">
+        <Banner />
+        <Navbar />
+      </header>
 
       {/* Spacer to offset fixed navbar height */}
-      <div aria-hidden className="h-[72px] md:h-[88px]" />
+      <div aria-hidden className="h-[120px] md:h-[100px]" />
 
       <Routes>
         {/* Home */}
