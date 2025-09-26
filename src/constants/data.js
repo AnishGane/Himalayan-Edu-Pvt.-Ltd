@@ -1,3 +1,8 @@
+import { FaFacebook } from 'react-icons/fa';
+import { SiYoutube } from 'react-icons/si';
+import { FaTwitter } from 'react-icons/fa';
+import { AiFillInstagram } from 'react-icons/ai';
+
 const navLinks = [
   {
     name: 'home',
@@ -50,10 +55,25 @@ const navLinks = [
     name: 'gallery',
     link: '/gallery',
   },
-  // {
-  //   name: 'CONTACT',
-  //   link: '/contacts',
-  // },
 ];
 
-export default navLinks;
+const socials = [
+  {
+    icon: FaFacebook,
+    link: 'https://www.facebook.com/',
+  },
+  {
+    icon: FaTwitter,
+    link: 'https://twitter.com/',
+  },
+  {
+    icon: AiFillInstagram,
+    link: 'https://www.instagram.com/',
+  },
+  {
+    icon: SiYoutube,
+    link: 'https://www.youtube.com/',
+  },
+];
+
+export { navLinks, socials };

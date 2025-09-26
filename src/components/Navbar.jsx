@@ -1,13 +1,18 @@
+'use client';
+
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 
-import navLinks from '../constants/data';
+import { navLinks, socials } from '../constants/data';
 
 // Icons
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { MdOutlineEmail } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
+import { FaFacebook, FaTwitter } from 'react-icons/fa';
+import { AiFillInstagram } from 'react-icons/ai';
+import { SiYoutube } from 'react-icons/si';
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -29,6 +34,20 @@ const Navbar = () => {
     };
   }, []);
 
+  // Disable scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+
+    // Cleanup on unmount
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMobileMenuOpen]);
+
   const handleDropdownToggle = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
   };
@@ -42,7 +61,7 @@ const Navbar = () => {
       <div className="relative">
         <Link to="/">
           <img
-            data-aos="slide-right"
+            // data-aos="slide-right"
             src="/images/Himalayan Logo.png"
             alt="Himalayan Language Institute Logo"
             className="h-auto w-36 object-contain"
@@ -81,9 +100,7 @@ const Navbar = () => {
                 <NavLink
                   to={item.link}
                   className={({ isActive }) =>
-                    `hover:text-active-link flex cursor-pointer items-center gap-1 px-2 py-2 transition-colors duration-200 ${
-                      isActive ? 'text-active-link' : 'text-gray-700'
-                    }`
+                    `desktop-ul-link ${isActive ? 'text-active-link' : 'text-gray-700'}`
                   }
                 >
                   <span className="uppercase">{item.name}</span>
@@ -116,7 +133,7 @@ const Navbar = () => {
                       <NavLink
                         to={sub.link}
                         className={({ isActive }) =>
-                          `hover:bg-hover block p-4 text-[0.815rem] font-light text-white transition-colors duration-200 ${
+                          `dropdown_menu-ul-link ${
                             subIdx !== item.subMenu.length - 1
                               ? 'border-b border-dashed border-gray-500'
                               : ''
@@ -124,7 +141,7 @@ const Navbar = () => {
                         }
                         onClick={() => setOpenDropdown(null)}
                       >
-                        {sub.name}
+                        <span className="tracking-wide">{sub.name}</span>
                       </NavLink>
                     </li>
                   ))}
@@ -138,26 +155,32 @@ const Navbar = () => {
         </ul>
       </div>
 
-      {/* {isMobileMenuOpen && <div className="h-screen w-screen bg-tra opacity-50"></div>} */}
+      {/* background overlay when mobile nav is opened */}
+      {isMobileMenuOpen && (
+        <div
+          aria-label={isMobileMenuOpen ? 'background blur overlay' : ''}
+          className="bg-overlay"
+          onClick={() => setIsMobileMenuOpen(false)}
+        />
+      )}
+
       {/* Mobile and Medium Device NavLinks */}
       {isMobileMenuOpen && (
-        <div className="absolute top-0 left-0 min-h-dvh w-80 bg-white px-5 py-10">
+        <div className="mobile-menu">
           <RxCross2
             size={25}
             className="absolute top-8 right-4 cursor-pointer"
             onClick={handleMobileMenuToggle}
           />
 
-          <ul className="absolute top-20 right-0 left-0 z-50 flex min-h-dvh w-80 flex-col text-left font-medium lg:hidden">
+          <ul className="mobile-ul">
             {navLinks.map((item, idx) => (
               <li key={idx}>
                 {item.link ? (
                   <NavLink
                     to={item.link}
                     className={({ isActive }) =>
-                      `block border-b border-b-gray-200 px-4 py-3 text-black transition-all duration-200 hover:bg-gray-100 ${
-                        isActive ? 'text-active-link' : ''
-                      }`
+                      `mobile_ul-link ${isActive ? 'text-active-link' : ''}`
                     }
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
@@ -167,7 +190,7 @@ const Navbar = () => {
                   <span className="flex flex-col items-start">
                     <button
                       onClick={() => handleDropdownToggle(idx)}
-                      className="flex w-full justify-between border-b border-b-gray-200 px-4 py-3 text-left text-black transition-colors duration-200 hover:bg-gray-100 focus:outline-none"
+                      className="mobile_ul-btn"
                       aria-expanded={openDropdown === idx}
                       aria-haspopup="true"
                     >
@@ -208,12 +231,38 @@ const Navbar = () => {
               </li>
             ))}
             <Link
-              className="hover:text-active-link mt-20 flex items-center justify-center gap-2"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="hover:text-active-link mt-10 flex items-center justify-center gap-2"
               to={'/contact'}
             >
               <MdOutlineEmail />
               himalayanedu@gmail.com
             </Link>
+
+            {/* Social Links Section */}
+            <li className="mt-8 flex justify-center gap-5 border-t border-gray-200 pt-4">
+              {socials.map((social, index) => (
+                <a
+                  key={index}
+                  href={social.link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`rounded-full border border-gray-400 p-2 text-black transition-colors duration-200 hover:bg-gray-50 ${
+                    social.icon === SiYoutube
+                      ? 'hover:border-red-500 hover:text-red-500'
+                      : social.icon === FaFacebook
+                        ? 'hover:border-blue-600 hover:text-blue-600'
+                        : social.icon === FaTwitter
+                          ? 'hover:border-blue-400 hover:text-blue-400'
+                          : social.icon === AiFillInstagram
+                            ? 'hover:border-pink-500 hover:text-pink-500'
+                            : 'hover:border-active-link hover:text-active-link'
+                  }`}
+                >
+                  <social.icon className="h-[1.25rem] w-[1.25rem]" />
+                </a>
+              ))}
+            </li>
           </ul>
         </div>
       )}
@@ -222,11 +271,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{
-  /* <div className="absolute">
-  
-
-  
-</div>; */
-}

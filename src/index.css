@@ -37,7 +37,7 @@ body {
     }
 
     .mobile-btn {
-      @apply text-gray-700 hover:text-gray-900 focus:text-gray-900 focus:outline-none md:hidden;
+      @apply mr-2 cursor-pointer text-gray-700 hover:text-gray-900 focus:text-gray-900 focus:outline-none md:hidden;
     }
 
     .submenu-btn {
@@ -50,6 +50,34 @@ body {
 
     .contact-btn {
       @apply bg-btn-primary hover:bg-hover ml-4 cursor-pointer rounded-[8px] border px-7 py-3 text-[0.875rem] font-semibold tracking-wide text-white uppercase;
+    }
+
+    .desktop-ul-link {
+      @apply hover:text-active-link flex cursor-pointer items-center gap-1 px-2 py-2 transition-colors duration-200;
+    }
+
+    .dropdown_menu-ul-link {
+      @apply hover:bg-hover block p-4 text-[0.815rem] font-light text-white transition-colors duration-200;
+    }
+
+    .mobile-menu {
+      @apply absolute top-0 left-0 z-20 min-h-dvh w-80 bg-white px-5 py-10;
+    }
+
+    .bg-overlay {
+      @apply fixed inset-0 z-10 bg-black/50 backdrop-blur-sm;
+    }
+
+    .mobile-ul {
+      @apply absolute top-25 right-0 left-0 z-50 flex min-h-dvh w-80 flex-col text-left font-medium lg:hidden;
+    }
+
+    .mobile_ul-link {
+      @apply block border-b border-b-gray-200 px-4 py-3 text-black transition-all duration-200 hover:bg-gray-100;
+    }
+
+    .mobile_ul-btn {
+      @apply flex w-full justify-between border-b border-b-gray-200 px-4 py-3 text-left text-black transition-colors duration-200 hover:bg-gray-100 focus:outline-none;
     }
   }
 }
