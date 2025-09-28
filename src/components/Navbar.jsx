@@ -11,7 +11,6 @@ import { RxCross2 } from 'react-icons/rx';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
 import { SiYoutube } from 'react-icons/si';
-import Banner from './Banner';
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -33,17 +32,17 @@ const Navbar = () => {
     };
   }, []);
 
-  // Disable scroll when mobile menu is open
   useEffect(() => {
+    const html = document.documentElement;
+
     if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
+      html.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'unset';
+      html.style.overflow = '';
     }
 
-    // Cleanup on unmount
     return () => {
-      document.body.style.overflow = 'unset';
+      html.style.overflow = ''; // cleanup
     };
   }, [isMobileMenuOpen]);
 

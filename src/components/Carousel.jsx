@@ -72,7 +72,7 @@ const Carousel = ({ images = [], autoPlay }) => {
               <div className="absolute top-1/2 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 px-6 text-center text-white">
                 {/* Tagline pill */}
                 {slide.tagline && (
-                  <div className="animate-fadeIn mx-auto mb-6 flex max-w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 px-5 py-2 text-[11px] font-semibold tracking-wider text-green-200 uppercase shadow-lg backdrop-blur-md">
+                  <div className="animate-fadeIn mx-auto mb-4 flex max-w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 px-5 py-2 text-[11px] font-semibold tracking-wider text-green-200 uppercase shadow-lg backdrop-blur-md">
                     <span className="bg-cta-red h-2 w-2 animate-pulse rounded-full"></span>
                     {slide.tagline}
                   </div>
@@ -88,7 +88,7 @@ const Carousel = ({ images = [], autoPlay }) => {
                 {/* Headline */}
                 {slide.headline && (
                   <h1
-                    className="animate-fadeUp mb-8 text-4xl leading-snug font-extrabold tracking-wide text-white drop-shadow-xl [animation-delay:400ms] md:text-5xl lg:text-6xl"
+                    className="animate-fadeUp mb-10 text-4xl leading-[2.75rem] font-extrabold tracking-wide text-white drop-shadow-xl [animation-delay:400ms] md:text-5xl md:leading-[4.25rem] lg:text-6xl"
                     dangerouslySetInnerHTML={{ __html: slide.headline }}
                   />
                 )}
@@ -96,7 +96,7 @@ const Carousel = ({ images = [], autoPlay }) => {
                 {/* CTA */}
                 {slide.cta && (
                   <Link to={slide.href}>
-                    <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover hover:shadow-2xlmd:text-base cursor-pointer rounded-[10px] px-10 py-4 text-xs font-semibold tracking-widest text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms]">
+                    <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer rounded-[10px] px-6 py-4 text-xs font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5">
                       {slide.cta}
                     </button>
                   </Link>

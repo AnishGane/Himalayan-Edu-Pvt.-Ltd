@@ -39,7 +39,7 @@ const App = () => {
       </header>
 
       {/* Spacer to offset fixed navbar height */}
-      <div aria-hidden className="h-[120px] md:h-[100px]" />
+      <div aria-hidden className="h-[90px] md:h-[100px]" />
 
       <Routes>
         {/* Home */}
