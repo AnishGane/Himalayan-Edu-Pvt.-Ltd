@@ -9,7 +9,7 @@ const Title = ({ subheading, heading }) => {
         <h4 className="text-[1.1rem] font-semibold">{subheading}</h4>
       </div>
       {/* heading div */}
-      <h1 className="mb-4 text-3xl leading-9 font-bold text-slate-900 sm:mb-8 sm:text-5xl sm:leading-14">
+      <h1 className="mb-4 text-[1.875rem] leading-9 font-bold text-slate-900 sm:mb-8 md:text-[2.1rem] md:leading-12 lg:text-5xl lg:leading-14">
         {heading}
       </h1>
     </div>

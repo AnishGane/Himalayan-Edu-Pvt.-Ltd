@@ -96,7 +96,7 @@ const Carousel = ({ images = [], autoPlay }) => {
                 {/* CTA */}
                 {slide.cta && (
                   <Link to={slide.href}>
-                    <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer rounded-[10px] px-6 py-4 text-xs font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5">
+                    <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer px-6 py-4 text-xs font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5">
                       {slide.cta}
                     </button>
                   </Link>

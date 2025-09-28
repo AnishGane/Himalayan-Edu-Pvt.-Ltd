@@ -19,7 +19,7 @@
 
   /* accent colors */
   --color-cta-red: #f32f2fee;
-  --color-cta-hover: #fd0000c5;
+  --color-cta-hover: rgba(220, 38, 38, 0.9);
   --color-matcha-green: #7ba05b;
   --color-hover-golden: #d4a017;
 }
@@ -99,7 +99,7 @@ body::-webkit-scrollbar {
       }
 
       .contact-btn {
-        @apply bg-cta-red hover:bg-cta-hover ml-4 cursor-pointer rounded-[8px] border px-7 py-3 text-[0.875rem] font-semibold tracking-wide text-white uppercase;
+        @apply bg-cta-red hover:bg-cta-hover ml-4 cursor-pointer border px-7 py-3 text-[0.875rem] font-semibold tracking-wide text-white uppercase;
       }
 
       .desktop-ul-link {
