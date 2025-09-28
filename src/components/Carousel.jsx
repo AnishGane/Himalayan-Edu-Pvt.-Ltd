@@ -43,9 +43,9 @@ const Carousel = ({ images = [], autoPlay }) => {
   if (slides.length === 0) return null;
 
   return (
-    <div className="relative mt-3 max-w-full select-none">
+    <section className="relative mt-3 max-w-full select-none">
       <div
-        className="relative h-[540px] overflow-hidden sm:h-[360px] md:h-[460px] lg:h-[650px]"
+        className="relative h-[480px] overflow-hidden sm:h-[360px] md:h-[460px] lg:h-[650px]"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
       >
@@ -69,10 +69,10 @@ const Carousel = ({ images = [], autoPlay }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
 
               {/* Overlay content */}
-              <div className="absolute top-1/2 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 -translate-y-1/2 px-6 text-center text-white">
+              <div className="absolute top-10 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 px-6 text-center text-white sm:top-1/2 sm:-translate-y-1/2">
                 {/* Tagline pill */}
                 {slide.tagline && (
-                  <div className="animate-fadeIn mx-auto mb-4 flex max-w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 px-5 py-2 text-[11px] font-semibold tracking-wider text-green-200 uppercase shadow-lg backdrop-blur-md">
+                  <div className="animate-fadeIn mx-auto mb-5 flex max-w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 px-5 py-2 text-[11px] font-semibold tracking-wider text-green-200 uppercase shadow-lg backdrop-blur-md sm:mb-4">
                     <span className="bg-cta-red h-2 w-2 animate-pulse rounded-full"></span>
                     {slide.tagline}
                   </div>
@@ -80,7 +80,7 @@ const Carousel = ({ images = [], autoPlay }) => {
 
                 {/* Subtitle */}
                 {slide.subtitle && (
-                  <p className="animate-fadeIn tracking-wide[animation-delay:200ms] mb-4 text-sm text-white md:text-lg">
+                  <p className="animate-fadeIn tracking-wide[animation-delay:200ms] mb-8 text-sm text-white sm:mb-4 md:text-lg">
                     {slide.subtitle}
                   </p>
                 )}
@@ -159,7 +159,7 @@ const Carousel = ({ images = [], autoPlay }) => {
           </div>
         )}
       </div>
-    </div>
+    </section>
   );
 };
 

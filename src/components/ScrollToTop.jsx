@@ -3,24 +3,26 @@ import gsap from 'gsap';
 import React, { useEffect, useRef, useState } from 'react';
 
 import { RiArrowDropDownLine } from 'react-icons/ri';
+import { useMediaQuery } from 'react-responsive';
 
 const ScrollToTop = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
+  const smScroll = useMediaQuery({ maxWidth: '40rem' });
   const btnRef = useRef(null);
 
   useGSAP(() => {
     if (showScrollTop && btnRef.current) {
       gsap.fromTo(
         btnRef.current,
-        { opacity: 0, y: 50, duration: 0.8, ease: 'expo.inOut' },
-        { opacity: 1, y: 0, duration: 0.8, ease: 'expo.inOut' }
+        { opacity: 0, y: 50, duration: 0.65, ease: 'expo.inOut' },
+        { opacity: 1, y: 0, duration: 0.65, ease: 'expo.inOut' }
       );
     }
   }, [showScrollTop]);
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > 300);
+      setShowScrollTop(window.scrollY > (smScroll ? 120 : 300));
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -41,7 +43,7 @@ const ScrollToTop = () => {
         <button
           ref={btnRef}
           onClick={scrollToTop}
-          className="fixed right-5 bottom-5 z-50 flex cursor-pointer items-center justify-center rounded-full bg-black p-3 text-white shadow-lg transition-all duration-300 hover:bg-gray-900 sm:right-10 sm:bottom-10"
+          className="fixed right-5 bottom-5 z-200 flex cursor-pointer items-center justify-center rounded-full bg-black p-3 text-white shadow-lg transition-all duration-300 hover:bg-gray-900 sm:right-10 sm:bottom-10"
           aria-label="Scroll to top"
         >
           <RiArrowDropDownLine size={28} fill="#fff" className="rotate-180" />
