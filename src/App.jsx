@@ -29,6 +29,12 @@ import JLPTClass from './pages/Class/JLPT';
 import NATClass from './pages/Class/NAT';
 import IFTSSW from './pages/Class/IFTSSW';
 import Banner from './components/Banner';
+import ScrollToTop from './components/ScrollToTop';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+
+gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   return (
@@ -37,6 +43,8 @@ const App = () => {
         <Banner />
         <Navbar />
       </header>
+
+      <ScrollToTop />
 
       {/* Spacer to offset fixed navbar height */}
       <div aria-hidden className="h-[90px] md:h-[100px]" />
