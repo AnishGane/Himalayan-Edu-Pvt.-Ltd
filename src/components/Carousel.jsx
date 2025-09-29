@@ -43,17 +43,10 @@ const Carousel = ({ images = [], autoPlay }) => {
   if (slides.length === 0) return null;
 
   return (
-    <section className="relative mt-3 max-w-full select-none">
-      <div
-        className="relative h-[480px] overflow-hidden sm:h-[360px] md:h-[460px] lg:h-[650px]"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
+    <section id="Carousel">
+      <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
         {/* Slides wrapper */}
-        <div
-          className="flex h-full w-full transition-transform duration-700 ease-out"
-          style={{ transform: `translateX(-${current * 100}%)` }}
-        >
+        <div className="slide_wrapper" style={{ transform: `translateX(-${current * 100}%)` }}>
           {slides.map((slide, idx) => (
             <div key={idx} className="relative h-full w-full flex-shrink-0">
               {/* Background image */}
@@ -66,29 +59,27 @@ const Carousel = ({ images = [], autoPlay }) => {
               />
 
               {/* Dark gradient overlay for readability */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent"></div>
+              <div className="gradient-overlay"></div>
 
               {/* Overlay content */}
-              <div className="absolute top-10 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 px-6 text-center text-white sm:top-1/2 sm:-translate-y-1/2">
+              <div className="overlay_content">
                 {/* Tagline pill */}
                 {slide.tagline && (
-                  <div className="animate-fadeIn mx-auto mb-5 flex max-w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 px-5 py-2 text-[11px] font-semibold tracking-wider text-green-200 uppercase shadow-lg backdrop-blur-md sm:mb-4">
-                    <span className="bg-cta-red h-2 w-2 animate-pulse rounded-full"></span>
+                  <div className="tagline animate-fadeIn">
+                    <span></span>
                     {slide.tagline}
                   </div>
                 )}
 
                 {/* Subtitle */}
                 {slide.subtitle && (
-                  <p className="animate-fadeIn tracking-wide[animation-delay:200ms] mb-8 text-sm text-white sm:mb-4 md:text-lg">
-                    {slide.subtitle}
-                  </p>
+                  <p className="animate-fadeIn [animation-delay:200ms]">{slide.subtitle}</p>
                 )}
 
                 {/* Headline */}
                 {slide.headline && (
                   <h1
-                    className="animate-fadeUp mb-10 text-4xl leading-[2.75rem] font-extrabold tracking-wide text-white drop-shadow-xl [animation-delay:400ms] md:text-5xl md:leading-[4.25rem] lg:text-6xl"
+                    className="animate-fadeUp [animation-delay:400ms]"
                     dangerouslySetInnerHTML={{ __html: slide.headline }}
                   />
                 )}
@@ -96,9 +87,7 @@ const Carousel = ({ images = [], autoPlay }) => {
                 {/* CTA */}
                 {slide.cta && (
                   <Link to={slide.href}>
-                    <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer px-6 py-4 text-xs font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5">
-                      {slide.cta}
-                    </button>
+                    <button className="animate-fadeIn [animation-delay:600ms]">{slide.cta}</button>
                   </Link>
                 )}
               </div>
@@ -109,11 +98,7 @@ const Carousel = ({ images = [], autoPlay }) => {
         {/* Arrows */}
         {slides.length > 1 && (
           <>
-            <button
-              aria-label="Previous slide"
-              onClick={prev}
-              className="absolute bottom-4 left-3 z-30 cursor-pointer rounded-full bg-white/20 p-2 text-white backdrop-blur-md transition hover:bg-white/30 md:top-1/2 md:bottom-auto md:-translate-y-1/2"
-            >
+            <button aria-label="Previous slide" onClick={prev} className="prev_arrow">
               <svg
                 className="h-5 w-5"
                 viewBox="0 0 24 24"
@@ -125,11 +110,7 @@ const Carousel = ({ images = [], autoPlay }) => {
               </svg>
             </button>
 
-            <button
-              aria-label="Next slide"
-              onClick={next}
-              className="absolute right-3 bottom-4 z-30 cursor-pointer rounded-full bg-white/20 p-2 text-white backdrop-blur-md transition hover:bg-white/30 md:top-1/2 md:bottom-auto md:-translate-y-1/2"
-            >
+            <button aria-label="Next slide" onClick={next} className="next_arrow">
               <svg
                 className="h-5 w-5"
                 viewBox="0 0 24 24"
@@ -145,13 +126,13 @@ const Carousel = ({ images = [], autoPlay }) => {
 
         {/* Dots */}
         {slides.length > 1 && (
-          <div className="absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 items-center justify-center gap-2">
+          <div className="dots">
             {slides.map((_, idx) => (
               <button
                 key={idx}
                 aria-label={`Go to slide ${idx + 1}`}
                 onClick={() => goTo(idx)}
-                className={`h-2.5 w-2.5 cursor-pointer rounded-full transition-all ${
+                className={`${
                   current === idx ? 'bg-cta-red w-6' : 'bg-white/50 hover:bg-white/70'
                 }`}
               />

@@ -15,13 +15,15 @@
   --color-zen-gray: #f5f5f5;
   --color-charcoal-gray: #333333;
   --color-slate: #708090;
-  --color-section-bg: #e8f1f2;
+  --color-section-bg: #f9fafb;
 
   /* accent colors */
   --color-cta-red: #f32f2fee;
   --color-cta-hover: rgba(220, 38, 38, 0.9);
   --color-matcha-green: #7ba05b;
   --color-hover-golden: #d4a017;
+
+  --color-card-bg: #eff6ee;
 }
 
 html,
@@ -129,6 +131,121 @@ body::-webkit-scrollbar {
       hr {
         @apply bg-accent-pink absolute top-0 left-0 h-[5px] w-full border-none outline-none;
       }
+    }
+
+    /* Hero Section */
+    #hero {
+      @apply bg-section-bg w-full overflow-x-hidden py-10 2xl:px-40;
+
+      .div-grid {
+        @apply grid grid-cols-1 gap-8 px-3 sm:gap-12 md:grid-cols-2 md:px-6 lg:px-5 2xl:px-0;
+
+        button {
+          @apply bg-cta-red hover:bg-cta-hover mt-8 cursor-pointer rounded-sm px-8 py-4 text-xs font-semibold text-white uppercase transition-colors duration-200 sm:text-sm;
+        }
+      }
+
+      img {
+        @apply aspect-square w-full object-contain md:h-[30rem];
+      }
+
+      .checklist {
+        @apply flex flex-col gap-3 text-gray-700;
+
+        div {
+          @apply flex items-center gap-2;
+
+          > :first-child {
+            @apply text-main-indigo;
+          }
+        }
+      }
+
+      .hero_banner {
+        @apply relative mx-3 mt-6 h-60 w-auto overflow-hidden rounded-lg bg-gradient-to-r from-red-400 to-red-600 sm:mx-auto sm:mt-10 sm:h-70 sm:w-[85%];
+
+        img {
+          @apply absolute inset-0 h-full w-full object-cover opacity-40;
+        }
+
+        .content {
+          @apply relative z-10 flex h-full flex-col items-center justify-center text-center sm:mx-10 sm:px-6 sm:text-left md:gap-10 lg:flex-row lg:justify-between lg:gap-0;
+
+          h2 {
+            @apply text-main-indigo text-2xl font-bold sm:text-4xl;
+          }
+
+          p {
+            @apply sm:bg-main-indigo mx-3 mt-1 inline-block max-w-fit px-1 py-1 text-sm font-semibold text-white sm:mx-0 sm:mt-2;
+          }
+
+          button {
+            @apply bg-main-indigo wide mt-4 cursor-pointer rounded-sm px-8 py-4 text-xs font-semibold text-white hover:bg-gray-900 sm:mt-0 sm:text-sm;
+          }
+        }
+      }
+    }
+
+    /* Carousel Section */
+    #Carousel {
+      @apply relative mt-3 max-w-full select-none;
+
+      > div {
+        @apply relative h-[480px] overflow-hidden sm:h-[360px] md:h-[460px] lg:h-[700px];
+      }
+
+      .slide_wrapper {
+        @apply flex h-full w-full transition-transform duration-700 ease-out;
+      }
+
+      .prev_arrow {
+        @apply absolute bottom-4 left-3 z-30 cursor-pointer rounded-full bg-white/20 p-2 text-white backdrop-blur-md transition hover:bg-white/30 md:top-1/2 md:bottom-auto md:-translate-y-1/2;
+      }
+
+      .next_arrow {
+        @apply absolute right-3 bottom-4 z-30 cursor-pointer rounded-full bg-white/20 p-2 text-white backdrop-blur-md transition hover:bg-white/30 md:top-1/2 md:bottom-auto md:-translate-y-1/2;
+      }
+
+      .dots {
+        @apply absolute bottom-5 left-1/2 z-30 flex -translate-x-1/2 items-center justify-center gap-2;
+
+        button {
+          @apply h-2.5 w-2.5 cursor-pointer rounded-full transition-all;
+        }
+      }
+
+      .gradient-overlay {
+        @apply absolute inset-0 bg-gradient-to-t from-black/60 via-black/30 to-transparent;
+      }
+
+      .overlay_content {
+        @apply absolute top-10 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 px-6 text-center text-white sm:top-1/2 sm:-translate-y-1/2;
+
+        .tagline {
+          @apply mx-auto mb-5 flex max-w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 px-5 py-2 text-[9px] font-semibold tracking-wider text-green-200 uppercase shadow-lg backdrop-blur-md sm:mb-4 sm:text-[11px];
+
+          span {
+            @apply bg-cta-red h-2 w-2 animate-pulse rounded-full;
+          }
+        }
+
+        p {
+          @apply mb-8 text-sm tracking-wide text-white sm:mb-4 md:text-lg;
+        }
+
+        h1 {
+          @apply mb-10 text-4xl leading-[2.75rem] font-extrabold tracking-wide text-white drop-shadow-xl md:text-5xl md:leading-[4.25rem] lg:text-6xl;
+        }
+
+        button {
+          @apply bg-cta-red hover:bg-cta-hover cursor-pointer rounded-sm px-6 py-4 text-xs font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 hover:shadow-2xl md:px-9 md:py-5;
+        }
+      }
+    }
+
+    /* Home Service Section */
+    #home_service {
+      @apply bg-section-bg w-full overflow-x-hidden sm:py-8 2xl:px-40;
     }
   }
 }

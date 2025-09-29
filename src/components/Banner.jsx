@@ -1,11 +1,12 @@
 import React from 'react';
+import { useMediaQuery } from 'react-responsive';
+
 import { MdEmail } from 'react-icons/md';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { socials } from '../constants/data';
 import { SiYoutube } from 'react-icons/si';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
-import { useMediaQuery } from 'react-responsive';
 
 const Banner = () => {
   const mediumSize = useMediaQuery({ maxWidth: 1037 });

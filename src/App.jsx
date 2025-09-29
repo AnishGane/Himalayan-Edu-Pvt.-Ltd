@@ -8,6 +8,7 @@ import Navbar from './components/Navbar';
 import Message from './pages/About/Message';
 import Faq from './pages/About/Faq';
 import WhyChooseUs from './pages/About/WhyChooseUs';
+import Introduction from './pages/About/Introduction';
 
 // Main pages
 import Services from './pages/Services';
@@ -54,7 +55,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
 
         {/* About pages */}
-        <Route path="/about" element={<About />} />
+        <Route path="/about/introduction" element={<Introduction />} />
         <Route path="/about/message" element={<Message />} />
         <Route path="/about/faq" element={<Faq />} />
         <Route path="/about/why-choose-us" element={<WhyChooseUs />} />

@@ -2,6 +2,15 @@ import { FaFacebook } from 'react-icons/fa';
 import { SiYoutube } from 'react-icons/si';
 import { FaTwitter } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
+import { FaUserGraduate } from 'react-icons/fa6';
+import { FaChalkboardTeacher } from 'react-icons/fa';
+import { BiSolidMessageRoundedDots } from 'react-icons/bi';
+import { FaUserTie } from 'react-icons/fa6';
+import { FaBookOpenReader } from 'react-icons/fa6';
+import { GiPathDistance } from 'react-icons/gi';
+import { FaPlaneDeparture } from 'react-icons/fa6';
+import { FaHandsHelping } from 'react-icons/fa';
+import { FaFileAlt } from 'react-icons/fa';
 
 const navLinks = [
   {
@@ -108,13 +117,63 @@ const CarouselSlides = [
     cta: 'Get Started',
     href: '/contacts',
   },
-  // {
-  //   src: '/images/carousel_img4.jpg',
-  //   tagline: 'Global opportunities',
-  //   subtitle: 'Connecting you with the world’s top universities',
-  //   headline: 'Step into a <span class="text-green-400">Brighter Future</span>',
-  //   cta: 'Join Us',
-  // },
 ];
 
-export { navLinks, socials, CarouselSlides };
+const ServiceLists = [
+  {
+    icon: BiSolidMessageRoundedDots,
+    title: 'Free Consultation',
+    description:
+      'Get a free consultation from our experts to understand your needs and goals for your future studies in Japan.',
+  },
+  {
+    icon: FaBookOpenReader,
+    title: 'Japanese Language Course',
+    description:
+      'Asahi has designed special curriculum with the latest and the most effective teaching methods for students and businessmen.',
+  },
+  {
+    icon: FaUserGraduate,
+    title: 'Placement in University of Japan',
+    description:
+      'We offer comprehensive placement assistance for students aiming to study in Japan.',
+  },
+  {
+    icon: FaChalkboardTeacher,
+    title: 'Test Preparation',
+    description:
+      'At Asahi Japanese Consultancy, we offer expert test preparation services for a range of Japanese language proficiency exams like JLPT, JFT and NAT-TEST.',
+  },
+  {
+    icon: GiPathDistance,
+    title: 'Career Guidance',
+    description:
+      'We guide you through the process of choosing a career path that aligns with your strengths and skills within the Japanese job market.',
+  },
+  {
+    icon: FaPlaneDeparture,
+    title: 'Visa processing for students',
+    description:
+      'We provide personalized counseling to help you understand the specific visa type that best suits your purpose.',
+  },
+  {
+    icon: FaUserTie,
+    title: 'Free Counseling',
+    description:
+      'Our expert consultants are here to provide personalized guidance, whether you’re just starting your language learning journey or looking to improve your skills.',
+  },
+  {
+    icon: FaHandsHelping,
+    title: 'Practice based Classes',
+    description:
+      'Our classes are designed to engage students actively through role-playing, conversation practice',
+  },
+  {
+    icon: FaFileAlt,
+    title: 'Document Translation',
+    description:
+      'Need the best Japanese translators? Our Japanese translation services offer decades of experience in Japanese translations.',
+  },
+];
+
+export { navLinks, socials, CarouselSlides, ServiceLists };
