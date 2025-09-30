@@ -85,12 +85,20 @@ const socials = [
   },
 ];
 
-// const CarouselImages = [
-//   '/images/carousel_img1.jpg',
-//   '/images/carousel_img2.jpg',
-//   '/images/carousel_img3.jpg',
-//   '/images/carousel_img4.jpg',
-// ];
+const TestClasses = [
+  {
+    id: 1,
+    title: 'NAT',
+  },
+  {
+    id: 2,
+    title: 'JLPT',
+  },
+  {
+    id: 3,
+    title: 'IFT_SSW',
+  },
+];
 
 const CarouselSlides = [
   {
@@ -176,4 +184,4 @@ const ServiceLists = [
   },
 ];
 
-export { navLinks, socials, CarouselSlides, ServiceLists };
+export { navLinks, TestClasses, socials, CarouselSlides, ServiceLists };

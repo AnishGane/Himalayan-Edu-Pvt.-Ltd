@@ -29,6 +29,7 @@ import NAT from './pages/Courses/NAT';
 import JLPTClass from './pages/Class/JLPT';
 import NATClass from './pages/Class/NAT';
 import IFTSSW from './pages/Class/IFTSSW';
+
 import Banner from './components/Banner';
 import ScrollToTop from './components/ScrollToTop';
 

@@ -45,6 +45,22 @@ body::-webkit-scrollbar {
   @apply tracking-wide;
 }
 
+@utility wrapper {
+  @apply relative z-30 mt-5 w-full rounded-lg pr-0 md:pr-3 2xl:pr-0;
+}
+
+@utility article_card {
+  @apply grid grid-cols-[repeat(auto-fit,minmax(clamp(200px,25%,340px),1fr))] gap-8 sm:gap-10 md:gap-12 lg:gap-14 2xl:gap-20;
+}
+
+@utility top_fade {
+  @apply pointer-events-none absolute top-0 left-0 z-10 h-20 w-full bg-gradient-to-b from-white to-transparent;
+}
+
+@utility bottom_fade {
+  @apply pointer-events-none absolute bottom-0 left-0 z-10 h-14 w-full bg-gradient-to-t from-white to-transparent;
+}
+
 @layer components {
   main {
     @apply w-full overflow-x-hidden;
@@ -246,6 +262,47 @@ body::-webkit-scrollbar {
     /* Home Service Section */
     #home_service {
       @apply bg-section-bg w-full overflow-x-hidden sm:py-8 2xl:px-40;
+    }
+
+    .service_card {
+      @apply wide bg-card-bg flex h-full w-full flex-col items-center justify-center rounded-lg p-5;
+
+      h1 {
+        @apply text-main-indigo my-5 text-center text-lg font-semibold sm:text-xl md:text-2xl;
+      }
+
+      p {
+        @apply text-charcoal-gray max-w-[18.8rem] text-center leading-[1.315rem] sm:max-w-sm;
+      }
+
+      button {
+        @apply bg-cta-red hover:bg-cta-hover mt-8 mb-4 cursor-pointer rounded-sm px-6 py-3 text-white;
+      }
+    }
+
+    /* Home Test Preparation Section */
+    #home_test_preparation {
+      @apply bg-section-bg w-full overflow-x-hidden sm:py-8 2xl:px-40;
+
+      .content {
+        @apply relative z-20 w-full px-3 sm:pl-16;
+
+        .test_card {
+          @apply relative flex w-full flex-col items-center justify-center overflow-hidden;
+
+          img {
+            @apply rounded-sm transition duration-300 hover:scale-[1.018];
+          }
+
+          .view_btn {
+            @apply bg-cta-red hover:bg-cta-hover absolute top-5 right-5 grid cursor-pointer place-items-center rounded-full p-2 text-white;
+          }
+
+          span {
+            @apply wide w-full py-4 text-center text-2xl font-bold;
+          }
+        }
+      }
     }
   }
 }
