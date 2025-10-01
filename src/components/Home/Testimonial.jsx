@@ -1,11 +1,11 @@
 import React from 'react';
-import Title from '../Title';
-import { ServiceLists } from '../../constants/data';
-import ServiceCard from './ServiceCard';
 
-const Service = () => {
+import Title from '../Title';
+import TestimonialCard from './TestimonialCard';
+
+const Testimonial = () => {
   return (
-    <section id="home_service" className="relative overflow-hidden">
+    <section id="home_testimonial" className="relative">
       {/* Diagonal Fade Bottom Grid Left Background */}
       <div
         className="absolute inset-0 z-0"
@@ -23,24 +23,20 @@ const Service = () => {
       {/* Bottom fade overlay */}
       <div className="bottom_fade"></div>
 
+      {/* Top fade overlay */}
+      <div className="top_fade"></div>
+
       {/* Content */}
       <div className="home_content">
         <Title
           className={'leading-2 md:leading-4 lg:leading-10'}
-          subheading={'Services We provide'}
-          heading={'Our Services'}
+          subheading={'What Student Says'}
+          heading={'Testimonials'}
         />
-
-        <div className="wrapper mb-4">
-          <article className="article_card">
-            {ServiceLists.map((service, index) => (
-              <ServiceCard key={index} service={service} />
-            ))}
-          </article>
-        </div>
+        <TestimonialCard />
       </div>
     </section>
   );
 };
 
-export default Service;
+export default Testimonial;

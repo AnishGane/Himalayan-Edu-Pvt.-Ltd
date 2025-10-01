@@ -23,6 +23,9 @@ const TestPrepCard = ({ test }) => {
       className="test_card"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      style={{
+        boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+      }}
     >
       <div>
         <img src="/images/carousel_img3.jpg" alt="test classes image" />

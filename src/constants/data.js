@@ -135,56 +135,83 @@ const ServiceLists = [
     icon: BiSolidMessageRoundedDots,
     title: 'Free Consultation',
     description:
-      'Get a free consultation from our experts to understand your needs and goals for your future studies in Japan.',
+      'Discuss your study goals with our team at no cost and receive expert advice tailored to your journey in Japan.',
   },
   {
     icon: FaBookOpenReader,
     title: 'Japanese Language Course',
     description:
-      'Asahi has designed special curriculum with the latest and the most effective teaching methods for students and businessmen.',
+      'Master the Japanese language with our structured courses designed for students, professionals, and business needs.',
   },
   {
     icon: FaUserGraduate,
     title: 'Placement in University of Japan',
     description:
-      'We offer comprehensive placement assistance for students aiming to study in Japan.',
+      'Get end-to-end guidance for applying, securing admission, and preparing for life at top universities in Japan.',
   },
   {
     icon: FaChalkboardTeacher,
     title: 'Test Preparation',
     description:
-      'At Asahi Japanese Consultancy, we offer expert test preparation services for a range of Japanese language proficiency exams like JLPT, JFT and NAT-TEST.',
+      'Boost your success in JLPT, JFT, and NAT-TEST with our focused lessons, practice exams, and expert coaching.',
   },
   {
     icon: GiPathDistance,
     title: 'Career Guidance',
     description:
-      'We guide you through the process of choosing a career path that aligns with your strengths and skills within the Japanese job market.',
+      'Receive personalized advice to align your strengths with the right career opportunities in Japan’s job market.',
   },
   {
     icon: FaPlaneDeparture,
-    title: 'Visa processing for students',
+    title: 'Visa Processing for Students',
     description:
-      'We provide personalized counseling to help you understand the specific visa type that best suits your purpose.',
+      'Navigate the visa process smoothly with our support, from paperwork to final approval, ensuring a stress-free journey.',
   },
   {
     icon: FaUserTie,
     title: 'Free Counseling',
     description:
-      'Our expert consultants are here to provide personalized guidance, whether you’re just starting your language learning journey or looking to improve your skills.',
+      'Talk to our consultants about your education and career plans and get recommendations that fit your ambitions.',
   },
   {
     icon: FaHandsHelping,
-    title: 'Practice based Classes',
+    title: 'Practice Based Classes',
     description:
-      'Our classes are designed to engage students actively through role-playing, conversation practice',
+      'Learn by doing—our interactive classes focus on role plays, conversations, and real-life scenarios for faster improvement.',
   },
   {
     icon: FaFileAlt,
     title: 'Document Translation',
     description:
-      'Need the best Japanese translators? Our Japanese translation services offer decades of experience in Japanese translations.',
+      'Get accurate and professional Japanese translation for academic, business, and legal documents.',
   },
 ];
 
-export { navLinks, TestClasses, socials, CarouselSlides, ServiceLists };
+const testimonials = [
+  {
+    name: 'Ayumi Tanaka',
+    major: 'Computer Science Student',
+    image: '/images/carousel_img2.jpg',
+    text: 'Studying with Asahi helped me not only learn Japanese but also adjust quickly to life in Japan. The support was incredible!',
+  },
+  {
+    name: 'Raj Sharma',
+    major: 'Business Administration',
+    image: '/images/carousel_img2.jpg',
+    text: 'Thanks to the guidance, I secured admission at my dream university in Tokyo. Their process was seamless and stress-free.',
+  },
+  {
+    name: 'Sakura Ito',
+    major: 'Engineering',
+    image: '/images/carousel_img2.jpg',
+    text: 'The Japanese language classes were engaging and practical. I felt confident to communicate during my exchange program.',
+  },
+  {
+    name: 'Prakash Karki',
+    major: 'Hospitality Management',
+    image: '/images/carousel_img2.jpg',
+    text: 'Visa processing was smooth, and the career counseling helped me find the right path. Truly life-changing experience!',
+  },
+];
+
+export { navLinks, TestClasses, socials, CarouselSlides, ServiceLists, testimonials };

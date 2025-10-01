@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Title from '../Title';
 import { Link } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa6';
-import HeroBanner from './HeroBanner';
+
+const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
 const Hero = () => {
   return (
@@ -69,7 +70,9 @@ const Hero = () => {
         </div>
       </div>
 
-      <HeroBanner />
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeroBanner />
+      </Suspense>
     </section>
   );
 };

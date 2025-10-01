@@ -6,15 +6,17 @@ import { TestClasses } from '../../constants/data';
 const TestPreparation = () => {
   return (
     <section id="home_test_preparation" className="relative">
-      {/*  Diagonal Cross Grid Background */}
+      {/* Top Fade Grid Background */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 z-0"
         style={{
           backgroundImage: `
-        linear-gradient(45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%),
-        linear-gradient(-45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%)
+        linear-gradient(to right, #e2e8f0 1px, transparent 1px),
+        linear-gradient(to bottom, #e2e8f0 1px, transparent 1px)
       `,
-          backgroundSize: '40px 40px',
+          backgroundSize: '20px 30px',
+          WebkitMaskImage: 'radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)',
+          maskImage: 'radial-gradient(ellipse 70% 60% at 50% 0%, #000 60%, transparent 100%)',
         }}
       />
 
@@ -25,14 +27,14 @@ const TestPreparation = () => {
       <div className="bottom_fade"></div>
 
       {/* Content*/}
-      <div className="content">
+      <div className="home_content">
         <Title
           className={'leading-2 md:leading-4 lg:leading-10'}
           subheading={'Test Preparation Classes'}
           heading={'Test Preparation'}
         />
 
-        <div className="wrapper">
+        <div className="wrapper mb-4">
           <article className="article_card">
             {TestClasses.map((test, index) => (
               <TestPrepCard key={index} test={test} />

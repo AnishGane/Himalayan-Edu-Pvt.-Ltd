@@ -6,7 +6,7 @@ const ServiceCard = ({ service }) => {
     <div
       className="service_card"
       style={{
-        boxShadow: 'rgba(0, 0, 0, 0.15) 0px 5px 15px 0px',
+        boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
       }}
     >
       <service.icon className="text-main-indigo text-2xl" size={48} />

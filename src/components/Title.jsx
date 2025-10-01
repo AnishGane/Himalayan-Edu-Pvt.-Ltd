@@ -10,7 +10,7 @@ const Title = ({ subheading, heading, className }) => {
       </div>
       {/* heading div */}
       <h1
-        className={`mb-4 text-[1.875rem] font-bold text-slate-900 sm:mb-8 md:text-[2.1rem] lg:text-5xl ${className}`}
+        className={`mb-4 text-[1.875rem] font-bold text-slate-900 uppercase sm:mb-8 md:text-[2.1rem] lg:text-5xl ${className}`}
       >
         {heading}
       </h1>

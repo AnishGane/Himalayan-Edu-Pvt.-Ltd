@@ -1,20 +1,30 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
 import { CarouselSlides } from '../constants/data';
-import Carousel from '../components/Carousel';
 import Hero from '../components/Home/Hero';
 import Service from '../components/Home/Service';
 import TestPreparation from '../components/Home/TestPreparation';
 
+// Lazy load Testimonial
+const Testimonial = React.lazy(() => import('../components/Home/Testimonial'));
+const Carousel = React.lazy(() => import('../components/Carousel'));
+
 const Home = () => {
   useEffect(() => {
-    window.scrollTo({ top: 0, smooth: true });
-  });
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
+
   return (
     <section>
-      <Carousel images={CarouselSlides} autoPlay={true} />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Carousel images={CarouselSlides} autoPlay={true} />
+      </Suspense>
       <Hero />
       <Service />
       <TestPreparation />
+      {/* Lazy-loaded Testimonial with fallback */}
+      <Suspense fallback={<div>Loading...</div>}>
+        <Testimonial />
+      </Suspense>
     </section>
   );
 };
