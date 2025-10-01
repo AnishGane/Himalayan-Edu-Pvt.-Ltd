@@ -282,7 +282,7 @@ body::-webkit-scrollbar {
 
     /* Home Test Preparation Section */
     #home_test_preparation {
-      @apply bg-section-bg w-full overflow-x-hidden sm:py-8 2xl:px-40;
+      @apply bg-section-bg w-full overflow-x-hidden py-12 2xl:px-40;
 
       .content {
         @apply relative z-20 w-full px-3 sm:pl-16;

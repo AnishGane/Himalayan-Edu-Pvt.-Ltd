@@ -3,6 +3,7 @@ import { TbLocation } from 'react-icons/tb';
 
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
+import { Link } from 'react-router-dom';
 
 const TestPrepCard = ({ test }) => {
   const [isHovered, setIsHovered] = React.useState(false);
@@ -26,9 +27,11 @@ const TestPrepCard = ({ test }) => {
       <div>
         <img src="/images/carousel_img3.jpg" alt="test classes image" />
         {isHovered && (
-          <button className="view_btn">
-            <TbLocation size={20} className="-translate-x-[1px]" />
-          </button>
+          <Link to={test.link}>
+            <button className="view_btn">
+              <TbLocation size={20} className="-translate-x-[1px]" />
+            </button>
+          </Link>
         )}
       </div>
       <span>{test.title}</span>

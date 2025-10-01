@@ -89,14 +89,17 @@ const TestClasses = [
   {
     id: 1,
     title: 'NAT',
+    link: '/class/nat',
   },
   {
     id: 2,
     title: 'JLPT',
+    link: '/class/jlpt',
   },
   {
     id: 3,
     title: 'IFT_SSW',
+    link: '/class/ift-ssw',
   },
 ];
 
