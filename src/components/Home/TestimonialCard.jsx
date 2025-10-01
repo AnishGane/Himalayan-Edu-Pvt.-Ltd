@@ -54,7 +54,7 @@ const TestimonialCard = () => {
               i === current ? 'opacity-100' : 'absolute inset-0 opacity-0'
             }`}
           >
-            <div className="flex flex-col items-center gap-3 rounded-lg border-2 border-black bg-white p-8 shadow-lg sm:gap-8 md:flex-row">
+            <div className="border-cta-red hover:border-cta-hover flex flex-col items-center gap-3 rounded-lg border-2 bg-white p-8 shadow-lg sm:gap-8 md:flex-row">
               {/* Left Text */}
               <div className="flex-1 text-center md:text-left">
                 <p className="text-charcoal-gray mb-4 italic">“{t.text}”</p>
@@ -76,13 +76,13 @@ const TestimonialCard = () => {
         {/* Arrows (hidden on small screens) */}
         <button
           onClick={prevSlide}
-          className="border-main-indigo absolute top-1/2 -left-6 hidden -translate-y-1/2 cursor-pointer rounded-full border-2 bg-white p-2 shadow-md hover:bg-gray-200 md:flex"
+          className="border-cta-red absolute top-1/2 -left-6 hidden -translate-y-1/2 cursor-pointer rounded-full border-2 bg-white p-2 shadow-md hover:bg-gray-100 md:flex"
         >
           <FaChevronLeft className="text-main-indigo text-lg" />
         </button>
         <button
           onClick={nextSlide}
-          className="absolute top-1/2 -right-6 hidden -translate-y-1/2 cursor-pointer rounded-full border-2 border-black bg-white p-2 shadow-md hover:bg-gray-200 md:flex"
+          className="border-cta-red absolute top-1/2 -right-6 hidden -translate-y-1/2 cursor-pointer rounded-full border-2 bg-white p-2 shadow-md hover:bg-gray-100 md:flex"
         >
           <FaChevronRight className="text-main-indigo text-lg" />
         </button>
