@@ -1,7 +1,8 @@
 import React from 'react';
 import Title from '../Title';
-import TestPrepCard from './TestPrepCard';
+// import TestPrepCard from './TestPrepCard';
 import { TestClasses } from '../../constants/data';
+import GridCard from '../GridCard';
 
 const TestPreparation = () => {
   return (
@@ -37,7 +38,7 @@ const TestPreparation = () => {
         <div className="wrapper mb-4">
           <article className="article_card">
             {TestClasses.map((test, index) => (
-              <TestPrepCard key={index} test={test} />
+              <GridCard key={index} cardData={test} />
             ))}
           </article>
         </div>

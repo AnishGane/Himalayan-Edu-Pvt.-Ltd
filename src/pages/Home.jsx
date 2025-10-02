@@ -3,15 +3,16 @@ import { CarouselSlides } from '../constants/data';
 import Hero from '../components/Home/Hero';
 import Service from '../components/Home/Service';
 import TestPreparation from '../components/Home/TestPreparation';
+import OurTeam from '../components/Home/OurTeam';
 
 // Lazy load Testimonial
 const Testimonial = React.lazy(() => import('../components/Home/Testimonial'));
 const Carousel = React.lazy(() => import('../components/Carousel'));
 
 const Home = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo({ top: 0, behavior: 'smooth' });
+  // }, []);
 
   return (
     <section>
@@ -25,6 +26,7 @@ const Home = () => {
       <Suspense fallback={<div>Loading...</div>}>
         <Testimonial />
       </Suspense>
+      <OurTeam />
     </section>
   );
 };

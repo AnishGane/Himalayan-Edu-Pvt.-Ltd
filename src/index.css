@@ -291,30 +291,35 @@ body::-webkit-scrollbar {
       }
     }
 
-    /* Home Test Preparation Section */
-    #home_test_preparation {
-      @apply bg-section-bg w-full overflow-x-hidden pt-8 pb-12 2xl:px-40;
+    .cardData_card {
+      @apply relative flex w-full flex-col items-center justify-start overflow-hidden;
 
-      .test_card {
-        @apply relative flex w-full flex-col items-center justify-center overflow-hidden;
+      img {
+        @apply h-[19.45rem] w-full rounded-sm object-cover transition-all duration-300;
+      }
 
-        img {
-          @apply rounded-sm transition duration-300 hover:scale-[1.019];
-        }
+      .view_btn {
+        @apply bg-cta-red hover:bg-cta-hover absolute top-5 right-5 grid cursor-pointer place-items-center rounded-full p-2 text-white;
+      }
 
-        .view_btn {
-          @apply bg-cta-red hover:bg-cta-hover absolute top-5 right-5 grid cursor-pointer place-items-center rounded-full p-2 text-white;
-        }
+      span {
+        @apply wide bg-zen-gray w-full py-4 text-center text-2xl font-bold;
+      }
 
-        span {
-          @apply wide bg-zen-gray w-full py-4 text-center text-2xl font-bold;
-        }
+      h3 {
+        @apply wide bg-zen-gray w-full pt-4 pb-1 text-center text-2xl font-bold;
+      }
+
+      p {
+        @apply wide bg-zen-gray text-charcoal-gray w-full pb-4 text-center;
       }
     }
 
-    /* Home Testimonial Section */
-    #home_testimonial {
-      @apply bg-section-bg w-full overflow-x-hidden pb-12 sm:pt-8 2xl:px-40;
+    /* Home Section */
+    #home_test_preparation,
+    #home_testimonial,
+    #home_ourteam {
+      @apply bg-section-bg w-full overflow-x-hidden pt-8 pb-12 2xl:px-40;
     }
   }
 }

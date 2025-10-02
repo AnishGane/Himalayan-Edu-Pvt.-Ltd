@@ -90,16 +90,19 @@ const TestClasses = [
     id: 1,
     title: 'NAT',
     link: '/class/nat',
+    image: '/images/carousel_img4.jpg',
   },
   {
     id: 2,
     title: 'JLPT',
     link: '/class/jlpt',
+    image: '/images/carousel_img1.jpg',
   },
   {
     id: 3,
     title: 'IFT_SSW',
     link: '/class/ift-ssw',
+    image: '/images/carousel_img2.jpg',
   },
 ];
 
@@ -214,4 +217,22 @@ const testimonials = [
   },
 ];
 
-export { navLinks, TestClasses, socials, CarouselSlides, ServiceLists, testimonials };
+const OurTeamData = [
+  {
+    image: '/images/carousel_img4.jpg',
+    name: 'Raj Sharma',
+    post: 'Business Administration',
+  },
+  {
+    image: '/images/carousel_img3.jpg',
+    name: 'Raj Sharma',
+    post: 'Business Administration',
+  },
+  {
+    image: '/images/carousel_img4.jpg',
+    name: 'Raj Sharma',
+    post: 'Business Administration',
+  },
+];
+
+export { navLinks, OurTeamData, TestClasses, socials, CarouselSlides, ServiceLists, testimonials };
