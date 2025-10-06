@@ -1,10 +1,10 @@
-/* @import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+1p&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap');
 
 @import 'tailwindcss';
 
 @theme {
-  /* --font-poppins: 'Poppins', sans-serif; */
+  --font-poppins: 'Poppins', sans-serif;
   --font-cursive: 'Edu NSW ACT Cursive', cursive;
 
   /* primary colors */
@@ -70,9 +70,13 @@ body::-webkit-scrollbar {
   @apply relative z-20 w-full px-3 sm:pl-16;
 }
 
+@utility bg-gradient {
+  @apply bg-gradient-to-r from-red-400 to-red-600;
+}
+
 @layer components {
   main {
-    @apply w-full overflow-x-hidden;
+    @apply font-poppins w-full overflow-x-hidden;
 
     .banner {
       @apply hidden md:px-2 lg:block 2xl:px-36;
@@ -187,7 +191,7 @@ body::-webkit-scrollbar {
       }
 
       .hero_banner {
-        @apply relative mx-3 mt-6 h-60 w-auto overflow-hidden rounded-lg bg-gradient-to-r from-red-400 to-red-600 sm:mx-auto sm:mt-10 sm:h-70 sm:w-[85%];
+        @apply bg-gradient relative mx-3 mt-6 h-60 w-auto overflow-hidden rounded-lg sm:mx-auto sm:mt-10 sm:h-70 sm:w-[85%];
 
         img {
           @apply absolute inset-0 h-full w-full object-cover opacity-40;
@@ -268,11 +272,6 @@ body::-webkit-scrollbar {
       }
     }
 
-    /* Home Service Section */
-    #home_service {
-      @apply bg-section-bg w-full overflow-x-hidden sm:py-8 2xl:px-40;
-    }
-
     .home_content {
       .service_card {
         @apply wide bg-card-bg flex h-full w-full flex-col items-center justify-center rounded-lg p-5;
@@ -318,8 +317,30 @@ body::-webkit-scrollbar {
     /* Home Section */
     #home_test_preparation,
     #home_testimonial,
-    #home_ourteam {
+    #home_ourteam,
+    #home_service,
+    footer {
       @apply bg-section-bg w-full overflow-x-hidden pt-8 pb-12 2xl:px-40;
+    }
+
+    footer {
+      @apply bg-gradient relative;
+
+      img {
+        @apply absolute inset-0 h-full w-full object-cover opacity-20;
+      }
+
+      > div {
+        @apply relative z-40 flex w-full flex-col items-center justify-between px-3 py-6 text-white sm:flex-row sm:pl-16;
+
+        h2 {
+          @apply wide pb-7 text-[19px] font-bold;
+        }
+
+        ul li {
+          @apply wide font-poppins text-[17px];
+        }
+      }
     }
   }
 }

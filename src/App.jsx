@@ -35,6 +35,9 @@ import ScrollToTop from './components/ScrollToTop';
 
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
+import Footer from './components/Footer';
+import Courses from './pages/Courses';
+import Classes from './components/Classes';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -67,6 +70,7 @@ const App = () => {
         <Route path="/contacts" element={<Contacts />} />
 
         {/* Course pages */}
+        <Route path="/courses" element={<Courses />} />
         <Route path="/courses/n5" element={<N5 />} />
         <Route path="/courses/n4" element={<N4 />} />
         <Route path="/courses/n3" element={<N3 />} />
@@ -77,10 +81,13 @@ const App = () => {
         <Route path="/courses/nat" element={<NAT />} />
 
         {/* Class pages */}
+        <Route path="/class/" element={<Classes />} />
         <Route path="/class/jlpt" element={<JLPTClass />} />
         <Route path="/class/nat" element={<NATClass />} />
         <Route path="/class/ift-ssw" element={<IFTSSW />} />
       </Routes>
+
+      <Footer />
     </main>
   );
 };

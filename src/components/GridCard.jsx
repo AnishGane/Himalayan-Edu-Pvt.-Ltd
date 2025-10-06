@@ -44,7 +44,7 @@ const GridCard = ({ cardData }) => {
       {cardData.title ? (
         <span>{cardData.title}</span>
       ) : cardData.post ? (
-        <div className="flex w-full flex-col items-center justify-center bg-red-400">
+        <div className="flex w-full flex-col items-center justify-center">
           <h3>{cardData.name}</h3>
           <p className="">{cardData.post}</p>
         </div>
