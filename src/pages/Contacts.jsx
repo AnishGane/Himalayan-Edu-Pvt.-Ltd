@@ -11,29 +11,81 @@ const Contacts = () => {
 
     try {
       await emailjs.sendForm(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID, // or VITE_/NEXT_PUBLIC_ var
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
         import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         form.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
       setStatus('success');
       form.current.reset();
+
+      // Hide success message after 5 seconds
+      setTimeout(() => setStatus(null), 5000);
     } catch (err) {
       console.error('EmailJS error:', err);
       setStatus('error');
+
+      // Hide error message after 5 seconds
+      setTimeout(() => setStatus(null), 5000);
     }
   };
-  return (
-    <form ref={form} onSubmit={sendEmail} className="space-y-4">
-      <input name="full_name" placeholder="Your name" required />
-      <input name="user_email" type="email" placeholder="Your email" required />
-      <input name="subject" type="text" placeholder="Subject" required />
-      <textarea name="message" placeholder="Message" required />
-      <button type="submit">{status === 'sending' ? 'Sending…' : 'Send message'}</button>
 
-      {status === 'success' && <p>Message sent — thank you!</p>}
-      {status === 'error' && <p>Failed to send. Try again later.</p>}
-    </form>
+  // Function to render status message
+  const sendMessage = () => {
+    if (status === 'success')
+      return <p className="font-semibold text-green-600">Message sent — thank you!</p>;
+    if (status === 'error')
+      return <p className="font-semibold text-red-600">Oops! Something went wrong.</p>;
+    return null;
+  };
+
+  return (
+    <section id="contact">
+      <div className="content">
+        {/* Header */}
+        <div className="content_header">
+          <h1>Contact Us</h1>
+          <p>
+            Home <span className="px-1"> &gt;</span> Contact Us
+          </p>
+        </div>
+
+        {/* Form container */}
+        <div className="form_container w-full">
+          <form ref={form} onSubmit={sendEmail}>
+            {/* Name & Email */}
+            <div>
+              <input name="full_name" placeholder="Full Name *" required />
+              <input name="user_email" type="email" placeholder="Your Email Address *" required />
+            </div>
+
+            {/* Subject & Phone */}
+            <div className="flex flex-col md:flex-row md:gap-16">
+              <input name="phone_number" type="tel" placeholder="Phone Number *" required />
+              <input name="subject" type="text" placeholder="Subject *" required />
+            </div>
+
+            {/* Message */}
+            <textarea
+              name="message"
+              placeholder="Write a Message *"
+              required
+              style={{
+                resize: 'none',
+              }}
+              rows={5} // initial visible height
+              maxLength={200} // optional, max characters allowed
+            />
+
+            {/* Submit Button */}
+            <button type="submit">{status === 'sending' ? 'Sending…' : 'SUBMIT'}</button>
+
+            {/* Status message */}
+            <div>{sendMessage()}</div>
+          </form>
+        </div>
+      </div>
+    </section>
   );
 };
 
