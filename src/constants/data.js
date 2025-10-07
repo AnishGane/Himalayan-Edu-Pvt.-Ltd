@@ -20,7 +20,7 @@ const navLinks = [
   {
     name: 'about',
     subMenu: [
-      { name: 'About Us', link: '/about' },
+      { name: 'Introduction', link: '/about/introduction' },
       { name: 'Message From MD', link: '/about/message' },
       { name: 'FAQ', link: '/about/faq' },
       { name: 'Why Choose Us?', link: '/about/why-choose-us' },

@@ -149,7 +149,7 @@ const Navbar = () => {
                 )}
               </li>
             ))}
-            <Link to={'/contact'}>
+            <Link to={'/contact-us'}>
               <button className="contact-btn">Contact</button>
             </Link>
           </ul>

@@ -10,9 +10,9 @@ const Testimonial = React.lazy(() => import('../components/Home/Testimonial'));
 const Carousel = React.lazy(() => import('../components/Carousel'));
 
 const Home = () => {
-  // useEffect(() => {
-  //   window.scrollTo({ top: 0, behavior: 'smooth' });
-  // }, []);
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }, []);
 
   return (
     <section>

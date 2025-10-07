@@ -67,7 +67,7 @@ const App = () => {
         {/* Main pages */}
         <Route path="/services" element={<Services />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/contacts" element={<Contacts />} />
+        <Route path="/contact-us" element={<Contacts />} />
 
         {/* Course pages */}
         <Route path="/courses" element={<Courses />} />
