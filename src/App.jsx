@@ -3,9 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import ScrollToTop from './components/ScrollToTop';
-import Footer from './components/Footer';
+
 import Banner from './components/Banner';
 import Navbar from './components/Navbar';
+import Loading from './components/Loading';
+
+const Footer = React.lazy(() => import('./components/Footer'));
 
 // Lazy-loaded pages
 const Home = React.lazy(() => import('./pages/Home'));
@@ -56,7 +59,7 @@ const App = () => {
       <div aria-hidden className="h-[90px] md:h-[100px]" />
 
       {/* Suspense wraps all routes */}
-      <Suspense fallback={<div className="py-10 text-center text-lg font-medium">Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Routes>
           {/* Home */}
           <Route path="/" element={<Home />} />
@@ -89,9 +92,8 @@ const App = () => {
           <Route path="/class/nat" element={<NATClass />} />
           <Route path="/class/ift-ssw" element={<IFTSSW />} />
         </Routes>
+        <Footer />
       </Suspense>
-
-      <Footer />
     </main>
   );
 };

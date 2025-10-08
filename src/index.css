@@ -431,5 +431,36 @@ body::-webkit-scrollbar {
         }
       }
     }
+
+    /* Custom dot bounce animation for Loading */
+    .dot {
+      @apply bg-main-indigo h-4 w-4 rounded-full;
+      animation: bounce 0.95s infinite alternate;
+    }
+
+    .dot:nth-child(1) {
+      animation-delay: 0s;
+    }
+
+    .dot:nth-child(2) {
+      animation-delay: 0.15s;
+    }
+
+    .dot:nth-child(3) {
+      animation-delay: 0.3s;
+    }
+
+    /* Keyframes for the bounce */
+    @keyframes bounce {
+      0% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-25px);
+      }
+      100% {
+        transform: translateY(0);
+      }
+    }
   }
 }

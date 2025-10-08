@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
+
 const Contacts = () => {
   const form = useRef();
   const [status, setStatus] = useState(null); // null | 'sending' | 'success' | 'error'
@@ -79,6 +80,7 @@ const Contacts = () => {
 
             {/* Submit Button */}
             <button type="submit">{status === 'sending' ? 'Sending…' : 'SUBMIT'}</button>
+            
 
             {/* Status message */}
             <div>{sendMessage()}</div>
