@@ -19,7 +19,7 @@ const Footer = () => {
       <div className="flex flex-col">
         <div className="grid-links">
           {/* left div */}
-          <div className="pb-8 sm:pb-0">
+          <div>
             <h2 className="">ABOUT US</h2>
 
             <p className="mb-1 line-clamp-3">
@@ -30,7 +30,10 @@ const Footer = () => {
               aspernatur beatae voluptatibus.
             </p>
 
-            <Link to={'/about/introduction'} className="text-main-indigo font-bold hover:underline-">
+            <Link
+              to={'/about/introduction'}
+              className="text-main-indigo hover:underline- font-bold"
+            >
               READ MORE
             </Link>
           </div>

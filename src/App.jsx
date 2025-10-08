@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useParams } from 'react-router-dom';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/all';
 import ScrollToTop from './components/ScrollToTop';
@@ -41,6 +41,24 @@ const JLPTClass = React.lazy(() => import('./pages/Class/JLPT'));
 const NATClass = React.lazy(() => import('./pages/Class/NAT'));
 const IFTSSW = React.lazy(() => import('./pages/Class/IFTSSW'));
 
+const AboutWrapper = () => {
+  const { page } = useParams();
+
+  // Choose which component to render based on the param
+  switch (page) {
+    case 'introduction':
+      return <Introduction />;
+    case 'message':
+      return <Message />;
+    case 'faq':
+      return <Faq />;
+    case 'why-choose-us':
+      return <WhyChooseUs />;
+    default:
+      return <div>Page not found</div>;
+  }
+};
+
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
@@ -65,10 +83,11 @@ const App = () => {
           <Route path="/" element={<Home />} />
 
           {/* About */}
-          <Route path="/about/introduction" element={<Introduction />} />
+          {/* <Route path="/about/introduction" element={<Introduction />} />
           <Route path="/about/message" element={<Message />} />
           <Route path="/about/faq" element={<Faq />} />
-          <Route path="/about/why-choose-us" element={<WhyChooseUs />} />
+          <Route path="/about/why-choose-us" element={<WhyChooseUs />} /> */}
+          <Route path="/about/:page" element={<AboutWrapper />} />
 
           {/* Main Pages */}
           <Route path="/services" element={<Services />} />

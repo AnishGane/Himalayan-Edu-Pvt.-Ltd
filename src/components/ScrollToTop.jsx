@@ -22,7 +22,7 @@ const ScrollToTop = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setShowScrollTop(window.scrollY > (smScroll ? 120 : 300));
+      setShowScrollTop(window.scrollY > (smScroll ? 120 : 350));
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
