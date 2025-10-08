@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
+import { galleryData } from '../constants/data';
+import { IoChevronBack, IoChevronForward, IoClose } from 'react-icons/io5';
 
 const Gallery = () => {
   const [showFullImage, setShowFullImage] = useState(false);

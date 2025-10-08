@@ -1,7 +1,7 @@
 import React from 'react';
-import Title from '../../components/Title';
+import Title from '../Title';
 import { OurTeamData } from '../../constants/data';
-import GridCard from '../../components/GridCard';
+import GridCard from '../GridCard';
 
 const OurTeam = () => {
   return (

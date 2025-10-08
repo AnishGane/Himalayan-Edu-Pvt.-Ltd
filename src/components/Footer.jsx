@@ -30,7 +30,7 @@ const Footer = () => {
               aspernatur beatae voluptatibus.
             </p>
 
-            <Link to={'/about/introduction'} className="text-main-indigo font-bold">
+            <Link to={'/about/introduction'} className="text-main-indigo font-bold hover:underline-">
               READ MORE
             </Link>
           </div>

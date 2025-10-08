@@ -1,12 +1,12 @@
 import React, { useEffect, Suspense } from 'react';
 import { CarouselSlides } from '../constants/data';
-import Hero from './Home/Hero';
-import Service from './Home/Service';
-import TestPreparation from './Home/TestPreparation';
-import OurTeam from './Home/OurTeam';
+import Hero from '../components/Home/Hero';
+import Service from '../components/Home/Service';
+import TestPreparation from '../components/Home/TestPreparation';
+import OurTeam from '../components/Home/OurTeam';
 
 // Lazy load Testimonial
-const Testimonial = React.lazy(() => import('./Home/Testimonial'));
+const Testimonial = React.lazy(() => import('../components/Home/Testimonial'));
 const Carousel = React.lazy(() => import('../components/Carousel'));
 
 const Home = () => {

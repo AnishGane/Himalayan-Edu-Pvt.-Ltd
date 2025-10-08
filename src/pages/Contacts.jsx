@@ -19,23 +19,23 @@ const Contacts = () => {
       setStatus('success');
       form.current.reset();
 
-      // Hide success message after 5 seconds
-      setTimeout(() => setStatus(null), 5000);
+      // Hide success message after 4 seconds
+      setTimeout(() => setStatus(null), 4000);
     } catch (err) {
       console.error('EmailJS error:', err);
       setStatus('error');
 
-      // Hide error message after 5 seconds
-      setTimeout(() => setStatus(null), 5000);
+      // Hide error message after 4 seconds
+      setTimeout(() => setStatus(null), 4000);
     }
   };
 
   // Function to render status message
   const sendMessage = () => {
     if (status === 'success')
-      return <p className="font-semibold text-green-600">Message sent — thank you!</p>;
+      return <p className="font-semibold text-green-600">✅ Message sent — thank you!</p>;
     if (status === 'error')
-      return <p className="font-semibold text-red-600">Oops! Something went wrong.</p>;
+      return <p className="font-semibold text-red-600">❌ Oops! Something went wrong.</p>;
     return null;
   };
 

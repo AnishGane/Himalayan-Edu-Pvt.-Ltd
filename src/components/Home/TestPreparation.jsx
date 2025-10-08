@@ -1,8 +1,8 @@
 import React from 'react';
-import Title from '../../components/Title';
+import Title from '../Title';
 // import TestPrepCard from './TestPrepCard';
 import { TestClasses } from '../../constants/data';
-import GridCard from '../../components/GridCard';
+import GridCard from '../GridCard';
 
 const TestPreparation = () => {
   return (
