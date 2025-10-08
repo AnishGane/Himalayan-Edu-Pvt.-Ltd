@@ -42,7 +42,7 @@ const Navbar = () => {
     }
 
     return () => {
-      html.style.overflow = '';
+      html.style.overflow = ''; // cleanup
     };
   }, [isMobileMenuOpen]);
 

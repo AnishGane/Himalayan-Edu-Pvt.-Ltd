@@ -1,95 +1,91 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
-import ScrollToTop from './components/ScrollToTop';
-import Footer from './components/Footer';
-import Banner from './components/Banner';
+import Home from './pages/Home';
+import About from './pages/About';
 import Navbar from './components/Navbar';
 
-// Lazy-loaded pages
-const Home = React.lazy(() => import('./pages/Home'));
-
-// About pages
-const Introduction = React.lazy(() => import('./pages/About/Introduction'));
-const Message = React.lazy(() => import('./pages/About/Message'));
-const Faq = React.lazy(() => import('./pages/About/Faq'));
-const WhyChooseUs = React.lazy(() => import('./pages/About/WhyChooseUs'));
+// About sub-pages
+import Message from './pages/About/Message';
+import Faq from './pages/About/Faq';
+import WhyChooseUs from './pages/About/WhyChooseUs';
+import Introduction from './pages/About/Introduction';
 
 // Main pages
-const Services = React.lazy(() => import('./pages/Services'));
-const Gallery = React.lazy(() => import('./pages/Gallery'));
-const Contacts = React.lazy(() => import('./pages/Contacts'));
+import Services from './pages/Services';
+import Gallery from './pages/Gallery';
+import Contacts from './pages/Contacts';
 
-// Courses
-const Courses = React.lazy(() => import('./pages/Courses'));
-const N5 = React.lazy(() => import('./pages/Courses/N5'));
-const N4 = React.lazy(() => import('./pages/Courses/N4'));
-const N3 = React.lazy(() => import('./pages/Courses/N3'));
-const N2 = React.lazy(() => import('./pages/Courses/N2'));
-const N1 = React.lazy(() => import('./pages/Courses/N1'));
-const JFT = React.lazy(() => import('./pages/Courses/JFT'));
-const JLPT = React.lazy(() => import('./pages/Courses/JLPT'));
-const NAT = React.lazy(() => import('./pages/Courses/NAT'));
+// Course pages
+import N5 from './pages/Courses/N5';
+import N4 from './pages/Courses/N4';
+import N3 from './pages/Courses/N3';
+import N2 from './pages/Courses/N2';
+import N1 from './pages/Courses/N1';
+import JFT from './pages/Courses/JFT';
+import JLPT from './pages/Courses/JLPT';
+import NAT from './pages/Courses/NAT';
 
-// Classes
-const Classes = React.lazy(() => import('./components/Classes'));
-const JLPTClass = React.lazy(() => import('./pages/Class/JLPT'));
-const NATClass = React.lazy(() => import('./pages/Class/NAT'));
-const IFTSSW = React.lazy(() => import('./pages/Class/IFTSSW'));
+// Class pages
+import JLPTClass from './pages/Class/JLPT';
+import NATClass from './pages/Class/NAT';
+import IFTSSW from './pages/Class/IFTSSW';
+
+import Banner from './components/Banner';
+import ScrollToTop from './components/ScrollToTop';
+
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/all';
+import Footer from './components/Footer';
+import Courses from './pages/Courses';
+import Classes from './components/Classes';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const App = () => {
   return (
     <main>
-      {/* Header */}
       <header className="fixed top-0 left-0 z-50 w-full bg-white">
         <Banner />
         <Navbar />
       </header>
 
-      {/* Scroll to top on route change */}
       <ScrollToTop />
 
       {/* Spacer to offset fixed navbar height */}
       <div aria-hidden className="h-[90px] md:h-[100px]" />
 
-      {/* Suspense wraps all routes */}
-      <Suspense fallback={<div className="py-10 text-center text-lg font-medium">Loading...</div>}>
-        <Routes>
-          {/* Home */}
-          <Route path="/" element={<Home />} />
+      <Routes>
+        {/* Home */}
+        <Route path="/" element={<Home />} />
 
-          {/* About */}
-          <Route path="/about/introduction" element={<Introduction />} />
-          <Route path="/about/message" element={<Message />} />
-          <Route path="/about/faq" element={<Faq />} />
-          <Route path="/about/why-choose-us" element={<WhyChooseUs />} />
+        {/* About pages */}
+        <Route path="/about/introduction" element={<Introduction />} />
+        <Route path="/about/message" element={<Message />} />
+        <Route path="/about/faq" element={<Faq />} />
+        <Route path="/about/why-choose-us" element={<WhyChooseUs />} />
 
-          {/* Main Pages */}
-          <Route path="/services" element={<Services />} />
-          <Route path="/gallery" element={<Gallery />} />
-          <Route path="/contact-us" element={<Contacts />} />
+        {/* Main pages */}
+        <Route path="/services" element={<Services />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/contact-us" element={<Contacts />} />
 
-          {/* Courses */}
-          <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/n5" element={<N5 />} />
-          <Route path="/courses/n4" element={<N4 />} />
-          <Route path="/courses/n3" element={<N3 />} />
-          <Route path="/courses/n2" element={<N2 />} />
-          <Route path="/courses/n1" element={<N1 />} />
-          <Route path="/courses/jft" element={<JFT />} />
-          <Route path="/courses/jlpt" element={<JLPT />} />
-          <Route path="/courses/nat" element={<NAT />} />
+        {/* Course pages */}
+        <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/n5" element={<N5 />} />
+        <Route path="/courses/n4" element={<N4 />} />
+        <Route path="/courses/n3" element={<N3 />} />
+        <Route path="/courses/n2" element={<N2 />} />
+        <Route path="/courses/n1" element={<N1 />} />
+        <Route path="/courses/jft" element={<JFT />} />
+        <Route path="/courses/jlpt" element={<JLPT />} />
+        <Route path="/courses/nat" element={<NAT />} />
 
-          {/* Classes */}
-          <Route path="/class" element={<Classes />} />
-          <Route path="/class/jlpt" element={<JLPTClass />} />
-          <Route path="/class/nat" element={<NATClass />} />
-          <Route path="/class/ift-ssw" element={<IFTSSW />} />
-        </Routes>
-      </Suspense>
+        {/* Class pages */}
+        <Route path="/class/" element={<Classes />} />
+        <Route path="/class/jlpt" element={<JLPTClass />} />
+        <Route path="/class/nat" element={<NATClass />} />
+        <Route path="/class/ift-ssw" element={<IFTSSW />} />
+      </Routes>
 
       <Footer />
     </main>

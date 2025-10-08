@@ -1,10 +1,7 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 const Contacts = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
   const form = useRef();
   const [status, setStatus] = useState(null); // null | 'sending' | 'success' | 'error'
 

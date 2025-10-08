@@ -235,32 +235,4 @@ const OurTeamData = [
   },
 ];
 
-const galleryData = [
-  {
-    id: 1,
-    image: '/images/carousel_img1.jpg',
-  },
-  {
-    id: 2,
-    image: '/images/carousel_img2.jpg',
-  },
-  {
-    id: 3,
-    image: '/images/carousel_img3.jpg',
-  },
-  {
-    id: 4,
-    image: '/images/carousel_img4.jpg',
-  },
-];
-
-export {
-  navLinks,
-  galleryData,
-  OurTeamData,
-  TestClasses,
-  socials,
-  CarouselSlides,
-  ServiceLists,
-  testimonials,
-};
+export { navLinks, OurTeamData, TestClasses, socials, CarouselSlides, ServiceLists, testimonials };
