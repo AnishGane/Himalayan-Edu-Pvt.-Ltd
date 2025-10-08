@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import Title from '../Title';
+import Title from '../../components/Title';
 import { Link } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa6';

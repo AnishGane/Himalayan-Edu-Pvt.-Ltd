@@ -8,6 +8,7 @@ const Gallery = () => {
   const modalRef = useRef(null);
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
         setShowFullImage(false);
@@ -40,11 +41,11 @@ const Gallery = () => {
   const closeImage = () => setShowFullImage(false);
 
   const prevImage = () => {
-    setCurrentIndex((prev) => (prev === 0 ? gallery.length - 1 : prev - 1));
+    setCurrentIndex((prev) => (prev === 0 ? galleryData.length - 1 : prev - 1));
   };
 
   const nextImage = () => {
-    setCurrentIndex((prev) => (prev === gallery.length - 1 ? 0 : prev + 1));
+    setCurrentIndex((prev) => (prev === galleryData.length - 1 ? 0 : prev + 1));
   };
 
   return (
@@ -123,14 +124,14 @@ const Gallery = () => {
 
             {/* Full Image */}
             <img
-              src={gallery[currentIndex].image}
+              src={galleryData[currentIndex].image}
               alt={`Gallery ${currentIndex + 1}`}
               className="max-h-[80vh] w-full cursor-pointer rounded-md object-contain"
             />
 
             {/* Image Counter */}
             <p className="mt-2 text-right text-[14px] font-medium text-white sm:text-base">
-              {currentIndex + 1} of {gallery.length}
+              {currentIndex + 1} of {galleryData.length}
             </p>
           </div>
         </div>
