@@ -1,6 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-
+import PageHeading from '../components/PageHeading';
 
 const Contacts = () => {
   const form = useRef();
@@ -40,16 +40,13 @@ const Contacts = () => {
     return null;
   };
 
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
   return (
     <section id="contact">
       <div className="content">
-        {/* Header */}
-        <div className="content_header">
-          <h1>Contact Us</h1>
-          <p>
-            Home <span className="px-1"> &gt;</span> Contact Us
-          </p>
-        </div>
+        <PageHeading heading={'Contact Us'} text1={'Home'} text2={'Contact'} />
 
         {/* Form container */}
         <div className="form_container w-full">
@@ -80,7 +77,6 @@ const Contacts = () => {
 
             {/* Submit Button */}
             <button type="submit">{status === 'sending' ? 'Sending…' : 'SUBMIT'}</button>
-            
 
             {/* Status message */}
             <div>{sendMessage()}</div>

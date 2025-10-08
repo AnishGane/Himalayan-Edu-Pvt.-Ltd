@@ -15,7 +15,7 @@ const Home = React.lazy(() => import('./pages/Home'));
 
 // About pages
 const Introduction = React.lazy(() => import('./pages/About/Introduction'));
-const Message = React.lazy(() => import('./pages/About/Message'));
+const MessageFromMD = React.lazy(() => import('./pages/About/MessageFromMD'));
 const Faq = React.lazy(() => import('./pages/About/Faq'));
 const WhyChooseUs = React.lazy(() => import('./pages/About/WhyChooseUs'));
 
@@ -49,7 +49,7 @@ const AboutWrapper = () => {
     case 'introduction':
       return <Introduction />;
     case 'message':
-      return <Message />;
+      return <MessageFromMD />;
     case 'faq':
       return <Faq />;
     case 'why-choose-us':

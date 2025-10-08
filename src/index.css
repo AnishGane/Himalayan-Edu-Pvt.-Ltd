@@ -38,7 +38,6 @@ body {
   overflow-x: hidden;
   scrollbar-width: none;
   -ms-overflow-style: none;
-  /* color: #f32f2fee; */
 }
 
 html::-webkit-scrollbar,
@@ -55,7 +54,7 @@ body::-webkit-scrollbar {
 }
 
 @utility article_card {
-  @apply grid grid-cols-[repeat(auto-fit,minmax(clamp(200px,25%,340px),1fr))] gap-8 sm:gap-10 md:gap-12 lg:gap-14 2xl:gap-20;
+  @apply grid grid-cols-[repeat(auto-fit,minmax(clamp(250px,25%,340px),1fr))] gap-8 sm:gap-10 md:gap-12 lg:gap-14 2xl:gap-20;
 }
 
 @utility top_fade {
@@ -67,7 +66,7 @@ body::-webkit-scrollbar {
 }
 
 @utility home_content {
-  @apply relative z-20 w-full px-3 sm:pl-16;
+  @apply relative z-20 w-full px-3 md:pl-10;
 }
 
 @utility bg-gradient {
@@ -114,7 +113,7 @@ body::-webkit-scrollbar {
       }
 
       .mobile-btn {
-        @apply text-main-indigo mr-2 cursor-pointer hover:text-gray-900 focus:text-gray-900 focus:outline-none md:hidden;
+        @apply text-main-indigo mr-4 cursor-pointer hover:text-gray-900 focus:text-gray-900 focus:outline-none md:hidden;
       }
 
       .submenu-btn {
@@ -138,7 +137,7 @@ body::-webkit-scrollbar {
       }
 
       .mobile-menu {
-        @apply absolute top-0 left-0 z-20 min-h-dvh w-80 bg-white;
+        @apply absolute top-0 left-0 z-20 min-h-dvh w-80 bg-white md:w-[32rem];
       }
 
       .bg-overlay {
@@ -146,7 +145,7 @@ body::-webkit-scrollbar {
       }
 
       .mobile-ul {
-        @apply absolute top-25 right-0 left-0 z-50 flex min-h-dvh w-80 flex-col text-left font-medium;
+        @apply absolute top-25 right-0 left-0 z-50 flex min-h-dvh w-80 flex-col text-left font-medium md:w-[32rem] md:pr-4;
       }
 
       .mobile_ul-link {
@@ -191,14 +190,14 @@ body::-webkit-scrollbar {
       }
 
       .hero_banner {
-        @apply bg-gradient relative mx-3 mt-6 h-60 w-auto overflow-hidden rounded-lg sm:mx-auto sm:mt-10 sm:h-70 md:max-w-4xl 2xl:max-w-7xl;
+        @apply bg-gradient relative mx-3 mt-6 h-60 w-auto overflow-hidden rounded-lg sm:mx-7 sm:mt-10 sm:h-70 md:max-w-4xl lg:mx-auto 2xl:max-w-7xl;
 
         img {
           @apply absolute inset-0 h-full w-full object-cover opacity-40;
         }
 
         .content {
-          @apply relative z-10 flex h-full w-full flex-col items-center justify-center text-center sm:px-6 sm:text-left md:gap-10 lg:flex-row lg:justify-between lg:gap-0;
+          @apply relative z-10 flex h-full w-full flex-col items-center justify-center text-center sm:px-12 sm:text-left md:gap-10 lg:flex-row lg:justify-between lg:gap-0;
 
           h2 {
             @apply text-main-indigo text-2xl font-bold sm:text-4xl;
@@ -209,7 +208,7 @@ body::-webkit-scrollbar {
           }
 
           button {
-            @apply bg-main-indigo wide mt-4 cursor-pointer rounded-sm px-8 py-4 text-xs font-semibold text-white hover:bg-gray-900 sm:mt-0 sm:text-sm;
+            @apply bg-main-indigo wide mt-4 cursor-pointer rounded-sm px-8 py-5 text-xs font-semibold text-white hover:bg-gray-900 sm:mt-0 sm:text-sm;
           }
         }
       }
@@ -369,13 +368,13 @@ body::-webkit-scrollbar {
 
     /* Used in PageHeading component */
     .content {
-      @apply w-full px-4 lg:py-10 2xl:mx-auto 2xl:max-w-7xl;
+      @apply w-full lg:py-10 2xl:mx-auto 2xl:max-w-7xl;
 
       .content_header {
-        @apply mb-8 flex flex-row items-center justify-between gap-4 sm:items-center sm:gap-0 md:mb-16;
+        @apply wide mb-11 flex flex-col items-start justify-between gap-3 leading-0 sm:mb-8 sm:flex-row sm:items-center sm:gap-0;
 
         h1 {
-          @apply text-3xl font-semibold md:text-4xl lg:text-5xl;
+          @apply text-3xl font-semibold uppercase lg:text-4xl;
         }
 
         p {
@@ -417,11 +416,9 @@ body::-webkit-scrollbar {
 
     /* Gallery Page and about/introduction page */
     #gallery_section,
-    #about_introduction {
-      @apply relative w-full px-4 py-8 sm:px-10 md:px-20 lg:px-32 xl:px-40;
-    }
-
-    #about_introduction {
+    #about_introduction,
+    #about_messageMD {
+      @apply relative mx-auto max-w-7xl bg-white p-4 md:p-8;
     }
 
     /* Custom dot bounce animation for Loading */

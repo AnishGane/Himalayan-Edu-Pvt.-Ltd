@@ -9,15 +9,15 @@ const Introduction = () => {
   return (
     <section id="about_introduction">
       <div className="content">
-        <PageHeading heading="Introduction" text1="Home" text2="Introduction" />
+        <PageHeading heading="Introduction" text1="About Us" text2="Introduction" />
 
-        <div className="mt-8 flex flex-col items-start gap-8 2xl:flex-row 2xl:items-center">
+        <div className="flex flex-col items-start gap-6 sm:gap-0 space-x-10 2xl:space-x-16 lg:mt-10 lg:flex-row">
           {/* Left Image */}
           <div className="h-80 w-full md:h-[400px] lg:h-[560px] 2xl:h-[620px] 2xl:w-1/2">
             <img
               src="/images/carousel_img2.jpg"
               alt="About"
-              className="h-full w-full rounded-lg object-cover shadow-lg"
+              className="h-full w-full rounded-sm object-cover shadow-lg"
             />
           </div>
 

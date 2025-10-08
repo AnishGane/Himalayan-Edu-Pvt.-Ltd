@@ -29,13 +29,15 @@ const Footer = () => {
               tenetur quaerat totam esse, voluptatum aspernatur cumque sit omnis? Ipsum itaque
               aspernatur beatae voluptatibus.
             </p>
-
-            <Link
-              to={'/about/introduction'}
-              className="text-main-indigo hover:underline- font-bold"
-            >
-              READ MORE
-            </Link>
+            <div className="group flex w-fit flex-col">
+              <Link
+                to="/about/introduction"
+                className="text-main-indigo font-bold transition-colors duration-300"
+              >
+                READ MORE
+              </Link>
+              <hr className="bg-main-indigo -mt-0.5 h-[2px] w-0 rounded-full border-none transition-all duration-300 group-hover:w-full" />
+            </div>
           </div>
 
           {/* Middle Links */}
@@ -68,7 +70,7 @@ const Footer = () => {
                   <Link to={'/about/faq'}>FAQs</Link>
                 </li>
                 <li>
-                  <Link to={'/contacts'}>Contact Us</Link>
+                  <Link to={'/contact-us'}>Contact Us</Link>
                 </li>
                 <li>&nbsp;</li>
               </ul>

@@ -4,7 +4,7 @@ const Title = ({ subheading, heading, className }) => {
   return (
     <div className="flex flex-col gap-2">
       {/* subheading div */}
-      <div className="mb-2 flex items-center gap-2 sm:mb-0">
+      <div className="mb-2 flex items-center gap-2 lg:mb-0">
         <div className="h-2 w-2 bg-[#f32f2fee]"></div>
         <h4 className="text-[1rem] font-semibold">{subheading}</h4>
       </div>

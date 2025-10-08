@@ -73,7 +73,11 @@ const Gallery = () => {
         <div className="wrapper mb-4">
           <article className="article_card gap-6">
             {galleryData.map((g, index) => (
-              <div className="relative transition-all duration-200 hover:scale-[1.012]" key={index}>
+              <div
+                title="Click to Enlarge"
+                className="relative transition-all duration-200 hover:scale-[1.012]"
+                key={index}
+              >
                 <img
                   src={g.image}
                   className="h-[19.45rem] w-full cursor-crosshair rounded-sm object-cover"
@@ -96,7 +100,7 @@ const Gallery = () => {
           <div ref={modalRef} className="relative w-full max-w-5xl">
             {/* Close Button */}
             <button
-              className="absolute -top-8 -right-2 cursor-pointer text-3xl text-white transition hover:text-red-500 md:-right-8 md:text-4xl"
+              className="absolute -top-8 -right-2 cursor-pointer text-3xl text-white transition hover:text-red-500 lg:-right-8 md:text-4xl"
               onClick={closeImage}
             >
               <IoClose />
@@ -104,7 +108,7 @@ const Gallery = () => {
 
             {/* Left Arrow */}
             <button
-              className="absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 sm:-left-10 md:text-4xl"
+              className="absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 lg:-left-10 md:text-4xl"
               onClick={prevImage}
             >
               <IoChevronBack />
@@ -112,7 +116,7 @@ const Gallery = () => {
 
             {/* Right Arrow */}
             <button
-              className="absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 sm:-right-10 md:text-4xl"
+              className="absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 lg:-right-10 md:text-4xl"
               onClick={nextImage}
             >
               <IoChevronForward />
