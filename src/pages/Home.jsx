@@ -1,13 +1,14 @@
 import React, { useEffect, Suspense } from 'react';
 import { CarouselSlides } from '../constants/data';
-import Hero from '../components/Home/Hero';
-import Service from '../components/Home/Service';
-import TestPreparation from '../components/Home/TestPreparation';
-import OurTeam from '../components/Home/OurTeam';
+import Loading from '../components/Loading';
 
 // Lazy load Testimonial
 const Testimonial = React.lazy(() => import('../components/Home/Testimonial'));
 const Carousel = React.lazy(() => import('../components/Carousel'));
+const Hero = React.lazy(() => import('../components/Home/Hero'));
+const Service = React.lazy(() => import('../components/Home/Service'));
+const OurTeam = React.lazy(() => import('../components/Home/OurTeam'));
+const TestPreparation = React.lazy(() => import('../components/Home/TestPreparation'));
 
 const Home = () => {
   useEffect(() => {
@@ -16,17 +17,14 @@ const Home = () => {
 
   return (
     <section>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <Carousel images={CarouselSlides} autoPlay={true} />
-      </Suspense>
-      <Hero />
-      <Service />
-      <TestPreparation />
-      {/* Lazy-loaded Testimonial with fallback */}
-      <Suspense fallback={<div>Loading...</div>}>
+        <Hero />
+        <Service />
+        <TestPreparation />
         <Testimonial />
+        <OurTeam />
       </Suspense>
-      <OurTeam />
     </section>
   );
 };

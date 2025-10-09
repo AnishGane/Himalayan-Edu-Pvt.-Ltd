@@ -3,6 +3,7 @@ import Title from '../../components/Title';
 import { Link } from 'react-router-dom';
 
 import { FaCheck } from 'react-icons/fa6';
+import Loading from '../Loading';
 
 const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
@@ -70,7 +71,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<Loading />}>
         <HeroBanner />
       </Suspense>
     </section>
