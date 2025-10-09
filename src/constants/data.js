@@ -2,6 +2,7 @@ import { FaFacebook } from 'react-icons/fa';
 import { SiYoutube } from 'react-icons/si';
 import { FaTwitter } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
+
 import { FaUserGraduate } from 'react-icons/fa6';
 import { FaChalkboardTeacher } from 'react-icons/fa';
 import { BiSolidMessageRoundedDots } from 'react-icons/bi';
@@ -113,7 +114,7 @@ const CarouselSlides = [
     subtitle: 'Guiding you to your dream university',
     headline: 'Fulfill your Dream here.',
     cta: 'Learn More',
-    href: '/about',
+    href: '/about/introduction',
   },
   {
     src: '/images/carousel_img2.jpg',
@@ -129,7 +130,7 @@ const CarouselSlides = [
     subtitle: 'Personalized counseling for every student',
     headline: 'Achieve journey with us together.',
     cta: 'Get Started',
-    href: '/contacts',
+    href: '/contact-us',
   },
 ];
 
@@ -139,54 +140,99 @@ const ServiceLists = [
     title: 'Free Consultation',
     description:
       'Discuss your study goals with our team at no cost and receive expert advice tailored to your journey in Japan.',
+    content: [
+      'Our free consultation sessions are designed to give students and professionals a clear direction for their future in Japan. During these sessions, we listen to your goals, assess your profile, and guide you toward the best study or career path.',
+      'We provide insights into Japanese universities, scholarship options, visa processes, and living conditions—ensuring you have a comprehensive understanding before making any decisions.',
+      'Whether you are planning to study, work, or simply explore opportunities, our consultants are here to help you start confidently and avoid common mistakes along the way.',
+    ],
   },
   {
     icon: FaBookOpenReader,
     title: 'Japanese Language Course',
     description:
       'Master the Japanese language with our structured courses designed for students, professionals, and business needs.',
+    content: [
+      'Our Japanese language courses are designed for all proficiency levels, from complete beginners to advanced learners preparing for JLPT. The lessons emphasize practical communication, grammar, and cultural understanding.',
+      'Classes are led by qualified instructors who use interactive teaching methods, role-plays, and real-life scenarios to enhance your speaking and comprehension skills.',
+      'We also offer flexible schedules, online learning options, and personalized feedback sessions so every learner progresses at their own pace with full support.',
+    ],
   },
   {
     icon: FaUserGraduate,
     title: 'Placement in University of Japan',
     description:
       'Get end-to-end guidance for applying, securing admission, and preparing for life at top universities in Japan.',
+    content: [
+      'We help students identify the right Japanese universities that align with their academic background, financial capacity, and future aspirations.',
+      'Our team assists in preparing all required documentation, including application forms, recommendation letters, and study plans, ensuring your submission meets every requirement.',
+      'Beyond admission, we also provide pre-departure orientation sessions that prepare you for student life in Japan, covering accommodation, culture, and part-time job options.',
+    ],
   },
   {
     icon: FaChalkboardTeacher,
     title: 'Test Preparation',
     description:
       'Boost your success in JLPT, JFT, and NAT-TEST with our focused lessons, practice exams, and expert coaching.',
+    content: [
+      'Our test preparation programs are designed to help students achieve high scores in major Japanese language proficiency exams like JLPT, JFT, and NAT-TEST.',
+      'We provide comprehensive materials, mock tests, and time-based drills that simulate real exam conditions, improving your confidence and accuracy.',
+      'With expert instructors and small batch sizes, every student receives personalized attention and guidance to strengthen weaker areas and master test-taking strategies.',
+    ],
   },
   {
     icon: GiPathDistance,
     title: 'Career Guidance',
     description:
       'Receive personalized advice to align your strengths with the right career opportunities in Japan’s job market.',
+    content: [
+      'Our career guidance service connects your skills and interests with the most relevant job and education opportunities in Japan.',
+      'We offer one-on-one counseling sessions to help you build a clear career roadmap, including choosing the right courses, industries, and job roles that match your profile.',
+      'Additionally, our team provides resume writing support, interview preparation, and cultural training to help you confidently navigate Japan’s competitive job market.',
+    ],
   },
   {
     icon: FaPlaneDeparture,
     title: 'Visa Processing for Students',
     description:
       'Navigate the visa process smoothly with our support, from paperwork to final approval, ensuring a stress-free journey.',
+    content: [
+      'We assist students through every step of the Japanese student visa process, ensuring all required documents are accurate and complete.',
+      'Our visa team coordinates with schools and immigration offices, reducing the chance of errors or delays during the application process.',
+      'From preparing your Certificate of Eligibility (COE) to final visa stamping, we make the entire process seamless and worry-free so you can focus on your study abroad goals.',
+    ],
   },
   {
     icon: FaUserTie,
     title: 'Free Counseling',
     description:
       'Talk to our consultants about your education and career plans and get recommendations that fit your ambitions.',
+    content: [
+      'Our free counseling sessions are an opportunity for you to discuss your educational background, goals, and concerns with our experienced advisors.',
+      'We help you explore multiple options for studying, working, or training in Japan, based on your personal interests and long-term career objectives.',
+      'Every counseling session ends with a personalized roadmap—outlining the ideal steps you should take next, from learning Japanese to choosing the right university or course.',
+    ],
   },
   {
     icon: FaHandsHelping,
     title: 'Practice Based Classes',
     description:
       'Learn by doing—our interactive classes focus on role plays, conversations, and real-life scenarios for faster improvement.',
+    content: [
+      'Our practice-based classes emphasize real-world application of Japanese language skills through conversation exercises, mock interviews, and simulations.',
+      'We believe in learning by doing—students participate in engaging group activities that enhance fluency, pronunciation, and confidence in speaking Japanese.',
+      'By focusing on practical situations such as job interviews, daily interactions, and customer service dialogues, our students gain immediate readiness for life in Japan.',
+    ],
   },
   {
     icon: FaFileAlt,
     title: 'Document Translation',
     description:
       'Get accurate and professional Japanese translation for academic, business, and legal documents.',
+    content: [
+      'We provide certified Japanese translation services for a wide range of documents including academic transcripts, business papers, and legal records.',
+      'Our translators ensure linguistic accuracy and cultural sensitivity, maintaining the original meaning while meeting official standards required by institutions in Japan.',
+      'Whether it’s for visa applications, university submissions, or corporate use, our fast and reliable translation service guarantees precision and confidentiality.',
+    ],
   },
 ];
 

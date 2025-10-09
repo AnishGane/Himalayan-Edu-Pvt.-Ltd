@@ -50,7 +50,7 @@ body::-webkit-scrollbar {
 }
 
 @utility wrapper {
-  @apply relative z-30 mt-5 w-full rounded-lg pr-0 md:pr-3 2xl:pr-0;
+  @apply relative z-30 mt-5 w-full rounded-sm  md:pr-3 2xl:pr-0;
 }
 
 @utility article_card {
@@ -271,9 +271,10 @@ body::-webkit-scrollbar {
       }
     }
 
-    .home_content {
+    .home_content,
+    #service_section {
       .service_card {
-        @apply wide bg-card-bg flex h-full w-full flex-col items-center justify-center rounded-lg p-5;
+        @apply wide bg-card-bg flex h-full w-full flex-col items-center justify-center rounded-md border border-gray-300 p-5;
 
         h1 {
           @apply text-main-indigo my-5 text-center text-lg font-semibold sm:text-xl md:text-2xl;
@@ -417,7 +418,8 @@ body::-webkit-scrollbar {
     /* Gallery Page and about/introduction page */
     #gallery_section,
     #about_introduction,
-    #about_messageMD {
+    #about_messageMD,
+    #service_section {
       @apply relative mx-auto max-w-7xl bg-white p-4 md:p-8;
     }
 

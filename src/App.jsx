@@ -7,6 +7,7 @@ import ScrollToTop from './components/ScrollToTop';
 import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Loading from './components/Loading';
+import ServiceDetail from './pages/ServicePage/ServiceDetail';
 
 const Footer = React.lazy(() => import('./components/Footer'));
 
@@ -20,7 +21,7 @@ const Faq = React.lazy(() => import('./pages/About/Faq'));
 const WhyChooseUs = React.lazy(() => import('./pages/About/WhyChooseUs'));
 
 // Main pages
-const Services = React.lazy(() => import('./pages/Services'));
+const Services = React.lazy(() => import('./pages/ServicePage/Services'));
 const Gallery = React.lazy(() => import('./pages/Gallery'));
 const Contacts = React.lazy(() => import('./pages/Contacts'));
 
@@ -76,21 +77,18 @@ const App = () => {
       {/* Spacer to offset fixed navbar height */}
       <div aria-hidden className="h-[90px] md:h-[100px]" />
 
-      {/* Suspense wraps all routes */}
       <Suspense fallback={<Loading />}>
         <Routes>
           {/* Home */}
           <Route path="/" element={<Home />} />
 
           {/* About */}
-          {/* <Route path="/about/introduction" element={<Introduction />} />
-          <Route path="/about/message" element={<Message />} />
-          <Route path="/about/faq" element={<Faq />} />
-          <Route path="/about/why-choose-us" element={<WhyChooseUs />} /> */}
           <Route path="/about/:page" element={<AboutWrapper />} />
 
           {/* Main Pages */}
           <Route path="/services" element={<Services />} />
+          {/* For Dynamically accesing the service contents */}
+          <Route path="/services/:serviceId" element={<ServiceDetail />} />
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact-us" element={<Contacts />} />
 

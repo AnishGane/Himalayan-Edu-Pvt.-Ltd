@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
+  const slug = service.title.toLowerCase().replace(/ /g, '-'); // create URL-friendly slug
   return (
     <div
       className="service_card"
@@ -12,7 +13,7 @@ const ServiceCard = ({ service }) => {
       <service.icon className="text-main-indigo text-2xl" size={48} />
       <h1>{service.title}</h1>
       <p>{service.description}</p>
-      <Link to={'/'}>
+      <Link to={`/services/${slug}`}>
         <button>Read More</button>
       </Link>
     </div>
