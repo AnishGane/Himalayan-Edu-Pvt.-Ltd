@@ -51,7 +51,7 @@ const ScrollToTopOnRouteChange = () => {
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: 'smooth', // optional, remove for instant scroll
+      behavior: 'smooth',
     });
   }, [pathname]);
 
@@ -61,7 +61,6 @@ const ScrollToTopOnRouteChange = () => {
 const AboutWrapper = () => {
   const { page } = useParams();
 
-  // Choose which component to render based on the param
   switch (page) {
     case 'introduction':
       return <Introduction />;

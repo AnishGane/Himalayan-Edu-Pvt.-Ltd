@@ -32,9 +32,13 @@ const Service = () => {
         />
 
         <div className="wrapper mb-4">
-          <article className="article_card">
+          <article className="article_card gap-y-8">
             {ServiceLists.map((service, index) => (
-              <ServiceCard key={index} service={service} />
+              <ServiceCard
+                key={index}
+                service={service}
+                transition={{ delay: index * 0.15, duration: 0.6 }}
+              />
             ))}
           </article>
         </div>

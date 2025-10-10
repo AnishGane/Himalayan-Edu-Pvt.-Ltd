@@ -5,17 +5,13 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdPhoneAndroid } from 'react-icons/md';
 import { IoMailUnread } from 'react-icons/io5';
-import { socials } from '../constants/data';
 
 const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="">
-      <img
-        src="/images/background_img_overlay.jpg"
-        className=""
-        loading="lazy"
-        alt="background pattern"
-      />
+    <footer>
+      <img src="/images/background_img_overlay.jpg" loading="lazy" alt="background pattern" />
       <div className="flex flex-col">
         <div className="grid-links">
           {/* left div */}
@@ -42,6 +38,7 @@ const Footer = () => {
 
           {/* Middle Links */}
           <div className="grid grid-cols-2 gap-10">
+            {/* First column */}
             <div>
               <h2>QUICK LINKS</h2>
               <ul>
@@ -60,6 +57,7 @@ const Footer = () => {
               </ul>
             </div>
 
+            {/* Second column */}
             <div>
               <h2>QUICK LINKS</h2>
               <ul>
@@ -102,9 +100,7 @@ const Footer = () => {
         </div>
 
         <div className="bottom-div">
-          <span>
-            &copy;Himalayan Educational Group Service Pvt. Ltd. {new Date().getFullYear()}
-          </span>
+          <span>&copy;Himalayan Educational Group Service Pvt. Ltd. {currentYear}</span>
           <p>All Terms & Conditions applied.</p>
         </div>
       </div>

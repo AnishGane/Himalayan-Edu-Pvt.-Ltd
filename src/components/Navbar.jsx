@@ -98,7 +98,9 @@ const Navbar = () => {
               src="/images/Himalayan Logo.png"
               alt="Himalayan Language Institute Logo"
               className="ml-3 h-auto w-36 object-contain sm:w-36 md:ml-0"
-              onClick={() => setIsMobileMenuOpen(false)}
+              onClick={
+                (() => setIsMobileMenuOpen(false), window.scrollTo({ top: 0, behavior: 'smooth' }))
+              }
             />
           </Link>
 

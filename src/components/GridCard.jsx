@@ -1,57 +1,62 @@
 import React from 'react';
-
 import { TbLocation } from 'react-icons/tb';
-
-import gsap from 'gsap';
-import { useGSAP } from '@gsap/react';
+import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 
 const GridCard = ({ cardData }) => {
-  const [isHovered, setIsHovered] = React.useState(false);
-
-  useGSAP(() => {
-    if (isHovered) {
-      gsap.fromTo(
-        '.view_btn',
-        { opacity: 0, ease: 'power1.inOut' },
-        { opacity: 1, ease: 'power1.inOut' }
-      );
-    }
-  }, [isHovered]);
   return (
-    <div
-      className="cardData_card"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-      style={{
-        boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
+    <motion.div
+      className="cardData_card relative"
+      style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
+      initial={{ opacity: 0, y: 50, filter: 'blur(1px)' }}
+      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+      viewport={{ once: false, amount: 0.3 }}
+      transition={{
+        type: 'spring',
+        stiffness: 60, // ↓ reduced stiffness → smoother motion
+        damping: 25, // ↑ increased damping → less bounce
+        duration: 1,
+      }}
+      whileHover={{
+        scale: 1.015,
+        transition: { type: 'spring', stiffness: 200, damping: 20 },
       }}
     >
-      <div>
+      <div className="relative overflow-hidden">
         <img
           src={cardData.image}
-          className={`${!cardData.post ? 'hover:scale-[1.019]' : 'grayscale-50 hover:grayscale-0'}`}
-          alt={`${cardData.title} image`}
+          alt={`${cardData.title || cardData.name} image`}
+          className={`object-cover transition-transform duration-300 ${
+            !cardData.post ? 'hover:scale-[1.019]' : 'grayscale-50 hover:grayscale-0'
+          }`}
         />
-        {cardData.title && isHovered && (
-          <Link to={cardData.link}>
-            <button className="view_btn">
-              <TbLocation size={20} className="-translate-x-[1px]" />
-            </button>
-          </Link>
+
+        {cardData.title && (
+          <motion.div
+            className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 hover:bg-black/20"
+            initial={{ opacity: 0 }}
+            whileHover={{ opacity: 1 }}
+            transition={{ duration: 0.5, ease: 'easeInOut' }}
+          >
+            <Link to={cardData.link}>
+              <button className="view_btn">
+                <TbLocation size={20} className="-translate-x-[1px]" />
+              </button>
+            </Link>
+          </motion.div>
         )}
       </div>
+
+      {/* Title / Post */}
       {cardData.title ? (
-        <span>{cardData.title}</span>
+        <span className="block text-center font-medium">{cardData.title}</span>
       ) : cardData.post ? (
-        <div className="flex w-full flex-col items-center justify-center">
-          <h3>{cardData.name}</h3>
-          <p className="">{cardData.post}</p>
+        <div className="flex w-full flex-col items-center justify-center text-center">
+          <h3 className="font-semibold">{cardData.name}</h3>
+          <p className="text-sm text-gray-600">{cardData.post}</p>
         </div>
-      ) : (
-        ''
-      )}
-    </div>
+      ) : null}
+    </motion.div>
   );
 };
 
