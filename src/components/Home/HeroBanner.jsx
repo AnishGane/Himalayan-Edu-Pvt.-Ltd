@@ -11,7 +11,7 @@ const HeroBanner = () => {
           <h2>READY TO STUDY IN JAPAN?</h2>
           <p>STUDYING IN JAPAN OFFERS A UNIQUE OPPORTUNITY</p>
         </div>
-        <Link to={'/contact'}>
+        <Link to={'/contact-us'}>
           <button>START NOW</button>
         </Link>
       </div>

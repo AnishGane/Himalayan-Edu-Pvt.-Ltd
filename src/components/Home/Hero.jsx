@@ -1,13 +1,41 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import Title from '../../components/Title';
 import { Link } from 'react-router-dom';
 
-import { FaCheck } from 'react-icons/fa6';
 import Loading from '../Loading';
+import { SplitText } from 'gsap/all';
+import { useGSAP } from '@gsap/react';
+import gsap from 'gsap';
+import CheckList from './CheckList';
 
 const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
 const Hero = () => {
+  useGSAP(() => {
+    const paragraphSplit = new SplitText('.para', { type: 'words, chars' });
+
+    // Animate when in viewport
+    const anim = gsap.from(paragraphSplit.words, {
+      opacity: 0,
+      yPercent: 100,
+      stagger: 0.075,
+      delay: 1,
+      filter: 'blur(8px)',
+      ease: 'expo.inOut',
+      scrollTrigger: {
+        trigger: '.para',
+        start: 'top 85%',
+        end: 'bottom 50%',
+        toggleActions: 'play none none none', // animate on enter, reverse on leave back
+        scrub: true,
+      },
+    });
+    return () => {
+      anim.scrollTrigger?.kill();
+      anim.kill();
+    };
+  }, []);
+
   return (
     <section id="hero" className="relative">
       {/* Diagonal Fade Grid Background - Top Right */}
@@ -32,37 +60,20 @@ const Hero = () => {
         {/* Right div */}
         <div className="wide z-30">
           <Title
+            whileInView={false}
             subheading="Short Introduction"
             heading="Welcome to Himalayan Edu. Group Service Pvt. Ltd."
             className={'leading-9 md:leading-12 lg:leading-14'}
           />
-          <p className="mb-8 line-clamp-4 pr-3 text-justify">
+          <p className="para wide mb-8 pr-3 text-justify text-gray-900">
             Topa International Education Center was established in 2004 with the aim to facilitate
             and assist Nepalese students to study abroad in various countries and especially in
             Japan. Topa International is a professional education consulting service. Topa
             International Education Center was established in 2004 with the aim to facilitate and
-            assist Nepalese students to study abroad in various countries and especially in Japan.
-            Topa International is a professional education consulting service...
+            assist Nepalese students to study abroad in various countries &...
           </p>
 
-          <div className="checklist">
-            <div>
-              <FaCheck />
-              <p>Guided to best Universities of Japan</p>
-            </div>
-            <div>
-              <FaCheck />
-              <p>Expert Guidance, Global Opportunities.</p>
-            </div>
-            <div>
-              <FaCheck />
-              <p>Study, Grow, Succeed Abroad.</p>
-            </div>
-            <div>
-              <FaCheck />
-              <p>From Nepal to the World.</p>
-            </div>
-          </div>
+          <CheckList />
 
           {/* CTA */}
           <Link to={'/about/introduction'}>

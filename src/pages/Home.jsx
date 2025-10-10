@@ -1,4 +1,4 @@
-import React, { useEffect, Suspense } from 'react';
+import React, { Suspense } from 'react';
 import { CarouselSlides } from '../constants/data';
 import Loading from '../components/Loading';
 
@@ -11,10 +11,6 @@ const OurTeam = React.lazy(() => import('../components/Home/OurTeam'));
 const TestPreparation = React.lazy(() => import('../components/Home/TestPreparation'));
 
 const Home = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
-
   return (
     <section>
       <Suspense fallback={<Loading />}>

@@ -1,7 +1,7 @@
-import React, { Suspense } from 'react';
-import { Route, Routes, useParams } from 'react-router-dom';
+import React, { Suspense, useEffect } from 'react';
+import { Route, Routes, useLocation, useParams } from 'react-router-dom';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/all';
+import { ScrollTrigger, SplitText } from 'gsap/all';
 import ScrollToTop from './components/ScrollToTop';
 
 import Banner from './components/Banner';
@@ -26,7 +26,7 @@ const Gallery = React.lazy(() => import('./pages/Gallery'));
 const Contacts = React.lazy(() => import('./pages/Contacts'));
 
 // Courses
-const Courses = React.lazy(() => import('./pages/Courses'));
+const Courses = React.lazy(() => import('./pages/Courses/Courses'));
 const N5 = React.lazy(() => import('./pages/Courses/N5'));
 const N4 = React.lazy(() => import('./pages/Courses/N4'));
 const N3 = React.lazy(() => import('./pages/Courses/N3'));
@@ -41,6 +41,22 @@ const Classes = React.lazy(() => import('./components/Classes'));
 const JLPTClass = React.lazy(() => import('./pages/Class/JLPT'));
 const NATClass = React.lazy(() => import('./pages/Class/NAT'));
 const IFTSSW = React.lazy(() => import('./pages/Class/IFTSSW'));
+
+// ScrollToTop logic inside App
+const ScrollToTopOnRouteChange = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    // Scroll to top on route change
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'smooth', // optional, remove for instant scroll
+    });
+  }, [pathname]);
+
+  return null;
+};
 
 const AboutWrapper = () => {
   const { page } = useParams();
@@ -60,7 +76,7 @@ const AboutWrapper = () => {
   }
 };
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const App = () => {
   return (
@@ -73,6 +89,8 @@ const App = () => {
 
       {/* Scroll to top on route change */}
       <ScrollToTop />
+
+      <ScrollToTopOnRouteChange />
 
       {/* Spacer to offset fixed navbar height */}
       <div aria-hidden className="h-[90px] md:h-[100px]" />

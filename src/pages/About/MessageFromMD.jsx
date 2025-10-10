@@ -1,10 +1,7 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import PageHeading from '../../components/PageHeading';
 
 const MessageFromMD = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
   return (
     <section id="about_messageMD">
       {/* Title */}
@@ -20,6 +17,7 @@ const MessageFromMD = () => {
                 src="/images/carousel_img1.jpg"
                 alt="Managing Director"
                 className="h-96 w-full rounded-sm object-cover md:h-80"
+                loading="lazy"
               />
             </div>
           </div>

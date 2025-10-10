@@ -1,12 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { ServiceLists } from '../../constants/data';
 import ServiceCard from '../../components/Home/ServiceCard';
 import PageHeading from '../../components/PageHeading';
 
 const Services = () => {
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
   return (
     <>
       <section id="service_section">

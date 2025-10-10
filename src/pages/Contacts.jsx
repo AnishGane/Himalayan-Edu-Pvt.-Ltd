@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 import PageHeading from '../components/PageHeading';
 
@@ -40,9 +40,6 @@ const Contacts = () => {
     return null;
   };
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
   return (
     <section id="contact">
       <div className="content">

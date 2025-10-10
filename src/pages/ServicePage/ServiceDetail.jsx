@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { ServiceLists } from '../../constants/data';
 import { motion } from 'motion/react';
@@ -8,10 +8,6 @@ import { FaArrowLeft } from 'react-icons/fa6';
 
 const ServiceDetail = () => {
   const { serviceId } = useParams();
-
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, []);
 
   // Match service by slug
   const matchedService = ServiceLists.find(
@@ -24,7 +20,7 @@ const ServiceDetail = () => {
         <h2 className="text-2xl font-semibold text-gray-700">Service Not Found</h2>
         <Link
           to="/services"
-          className="text-cta-red mt-4 inline-block underline transition-colors hover:text-cta-hover"
+          className="text-cta-red hover:text-cta-hover mt-4 inline-block underline transition-colors"
         >
           Go Back to Services
         </Link>
@@ -33,7 +29,7 @@ const ServiceDetail = () => {
   }
 
   return (
-    <section className="mt-6 mb-14 md:mb-20 w-full max-w-4xl px-3.5 md:mx-auto md:mt-10 md:px-8 lg:px-0">
+    <section className="mt-6 mb-14 w-full max-w-4xl px-3.5 md:mx-auto md:mt-10 md:mb-20 md:px-8 lg:px-0">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}

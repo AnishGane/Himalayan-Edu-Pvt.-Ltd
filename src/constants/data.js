@@ -33,6 +33,7 @@ const navLinks = [
   },
   {
     name: 'our courses',
+    link: '/courses',
     subMenu: [
       { name: 'N5 (Basic Level)', link: '/courses/n5' },
       { name: 'N4 (Elementary Level)', link: '/courses/n4' },
@@ -65,6 +66,13 @@ const navLinks = [
     name: 'gallery',
     link: '/gallery',
   },
+];
+
+const checkLists = [
+  'Guided to best Universities of Japan',
+  'Expert Guidance, Global Opportunities.',
+  'Study, Grow, Succeed Abroad.',
+  'From Nepal to the World.',
 ];
 
 const socials = [
@@ -309,4 +317,5 @@ export {
   CarouselSlides,
   ServiceLists,
   testimonials,
+  checkLists,
 };

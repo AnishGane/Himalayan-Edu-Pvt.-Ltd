@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
+import { motion, stagger } from 'motion/react';
 
 import { navLinks, socials } from '../constants/data';
 
@@ -16,7 +17,7 @@ const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef(null);
-  const MiddleDev = useMediaQuery({ maxWidth: 1037 });
+  const MediumDevice = useMediaQuery({ maxWidth: 1037 });
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -54,10 +55,43 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  const ulContainervariants = {
+    hidden: { opacity: 0, y: -40, filter: 'blur(6px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1], // smooth cubic-bezier easing
+        staggerChildren: 0.12,
+        delayChildren: 0.15, // slight delay before staggering starts
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -15, filter: 'blur(4px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.6,
+        ease: [0.33, 1, 0.68, 1], // smooth “ease-out-back” style curve
+      },
+    },
+  };
+
   return (
     <>
       <nav ref={navRef}>
-        <div className="relative">
+        <motion.div
+          initial={{ opacity: 0, y: -30, filter: 'blur(0px)' }}
+          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
+          className="relative"
+        >
           <Link to="/">
             <img
               // data-aos="slide-right"
@@ -68,9 +102,9 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button / Hamburger Menu */}
           <button
-            className={`mobile-btn ${MiddleDev ? 'block' : ''}`}
+            className={`mobile-btn ${MediumDevice ? 'block' : ''}`}
             onClick={handleMobileMenuToggle}
             aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
             aria-expanded={isMobileMenuOpen}
@@ -92,12 +126,17 @@ const Navbar = () => {
           </button>
 
           {/* Desktop NavLinks */}
-          <ul className={`${MiddleDev ? 'hidden' : ''} desktop-ul`}>
+          <motion.ul
+            variants={ulContainervariants}
+            initial="hidden"
+            animate="visible"
+            className={`${MediumDevice ? 'hidden' : ''} desktop-ul`}
+          >
             {navLinks.map((item, idx) => (
-              <li key={idx} className="group">
-                {item.link ? (
+              <motion.li variants={itemVariants} key={idx} className="group">
+                {item.link && item.name != 'our courses' ? (
                   <NavLink
-                    to={item.link}
+                    to={item.link || '#'}
                     className={({ isActive }) =>
                       `desktop-ul-link ${isActive ? 'text-main-indigo' : 'text-gray-500'}`
                     }
@@ -105,14 +144,19 @@ const Navbar = () => {
                     <span className="uppercase">{item.name}</span>
                   </NavLink>
                 ) : (
-                  <button
+                  <motion.button
+                    variants={itemVariants}
+                    initial="hidden"
+                    animate="visible"
                     onClick={() => handleDropdownToggle(idx)}
                     onMouseEnter={() => setOpenDropdown(idx)}
                     className="submenu-btn"
                     aria-expanded={openDropdown === idx}
                     aria-haspopup="true"
                   >
-                    <span className="uppercase">{item.name}</span>
+                    <Link to={item?.link}>
+                      <span className="uppercase">{item.name}</span>
+                    </Link>
                     {item.subMenu && (
                       <RiArrowDropDownLine
                         size={22}
@@ -121,12 +165,18 @@ const Navbar = () => {
                         }`}
                       />
                     )}
-                  </button>
+                  </motion.button>
                 )}
 
                 {/* Dropdown menu */}
                 {item.subMenu && openDropdown === idx && (
-                  <ul className="dropdown_menu-ul" onMouseLeave={() => setOpenDropdown(null)}>
+                  <motion.ul
+                    initial={{ opacity: 0, y: -10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.35, ease: 'easeOut' }}
+                    className="dropdown_menu-ul"
+                    onMouseLeave={() => setOpenDropdown(null)}
+                  >
                     {item.subMenu.map((sub, subIdx) => (
                       <li key={subIdx}>
                         <NavLink
@@ -145,17 +195,17 @@ const Navbar = () => {
                         </NavLink>
                       </li>
                     ))}
-                  </ul>
+                  </motion.ul>
                 )}
-              </li>
+              </motion.li>
             ))}
             <Link to={'/contact-us'}>
-              <button className="contact-btn">Contact</button>
+              <button className="contact-btn">Contact us</button>
             </Link>
-          </ul>
-        </div>
+          </motion.ul>
+        </motion.div>
 
-        {/* background overlay when mobile nav is opened */}
+        {/* background overlay when mobile navbar is opened */}
         {isMobileMenuOpen && (
           <div
             aria-label={isMobileMenuOpen ? 'background blur overlay' : ''}
@@ -173,10 +223,10 @@ const Navbar = () => {
               onClick={handleMobileMenuToggle}
             />
 
-            <ul className={`mobile-ul ${MiddleDev ? 'block' : 'hidden'}`}>
+            <ul className={`mobile-ul ${MediumDevice ? 'block' : 'hidden'}`}>
               {navLinks.map((item, idx) => (
                 <li key={idx}>
-                  {item.link ? (
+                  {item.link && item.name != 'our courses' ? (
                     <NavLink
                       to={item.link}
                       className={({ isActive }) =>
@@ -194,7 +244,9 @@ const Navbar = () => {
                         aria-expanded={openDropdown === idx}
                         aria-haspopup="true"
                       >
-                        <span className="tracking-wide capitalize">{item.name}</span>
+                        <Link to={item?.link} onClick={() => setIsMobileMenuOpen(false)}>
+                          <span className="tracking-wide capitalize">{item.name}</span>
+                        </Link>
                         {item.subMenu && (
                           <RiArrowDropDownLine
                             size={22}
@@ -232,6 +284,11 @@ const Navbar = () => {
                   )}
                 </li>
               ))}
+              <div className="flex w-full items-center justify-center border-y border-gray-300">
+                <Link to={'/contact-us'}>
+                  <button className="contact-btn my-2 ml-0">Contact Us</button>
+                </Link>
+              </div>
               <Link
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="hover:text-active-link mt-10 flex items-center justify-center gap-2"
