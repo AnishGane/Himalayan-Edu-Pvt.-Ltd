@@ -8,7 +8,7 @@ const GridCard = ({ cardData }) => {
     <motion.div
       className="cardData_card relative"
       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
-      initial={{ opacity: 0, y: 50, filter: 'blur(1px)' }}
+      initial={{ opacity: 0, y: 30, filter: 'blur(1px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
       viewport={{ once: false, amount: 0.3 }}
       transition={{

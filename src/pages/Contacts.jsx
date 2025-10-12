@@ -43,11 +43,11 @@ const Contacts = () => {
 
   return (
     <section id="contact">
-      <div className="content">
+      <div className="contact_content">
         <StyledHeading text={'Contact Us'} />
 
         {/* Form container */}
-        <div className="form_container w-full">
+        <div className="form_container mt-6 w-full">
           <form ref={form} onSubmit={sendEmail}>
             {/* Name & Email */}
             <div>
@@ -69,11 +69,10 @@ const Contacts = () => {
               style={{
                 resize: 'none',
               }}
-              rows={5} // initial visible height
-              maxLength={200} // optional, max characters allowed
+              rows={5}
+              maxLength={200}
             />
 
-            {/* Submit Button */}
             <button type="submit">{status === 'sending' ? 'Sending…' : 'SUBMIT'}</button>
 
             {/* Status message */}

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { testimonials } from '../../constants/data';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import { motion } from 'motion/react';
 
 const TestimonialCard = () => {
   const [current, setCurrent] = useState(0);
@@ -42,7 +43,10 @@ const TestimonialCard = () => {
   return (
     <>
       {/* Slider Container */}
-      <div
+      <motion.div
+        initial={{ opacity: 0, y: 30, filter: 'blur(6px)' }}
+        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
         className="relative mx-auto mt-4 w-full lg:w-1/2"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
@@ -86,7 +90,7 @@ const TestimonialCard = () => {
         >
           <FaChevronRight className="text-main-indigo text-lg" />
         </button>
-      </div>
+      </motion.div>
 
       {/* Dots */}
       <div className="mt-3 flex justify-center space-x-2 sm:mt-6">

@@ -39,7 +39,7 @@ const features = [
 
 const WhyChooseUs = () => {
   return (
-    <section id="why_choose_us" className="mb-12">
+    <section id="why_choose_us" className="mb-16 md:mb-24">
       {/* Heading */}
       <StyledHeading text="Why Choose Us" />
 
@@ -50,7 +50,7 @@ const WhyChooseUs = () => {
       </p>
 
       {/* Features Grid */}
-      <div className="grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-x-12  mt-10 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
         {features.map((feature, index) => (
           <ChooseUsCard key={index} feature={feature} />
         ))}

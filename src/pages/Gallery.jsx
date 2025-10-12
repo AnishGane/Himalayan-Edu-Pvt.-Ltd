@@ -50,7 +50,7 @@ const Gallery = () => {
   };
 
   return (
-    <section id="gallery_section" className="bg-section-bg">
+    <section id="gallery_section">
       {/*  Diagonal Cross Grid Bottom Background */}
       <div
         className="absolute inset-0"
@@ -66,32 +66,30 @@ const Gallery = () => {
         }}
       />
 
-      <div className="content">
-        <StyledHeading text={'Gallery'} />
+      <StyledHeading text={'Gallery'} />
 
-        {/* Gallery Grid */}
-        <div className="wrapper mb-4">
-          <article className="article_card gap-6">
-            {galleryData.map((g, index) => (
-              <div
-                title="Click to Enlarge"
-                className="relative transition-all duration-200 hover:scale-[1.012]"
-                key={index}
-              >
-                <img
-                  src={g.image}
-                  className="h-[19.45rem] w-full cursor-crosshair rounded-sm object-cover"
-                  alt={`Image No.${g.id}`}
-                  loading="lazy"
-                  onClick={() => openImage(index)}
-                />
-                <p className="bg-cta-red absolute bottom-2 left-3 flex h-4 w-4 items-center justify-center rounded-full p-4 text-sm font-semibold text-white">
-                  {index + 1}
-                </p>
-              </div>
-            ))}
-          </article>
-        </div>
+      {/* Gallery Grid */}
+      <div className="wrapper mb-12">
+        <article className="article_card gap-6">
+          {galleryData.map((g, index) => (
+            <div
+              title="Click to Enlarge"
+              className="relative transition-all duration-200 hover:scale-[1.012]"
+              key={index}
+            >
+              <img
+                src={g.image}
+                className="h-[19.45rem] w-full cursor-crosshair rounded-sm object-cover"
+                alt={`Image No.${g.id}`}
+                loading="lazy"
+                onClick={() => openImage(index)}
+              />
+              <p className="bg-cta-red absolute bottom-2 left-3 flex h-4 w-4 items-center justify-center rounded-full p-4 text-sm font-semibold text-white">
+                {index + 1}
+              </p>
+            </div>
+          ))}
+        </article>
       </div>
 
       {/* Fullscreen Lightbox */}
