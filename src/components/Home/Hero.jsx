@@ -3,38 +3,40 @@ import Title from '../../components/Title';
 import { Link } from 'react-router-dom';
 
 import Loading from '../Loading';
-import { SplitText } from 'gsap/all';
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
+import { motion } from 'motion/react';
+// import { SplitText } from 'gsap/all';
+// import { useGSAP } from '@gsap/react';
+// import gsap from 'gsap';
 import CheckList from './CheckList';
 
 const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
 const Hero = () => {
-  useGSAP(() => {
-    const paragraphSplit = new SplitText('.para', { type: 'words, chars' });
+  // useGSAP(() => {
+  //   const paragraphSplit = new SplitText('.para', { type: 'words, chars' });
 
-    // Animate when in viewport
-    const anim = gsap.from(paragraphSplit.words, {
-      opacity: 0,
-      yPercent: 100,
-      stagger: 0.075,
-      delay: 1,
-      filter: 'blur(8px)',
-      ease: 'expo.inOut',
-      scrollTrigger: {
-        trigger: '.para',
-        start: 'top 85%',
-        end: 'bottom 50%',
-        toggleActions: 'play none none none', // animate on enter, reverse on leave back
-        scrub: true,
-      },
-    });
-    return () => {
-      anim.scrollTrigger?.kill();
-      anim.kill();
-    };
-  }, []);
+  //   // Animate when in viewport
+  //   const anim = gsap.from(paragraphSplit.words, {
+  //     opacity: 0,
+  //     yPercent: 100,
+  //     stagger: 0.075,
+  //     delay: 1,
+  //     filter: 'blur(8px)',
+  //     ease: 'expo.inOut',
+  //     scrollTrigger: {
+  //       trigger: '.para',
+  //       start: 'top 85%',
+  //       // end: 'bottom 50%',
+  //       toggleActions: 'play none none none', // animate on enter, reverse on leave back
+  //       // scrub: true,
+  //       markers: false,
+  //     },
+  //   });
+  //   return () => {
+  //     anim.scrollTrigger?.kill();
+  //     anim.kill();
+  //   };
+  // }, []);
 
   return (
     <section id="hero" className="relative">
@@ -65,13 +67,18 @@ const Hero = () => {
             heading="Welcome to Himalayan Edu. Group Service Pvt. Ltd."
             className={'leading-9 md:leading-12 lg:leading-14'}
           />
-          <p className="para wide mb-8 pr-3 text-justify text-gray-900">
+          <motion.p
+            initial={{ opacity: 0, y: 40, filter: 'blur(6px)' }}
+            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
+            className="para wide mb-8 pr-3 text-justify text-gray-900"
+          >
             Topa International Education Center was established in 2004 with the aim to facilitate
             and assist Nepalese students to study abroad in various countries and especially in
             Japan. Topa International is a professional education consulting service. Topa
             International Education Center was established in 2004 with the aim to facilitate and
             assist Nepalese students to study abroad in various countries &...
-          </p>
+          </motion.p>
 
           <CheckList />
 

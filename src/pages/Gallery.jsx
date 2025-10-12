@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { galleryData } from '../constants/data';
 import { IoChevronBack, IoChevronForward, IoClose } from 'react-icons/io5';
-import PageHeading from '../components/PageHeading';
+import StyledHeading from '../components/StyleHeading';
 
 const Gallery = () => {
   const [showFullImage, setShowFullImage] = useState(false);
@@ -67,7 +67,7 @@ const Gallery = () => {
       />
 
       <div className="content">
-        <PageHeading heading={'Gallery'} text1={'Home'} text2={'Gallery'} />
+        <StyledHeading text={'Gallery'} />
 
         {/* Gallery Grid */}
         <div className="wrapper mb-4">
@@ -100,7 +100,7 @@ const Gallery = () => {
           <div ref={modalRef} className="relative w-full max-w-5xl">
             {/* Close Button */}
             <button
-              className="absolute -top-8 -right-2 cursor-pointer text-3xl text-white transition hover:text-red-500 lg:-right-8 md:text-4xl"
+              className="absolute -top-8 -right-2 cursor-pointer text-3xl text-white transition hover:text-red-500 md:text-4xl lg:-right-8"
               onClick={closeImage}
             >
               <IoClose />
@@ -108,7 +108,7 @@ const Gallery = () => {
 
             {/* Left Arrow */}
             <button
-              className="absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 lg:-left-10 md:text-4xl"
+              className="absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-left-10"
               onClick={prevImage}
             >
               <IoChevronBack />
@@ -116,7 +116,7 @@ const Gallery = () => {
 
             {/* Right Arrow */}
             <button
-              className="absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 lg:-right-10 md:text-4xl"
+              className="absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-right-10"
               onClick={nextImage}
             >
               <IoChevronForward />

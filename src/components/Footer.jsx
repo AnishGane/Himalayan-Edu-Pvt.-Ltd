@@ -28,7 +28,7 @@ const Footer = () => {
             <div className="group flex w-fit flex-col">
               <Link
                 to="/about/introduction"
-                className="text-main-indigo font-bold transition-colors duration-300"
+                className="wide font-semibold text-white transition-colors duration-300"
               >
                 READ MORE
               </Link>

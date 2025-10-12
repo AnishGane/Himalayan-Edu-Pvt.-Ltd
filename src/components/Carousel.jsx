@@ -57,7 +57,7 @@ const Carousel = ({ images = [], autoPlay }) => {
                 src={slide.src}
                 alt={`slide-${idx + 1}`}
                 className="h-full w-full object-cover"
-                loading="lazy"
+                // loading="lazy"
                 draggable={false}
               />
 

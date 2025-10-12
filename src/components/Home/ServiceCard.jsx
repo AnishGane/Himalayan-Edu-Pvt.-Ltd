@@ -7,7 +7,7 @@ const ServiceCard = ({ service }) => {
 
   return (
     <motion.div
-      className="service_card"
+      className="service_card will-change-transform"
       style={{
         boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
       }}

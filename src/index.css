@@ -369,10 +369,10 @@ body::-webkit-scrollbar {
 
     /* Used in PageHeading component */
     .content {
-      @apply w-full lg:py-10 2xl:mx-auto 2xl:max-w-7xl;
+      @apply w-full lg:pb -10 2xl:mx-auto 2xl:max-w-7xl;
 
       .content_header {
-        @apply wide mb-11 flex flex-col items-start justify-between gap-3 leading-0 sm:mb-8 sm:flex-row sm:items-center sm:gap-0;
+        @apply mb-8 text-[47px] font-bold uppercase;
 
         h1 {
           @apply text-3xl font-semibold uppercase lg:text-4xl;
@@ -419,7 +419,8 @@ body::-webkit-scrollbar {
     #gallery_section,
     #about_introduction,
     #about_messageMD,
-    #service_section {
+    #service_section,
+    #why_choose_us {
       @apply relative mx-auto max-w-7xl bg-white p-4 md:p-8;
     }
 

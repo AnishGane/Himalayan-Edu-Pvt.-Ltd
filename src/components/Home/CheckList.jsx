@@ -6,11 +6,11 @@ import { checkLists } from '../../constants/data';
 const CheckList = () => {
   // Variants for parent and children
   const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 40 },
     visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, ease: 'easeOut', staggerChildren: 0.25 },
+      transition: { duration: 0.4, ease: 'easeOut', staggerChildren: 0.25 },
     },
   };
 
@@ -25,7 +25,7 @@ const CheckList = () => {
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
-      viewport={{ amount: 0.9 }} // animate once when 90% visible
+      viewport={{ amount: 0.5 }} // animate once when 50% visible
     >
       {checkLists.map((text, index) => (
         <motion.div

@@ -1,14 +1,15 @@
 import React from 'react';
-import PageHeading from '../../components/PageHeading';
+
+import StyledHeading from '../../components/StyleHeading';
 
 const MessageFromMD = () => {
   return (
     <section id="about_messageMD">
       {/* Title */}
       <div className="content">
-        <PageHeading heading="Message From MD" text1="About Us" text2="Message From MD" />
+        <StyledHeading text={'Message from MD'} />
 
-        <div className="flex flex-col items-start gap-6 space-x-10 sm:gap-0 lg:mt-10 lg:flex-row 2xl:space-x-16">
+        <div className="flex flex-col items-start gap-6 space-x-10 sm:gap-0 lg:mt-6 lg:flex-row 2xl:space-x-16">
           {/* Image */}
           <div className="mb-2 flex w-full flex-shrink-0 justify-center sm:justify-start md:mb-0 lg:w-1/3">
             <div className="overflow-hidden rounded-sm border bg-white p-2 shadow-md">

@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
-import PageHeading from '../components/PageHeading';
+
+import StyledHeading from '../components/StyleHeading';
 
 const Contacts = () => {
   const form = useRef();
@@ -43,7 +44,7 @@ const Contacts = () => {
   return (
     <section id="contact">
       <div className="content">
-        <PageHeading heading={'Contact Us'} text1={'Home'} text2={'Contact'} />
+        <StyledHeading text={'Contact Us'} />
 
         {/* Form container */}
         <div className="form_container w-full">

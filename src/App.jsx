@@ -9,7 +9,8 @@ import Navbar from './components/Navbar';
 import Loading from './components/Loading';
 import ServiceDetail from './pages/ServicePage/ServiceDetail';
 
-const Footer = React.lazy(() => import('./components/Footer'));
+// const Footer = React.lazy(() => import('./components/Footer'));
+import Footer from './components/Footer'; // ⬅️ Normal import (fast!)
 
 // Lazy-loaded pages
 const Home = React.lazy(() => import('./pages/Home'));
@@ -78,6 +79,17 @@ const AboutWrapper = () => {
 gsap.registerPlugin(ScrollTrigger, SplitText);
 
 const App = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    // 👇 Kill all ScrollTriggers whenever route changes
+    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+    ScrollTrigger.refresh();
+
+    // Optional: log to confirm cleanup
+    console.log('🔄 Killed all ScrollTriggers on route change:', location.pathname);
+  }, [location.pathname]);
+
   return (
     <main>
       {/* Header */}
@@ -126,8 +138,11 @@ const App = () => {
           <Route path="/class/nat" element={<NATClass />} />
           <Route path="/class/ift-ssw" element={<IFTSSW />} />
         </Routes>
-        <Footer />
       </Suspense>
+      {/* <Suspense fallback={<div className="py-8 text-center">Loading footer...</div>}>
+        <Footer />
+      </Suspense> */}
+      <Footer />
     </main>
   );
 };
