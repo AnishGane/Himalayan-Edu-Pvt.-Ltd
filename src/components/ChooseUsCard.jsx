@@ -11,7 +11,13 @@ const ChooseUsCard = ({ feature, index }) => {
       viewport={{ once: true }}
       transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeInOut' }}
     >
-      <div className="mb-4">{feature.icon}</div>
+      <div className="mb-4">
+        {
+          <feature.icon
+            className={`size-11 ${feature.id % 2 != 0 ? 'text-cta-red' : 'text-main-indigo'}`}
+          />
+        }
+      </div>
       <h2 className="mb-2 text-lg font-semibold text-gray-800 sm:text-xl md:text-2xl">
         {feature.title}
       </h2>

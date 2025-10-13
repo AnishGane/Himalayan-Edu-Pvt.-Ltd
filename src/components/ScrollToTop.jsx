@@ -1,24 +1,11 @@
-import { useGSAP } from '@gsap/react';
-import gsap from 'gsap';
-import React, { useEffect, useRef, useState } from 'react';
-
+import React, { useEffect, useState } from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { useMediaQuery } from 'react-responsive';
+import { motion, AnimatePresence } from 'motion/react';
 
 const ScrollToTop = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const smScroll = useMediaQuery({ maxWidth: '40rem' });
-  const btnRef = useRef(null);
-
-  useGSAP(() => {
-    if (showScrollTop && btnRef.current) {
-      gsap.fromTo(
-        btnRef.current,
-        { opacity: 0, y: 50, duration: 0.65, ease: 'expo.inOut' },
-        { opacity: 1, y: 0, duration: 0.65, ease: 'expo.inOut' }
-      );
-    }
-  }, [showScrollTop]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,28 +15,33 @@ const ScrollToTop = () => {
     window.addEventListener('scroll', handleScroll, { passive: true });
     handleScroll();
 
-    return () => {
-      window.removeEventListener('scroll', handleScroll);
-    };
-  }, []);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [smScroll]);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
   return (
-    <div>
+    <AnimatePresence>
       {showScrollTop && (
-        <button
-          ref={btnRef}
+        <motion.button
+          key="scrollToTopBtn"
           onClick={scrollToTop}
-          className="fixed right-5 bottom-5 z-200 flex cursor-pointer items-center justify-center rounded-full bg-black p-3 text-white shadow-lg transition-all duration-300 hover:bg-gray-900 sm:right-10 sm:bottom-10"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+          transition={{
+            duration: 0.3,
+            ease: [0.25, 0.1, 0.25, 1],
+          }}
+          className="fixed right-5 bottom-5 z-[200] flex cursor-pointer items-center justify-center rounded-full bg-black p-3 text-white shadow-lg transition-all duration-300 hover:bg-gray-900 sm:right-10 sm:bottom-10"
           aria-label="Scroll to top"
         >
-          <RiArrowDropDownLine size={28} fill="#fff" className="rotate-180" />
-        </button>
+          <RiArrowDropDownLine size={28} className="rotate-180" />
+        </motion.button>
       )}
-    </div>
+    </AnimatePresence>
   );
 };
 

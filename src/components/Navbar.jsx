@@ -1,7 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { motion, stagger } from 'motion/react';
+import { motion, useAnimation } from 'motion/react';
+import { useLocation } from 'react-router-dom';
 
 import { navLinks, socials } from '../constants/data';
 
@@ -18,6 +19,8 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef(null);
   const MediumDevice = useMediaQuery({ maxWidth: 1037 });
+  const location = useLocation();
+  const controls = useAnimation();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -43,9 +46,23 @@ const Navbar = () => {
     }
 
     return () => {
-      html.style.overflow = ''; // cleanup
+      html.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
+
+  useEffect(() => {
+    controls.stop();
+
+    // Re-run the navbar fade animation when route changes
+    controls.start({
+      opacity: [0, 1],
+      y: [-20, 0],
+      filter: ['blur(4px)', 'blur(0px)'],
+      transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
+    });
+
+    return () => controls.stop(); // cleanup
+  }, [location.pathname]);
 
   const handleDropdownToggle = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
@@ -56,29 +73,30 @@ const Navbar = () => {
   };
 
   const ulContainervariants = {
-    hidden: { opacity: 0, y: -40, filter: 'blur(6px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.8,
-        ease: [0.25, 0.1, 0.25, 1], // smooth cubic-bezier easing
-        staggerChildren: 0.12,
-        delayChildren: 0.15, // slight delay before staggering starts
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: -15, filter: 'blur(4px)' },
+    hidden: { opacity: 0, y: -30, filter: 'blur(6px)' },
     visible: {
       opacity: 1,
       y: 0,
       filter: 'blur(0px)',
       transition: {
         duration: 0.6,
-        ease: [0.33, 1, 0.68, 1], // smooth “ease-out-back” style curve
+        ease: [0.25, 0.1, 0.25, 1],
+        staggerChildren: 0.12,
+        delayChildren: 0.2,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: -15, scale: 0.95, filter: 'blur(4px)' },
+    visible: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: 'blur(0px)',
+      transition: {
+        duration: 0.55,
+        ease: [0.33, 1, 0.68, 1],
       },
     },
   };
@@ -86,12 +104,7 @@ const Navbar = () => {
   return (
     <>
       <nav ref={navRef}>
-        <motion.div
-          initial={{ opacity: 0, y: -30, filter: 'blur(0px)' }}
-          animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-          transition={{ duration: 0.8, ease: [0.33, 1, 0.68, 1] }}
-          className="relative"
-        >
+        <motion.div animate={controls} className="relative">
           <Link to="/">
             <img
               // data-aos="slide-right"
@@ -201,9 +214,11 @@ const Navbar = () => {
                 )}
               </motion.li>
             ))}
-            <Link to={'/contact-us'}>
-              <button className="contact-btn">Contact us</button>
-            </Link>
+            <motion.div variants={itemVariants}>
+              <Link to={'/contact-us'}>
+                <button className="contact-btn">Contact us</button>
+              </Link>
+            </motion.div>
           </motion.ul>
         </motion.div>
 
@@ -320,7 +335,7 @@ const Navbar = () => {
                               : 'hover:border-active-link hover:text-active-link'
                     }`}
                   >
-                    <social.icon className="h-[1.25rem] w-[1.25rem]" />
+                    <social.icon className="size-[1.25rem]" />
                   </a>
                 ))}
               </li>

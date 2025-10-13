@@ -405,8 +405,51 @@ body::-webkit-scrollbar {
     #about_introduction,
     #about_messageMD,
     #service_section,
-    #why_choose_us {
-      @apply relative mx-auto max-w-7xl bg-white p-4 md:p-8;
+    #why_choose_us,
+    #faq {
+      @apply relative mx-auto max-w-7xl bg-white p-4 md:mt-6 md:p-8;
+    }
+
+    /* FAQs Page */
+    #faq {
+      .faq_content {
+        @apply mx-auto max-w-4xl;
+
+        .faq_list {
+          @apply mt-6 space-y-4 md:mt-8;
+
+          > div {
+            @apply overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm transition-colors duration-200 hover:bg-gray-100;
+
+            > button {
+              @apply flex w-full items-center justify-between p-5 text-left focus:outline-none;
+
+              .faq_icon {
+                @apply text-cta-red text-xl;
+              }
+
+              h3 {
+                @apply text-lg font-medium text-gray-900;
+              }
+            }
+
+            .faq_answer {
+              @apply px-12 pb-5 text-[15px] leading-relaxed text-gray-700;
+            }
+          }
+        }
+        .cta {
+          @apply mt-16 mb-8 text-center;
+
+          p {
+            @apply mb-3 text-gray-700;
+          }
+
+          a {
+            @apply bg-cta-red hover:bg-cta-hover inline-block rounded-sm px-8 py-3 font-medium text-white shadow-md transition-all;
+          }
+        }
+      }
     }
 
     /* Custom dot bounce animation for Loading */

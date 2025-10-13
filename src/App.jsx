@@ -1,7 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
 import { Route, Routes, useLocation, useParams } from 'react-router-dom';
-import gsap from 'gsap';
-import { ScrollTrigger, SplitText } from 'gsap/all';
 import ScrollToTop from './components/ScrollToTop';
 
 import Banner from './components/Banner';
@@ -76,20 +74,7 @@ const AboutWrapper = () => {
   }
 };
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
-
 const App = () => {
-  const location = useLocation();
-
-  useEffect(() => {
-    // 👇 Kill all ScrollTriggers whenever route changes
-    ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-    ScrollTrigger.refresh();
-
-    // Optional: log to confirm cleanup
-    console.log('🔄 Killed all ScrollTriggers on route change:', location.pathname);
-  }, [location.pathname]);
-
   return (
     <main>
       {/* Header */}

@@ -4,40 +4,11 @@ import { Link } from 'react-router-dom';
 
 import Loading from '../Loading';
 import { motion } from 'motion/react';
-// import { SplitText } from 'gsap/all';
-// import { useGSAP } from '@gsap/react';
-// import gsap from 'gsap';
 import CheckList from './CheckList';
 
 const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
 const Hero = () => {
-  // useGSAP(() => {
-  //   const paragraphSplit = new SplitText('.para', { type: 'words, chars' });
-
-  //   // Animate when in viewport
-  //   const anim = gsap.from(paragraphSplit.words, {
-  //     opacity: 0,
-  //     yPercent: 100,
-  //     stagger: 0.075,
-  //     delay: 1,
-  //     filter: 'blur(8px)',
-  //     ease: 'expo.inOut',
-  //     scrollTrigger: {
-  //       trigger: '.para',
-  //       start: 'top 85%',
-  //       // end: 'bottom 50%',
-  //       toggleActions: 'play none none none', // animate on enter, reverse on leave back
-  //       // scrub: true,
-  //       markers: false,
-  //     },
-  //   });
-  //   return () => {
-  //     anim.scrollTrigger?.kill();
-  //     anim.kill();
-  //   };
-  // }, []);
-
   return (
     <section id="hero" className="relative">
       {/* Diagonal Fade Grid Background - Top Right */}

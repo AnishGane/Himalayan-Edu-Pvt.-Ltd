@@ -1,17 +1,21 @@
-import { FaFacebook } from 'react-icons/fa';
 import { SiYoutube } from 'react-icons/si';
-import { FaTwitter } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
-
-import { FaUserGraduate } from 'react-icons/fa6';
-import { FaChalkboardTeacher } from 'react-icons/fa';
 import { BiSolidMessageRoundedDots } from 'react-icons/bi';
-import { FaUserTie } from 'react-icons/fa6';
-import { FaBookOpenReader } from 'react-icons/fa6';
 import { GiPathDistance } from 'react-icons/gi';
-import { FaPlaneDeparture } from 'react-icons/fa6';
-import { FaHandsHelping } from 'react-icons/fa';
-import { FaFileAlt } from 'react-icons/fa';
+import { FaUserGraduate, FaUserTie, FaBookOpenReader, FaPlaneDeparture } from 'react-icons/fa6';
+import {
+  FaHandsHelping,
+  FaShieldAlt,
+  FaUsers,
+  FaClock,
+  FaAward,
+  FaBolt,
+  FaHeadset,
+  FaFileAlt,
+  FaChalkboardTeacher,
+  FaTwitter,
+  FaFacebook,
+} from 'react-icons/fa';
 
 const navLinks = [
   {
@@ -308,6 +312,74 @@ const galleryData = [
   },
 ];
 
+// Data for feature cards
+const features = [
+  {
+    id: 1,
+    icon: FaUsers,
+    title: 'Experienced Faculty',
+    desc: 'Our team of highly qualified educators and mentors guide students with dedication and real-world expertise.',
+  },
+  {
+    id: 2,
+    icon: FaAward,
+    title: 'Quality Education',
+    desc: 'We focus on delivering a modern, research-based, and skill-oriented education that shapes successful futures.',
+  },
+  {
+    id: 3,
+    icon: FaShieldAlt,
+    title: 'Trusted Institution',
+    desc: 'With years of excellence, we have earned the trust of students, parents, and the academic community alike.',
+  },
+  {
+    id: 4,
+    icon: FaBolt,
+    title: 'Innovative Learning',
+    desc: 'We integrate technology, creativity, and critical thinking to make learning engaging and impactful.',
+  },
+  {
+    id: 5,
+    icon: FaClock,
+    title: 'Career-Focused Programs',
+    desc: 'Our courses are designed to prepare students for real-world careers with practical and industry-relevant knowledge.',
+  },
+  {
+    id: 6,
+    icon: FaHeadset,
+    title: 'Student Support',
+    desc: 'We provide continuous academic and counseling support to ensure every student’s personal and professional growth.',
+  },
+];
+
+const faqData = [
+  {
+    question: 'What services does Himalayan Education Institute provide?',
+    answer:
+      'We offer expert counseling, documentation assistance, and test preparation for students aspiring to study abroad — particularly in Japan, Korea, and other international destinations.',
+  },
+  {
+    question: 'Why should I choose Himalayan Education Institute?',
+    answer:
+      'We focus on personalized guidance, transparent communication, and experienced mentors who ensure that every student takes the right academic and career path.',
+  },
+  {
+    question: 'Do you provide Japanese language classes?',
+    answer:
+      'Yes. We offer N5 to N1 level JLPT classes taught by certified instructors using structured and practical teaching methods.',
+  },
+  {
+    question: 'Can you help with student visa processing?',
+    answer:
+      'Absolutely. Our visa experts handle all required documentation and ensure a smooth, stress-free visa application process for every student.',
+  },
+  {
+    question: 'Where is Himalayan Education Institute located?',
+    answer:
+      'We are located in the heart of Kathmandu, easily accessible to all students. You can find our exact location and contact details on our Contact Us page.',
+  },
+];
+
 export {
   navLinks,
   galleryData,
@@ -318,4 +390,6 @@ export {
   ServiceLists,
   testimonials,
   checkLists,
+  features,
+  faqData,
 };

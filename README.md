@@ -14,19 +14,3 @@ The React Compiler is not enabled on this template. To add it, see [this documen
 ## Expanding the ESLint configuration
 
 If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-
-<!-- const sectionRef = useRef(null);
-useEffect(() => {
-gsap.from(sectionRef.current, {
-y: 100, // start 100px below
-opacity: 0, // start transparent
-duration: 1,
-scrollTrigger: {
-trigger: sectionRef.current, // element to watch
-start: 'top 80%', // when top of box hits 80% viewport height
-toggleActions: 'play none none reverse',
-scrub: true,
-// ↑ play on enter, do nothing else
-},
-});
-}, []); -->

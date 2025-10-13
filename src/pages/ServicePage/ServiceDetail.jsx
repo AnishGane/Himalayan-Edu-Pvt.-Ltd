@@ -29,7 +29,7 @@ const ServiceDetail = () => {
   }
 
   return (
-    <section className="mt-6 mb-14 w-full max-w-4xl px-3.5 md:mx-auto md:mt-10 md:mb-20 md:px-8 lg:px-0">
+    <section className="mt-6 mb-14 w-full max-w-4xl px-3.5 md:mx-auto md:mt-16 md:mb-20 md:px-8 lg:px-0">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
