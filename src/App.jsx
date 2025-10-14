@@ -34,7 +34,6 @@ const JLPTClass = React.lazy(() => import('./pages/Class/JLPT'));
 const NATClass = React.lazy(() => import('./pages/Class/NAT'));
 const IFTSSW = React.lazy(() => import('./pages/Class/IFTSSW'));
 
-// ScrollToTop logic inside App
 const ScrollToTopOnRouteChange = () => {
   const { pathname } = useLocation();
 
@@ -110,9 +109,6 @@ const App = () => {
           <Route path="/class/ift-ssw" element={<IFTSSW />} />
         </Routes>
       </Suspense>
-      {/* <Suspense fallback={<div className="py-8 text-center">Loading footer...</div>}>
-        <Footer />
-      </Suspense> */}
       <Footer />
     </main>
   );

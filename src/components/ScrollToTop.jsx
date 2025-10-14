@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
-import { useMediaQuery } from 'react-responsive';
 import { motion, AnimatePresence } from 'motion/react';
 
 const ScrollToTop = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
-  const smScroll = useMediaQuery({ maxWidth: '40rem' });
 
   useEffect(() => {
     const handleScroll = () => {
+      const smScroll = window.innerWidth <= 640; // 40rem
       setShowScrollTop(window.scrollY > (smScroll ? 120 : 350));
     };
 
@@ -16,9 +15,9 @@ const ScrollToTop = () => {
     handleScroll();
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [smScroll]);
+  }, []);
 
-  const scrollToTop = () => {
+  const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -27,7 +26,7 @@ const ScrollToTop = () => {
       {showScrollTop && (
         <motion.button
           key="scrollToTopBtn"
-          onClick={scrollToTop}
+          onClick={scrollTop}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}

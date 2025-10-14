@@ -159,28 +159,28 @@ const Navbar = () => {
                     <span className="uppercase">{item.name}</span>
                   </NavLink>
                 ) : (
-                  <motion.button
-                    variants={itemVariants}
-                    initial="hidden"
-                    animate="visible"
-                    onClick={() => handleDropdownToggle(idx)}
-                    onMouseEnter={() => setOpenDropdown(idx)}
-                    className="submenu-btn"
-                    aria-expanded={openDropdown === idx}
-                    aria-haspopup="true"
-                  >
-                    <Link to={item?.link}>
+                  <Link to={item?.link}>
+                    <motion.button
+                      variants={itemVariants}
+                      initial="hidden"
+                      animate="visible"
+                      onClick={() => handleDropdownToggle(idx)}
+                      onMouseEnter={() => setOpenDropdown(idx)}
+                      className="submenu-btn"
+                      aria-expanded={openDropdown === idx}
+                      aria-haspopup="true"
+                    >
                       <span className="uppercase">{item.name}</span>
-                    </Link>
-                    {item.subMenu && (
-                      <RiArrowDropDownLine
-                        size={22}
-                        className={`transition-transform duration-200 ${
-                          openDropdown === idx ? 'rotate-180' : ''
-                        }`}
-                      />
-                    )}
-                  </motion.button>
+                      {item.subMenu && (
+                        <RiArrowDropDownLine
+                          size={22}
+                          className={`transition-transform duration-200 ${
+                            openDropdown === idx ? 'rotate-180' : ''
+                          }`}
+                        />
+                      )}
+                    </motion.button>
+                  </Link>
                 )}
 
                 {/* Dropdown menu */}

@@ -26,7 +26,7 @@ const GridCard = ({ cardData }) => {
         <img
           src={cardData.image}
           alt={`${cardData.title || cardData.name} image`}
-          className={`object-cover transition-transform duration-300 ${
+          className={` ${
             !cardData.post ? 'hover:scale-[1.019]' : 'grayscale-50 hover:grayscale-0'
           }`}
         />

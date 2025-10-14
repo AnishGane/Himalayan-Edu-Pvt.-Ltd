@@ -5,7 +5,7 @@ import { features } from '../../constants/data';
 
 const WhyChooseUs = () => {
   return (
-    <section id="why_choose_us" className="mb-16 md:mb-24">
+    <section id="why_choose_us" className="mb-16">
       {/* Heading */}
       <StyledHeading text="Why Choose Us" />
 
@@ -16,10 +16,12 @@ const WhyChooseUs = () => {
       </p>
 
       {/* Features Grid */}
-      <div className="mt-10 grid gap-x-12 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
-        {features.map((feature, index) => (
-          <ChooseUsCard key={index} feature={feature} />
-        ))}
+      <div className="wrapper">
+        <article className="article_card gap-x-12 gap-y-10">
+          {features.map((feature, index) => (
+            <ChooseUsCard key={index} feature={feature} />
+          ))}
+        </article>
       </div>
     </section>
   );

@@ -103,7 +103,7 @@ const TestClasses = [
     id: 1,
     title: 'NAT',
     link: '/class/nat',
-    image: '/images/carousel_img4.jpg',
+    image: '/images/carousel_img5.jpeg',
   },
   {
     id: 2,
@@ -277,17 +277,17 @@ const testimonials = [
 
 const OurTeamData = [
   {
-    image: '/images/carousel_img4.jpg',
+    image: '/images/carousel_img5.jpeg',
     name: 'Raj Sharma',
     post: 'Business Administration',
   },
   {
-    image: '/images/carousel_img3.jpg',
+    image: '/images/carousel_img2.jpg',
     name: 'Raj Sharma',
     post: 'Business Administration',
   },
   {
-    image: '/images/carousel_img4.jpg',
+    image: '/images/carousel_img5.jpeg',
     name: 'Raj Sharma',
     post: 'Business Administration',
   },
@@ -308,7 +308,7 @@ const galleryData = [
   },
   {
     id: 4,
-    image: '/images/carousel_img4.jpg',
+    image: '/images/carousel_img5.jpeg',
   },
 ];
 

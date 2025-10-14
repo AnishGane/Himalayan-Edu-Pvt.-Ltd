@@ -5,12 +5,12 @@ import StyledHeading from '../../components/StyleHeading';
 
 const Introduction = () => {
   return (
-    <section id="about_introduction" className="mb-14">
+    <section id="about_introduction" className="mb-16">
       <StyledHeading text="Introduction" />
 
-      <div className="flex flex-col items-start gap-6 space-x-10 sm:gap-0 lg:mt-5 lg:flex-row 2xl:space-x-16">
+      <div className="flex flex-col items-start gap-6 space-x-10 md:gap-10 lg:mt-5 lg:flex-row lg:gap-0 2xl:space-x-16">
         {/* Left Image */}
-        <div className="h-80 w-full md:h-[400px] lg:h-[560px] 2xl:h-[620px] 2xl:w-1/2">
+        <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
           <img
             src="/images/carousel_img2.jpg"
             alt="About"

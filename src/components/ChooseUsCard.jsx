@@ -5,7 +5,7 @@ const ChooseUsCard = ({ feature, index }) => {
   return (
     <motion.div
       key={index}
-      className="flex flex-col items-center rounded-md border border-gray-300 bg-white p-8 text-center shadow-lg transition-shadow duration-200 hover:shadow-xl"
+      className="flex flex-col items-center rounded-md border border-gray-300 bg-white px-16 py-10 text-center shadow-md transition-shadow duration-200 hover:shadow-lg"
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}

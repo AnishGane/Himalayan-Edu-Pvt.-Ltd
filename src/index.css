@@ -1,11 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&family=Outfit:wght@100..900&display=swap');
-/* @import url('https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Cursive:wght@400..700&display=swap'); */
 
 @import 'tailwindcss';
 
 @theme {
   --font-outfit: 'Outfit', sans-serif;
-  /*   */
 
   /* primary colors */
   --color-accent-pink: #ffb7c5;
@@ -22,8 +20,6 @@
   --color-cta-hover: rgba(220, 38, 38, 0.9);
   --color-matcha-green: #7ba05b;
   --color-hover-golden: #d4a017;
-
-  --color-card-bg: #eff6ee;
 }
 
 ::selection {
@@ -50,11 +46,11 @@ body::-webkit-scrollbar {
 }
 
 @utility wrapper {
-  @apply relative z-30 mt-5 w-full rounded-sm md:pr-3 2xl:pr-0;
+  @apply relative z-30 mt-6 w-full rounded-lg bg-gradient-to-br from-gray-50 to-red-50 md:mt-2 md:border md:border-gray-200 md:p-6;
 }
 
 @utility article_card {
-  @apply grid grid-cols-[repeat(auto-fit,minmax(clamp(250px,25%,340px),1fr))] gap-8 sm:gap-10 md:gap-12 lg:gap-14 2xl:gap-20;
+  @apply grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3;
 }
 
 @utility top_fade {
@@ -274,7 +270,7 @@ body::-webkit-scrollbar {
     .home_content,
     #service_section {
       .service_card {
-        @apply wide bg-card-bg flex h-full w-full flex-col items-center justify-center rounded-md border border-gray-300 p-5;
+        @apply wide flex h-full w-full flex-col items-center justify-center rounded-md border border-gray-300 bg-white p-5;
 
         h1 {
           @apply text-main-indigo my-5 text-center text-lg font-semibold sm:text-xl md:text-2xl;
@@ -295,7 +291,7 @@ body::-webkit-scrollbar {
       @apply relative flex w-full flex-col items-center justify-start overflow-hidden;
 
       img {
-        @apply h-[19.45rem] w-full rounded-t-sm object-cover transition-all duration-300;
+        @apply aspect-[4/3] w-full rounded-t-sm object-cover transition-transform duration-300;
       }
 
       .view_btn {
@@ -407,7 +403,7 @@ body::-webkit-scrollbar {
     #service_section,
     #why_choose_us,
     #faq {
-      @apply relative mx-auto max-w-7xl bg-white p-4 md:mt-6 md:p-8;
+      @apply relative p-3.5 md:mt-6 md:p-8 2xl:px-40;
     }
 
     /* FAQs Page */

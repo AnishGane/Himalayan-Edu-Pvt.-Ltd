@@ -31,8 +31,8 @@ const Service = () => {
           heading={'Our Services'}
         />
 
-        <div className="wrapper mb-4">
-          <article className="article_card gap-y-8">
+        <div className="wrapper">
+          <article className="article_card gap-7  md:gap-10">
             {ServiceLists.map((service, index) => (
               <ServiceCard
                 key={index}

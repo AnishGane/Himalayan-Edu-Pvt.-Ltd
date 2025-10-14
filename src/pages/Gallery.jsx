@@ -70,7 +70,7 @@ const Gallery = () => {
 
       {/* Gallery Grid */}
       <div className="wrapper mb-12">
-        <article className="article_card gap-6">
+        <article className="article_card gap-8">
           {galleryData.map((g, index) => (
             <div
               title="Click to Enlarge"
@@ -79,7 +79,7 @@ const Gallery = () => {
             >
               <img
                 src={g.image}
-                className="h-[19.45rem] w-full cursor-crosshair rounded-sm object-cover"
+                className="h-full w-full cursor-crosshair rounded-sm object-cover"
                 alt={`Image No.${g.id}`}
                 loading="lazy"
                 onClick={() => openImage(index)}

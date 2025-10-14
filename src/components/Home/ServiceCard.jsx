@@ -16,7 +16,7 @@ const ServiceCard = ({ service }) => {
       viewport={{ once: false, amount: 0.3 }} // 30% of the card visible triggers animation
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
-      <service.icon className="text-main-indigo text-2xl" size={48} />
+      <service.icon className="text-main-indigo mt-3 text-2xl" size={48} />
       <h1>{service.title}</h1>
       <p>{service.description}</p>
       <Link to={`/services/${slug}`}>

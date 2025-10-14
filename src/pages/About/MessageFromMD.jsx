@@ -10,21 +10,19 @@ const MessageFromMD = () => {
 
       <div className="flex flex-col items-start gap-6 space-x-10 sm:gap-0 lg:mt-6 lg:flex-row 2xl:space-x-16">
         {/* Image */}
-        <div className="mb-2 flex w-full flex-shrink-0 justify-center sm:justify-start md:mb-0 lg:w-1/3">
-          <div className="overflow-hidden rounded-sm border bg-white p-2 shadow-md">
-            <img
-              title="Our Managing Director"
-              src="/images/carousel_img1.jpg"
-              alt="Managing Director"
-              className="h-96 w-full rounded-sm object-cover md:h-80"
-              loading="lazy"
-            />
-          </div>
+        <div className="mb-2 flex w-full flex-shrink-0 justify-center sm:justify-start md:mt-2 md:mb-6 lg:w-1/3">
+          <img
+            title="Our Managing Director"
+            src="/images/carousel_img1.jpg"
+            alt="Managing Director"
+            className="h-[400px] w-full rounded-sm object-cover"
+            loading="lazy"
+          />
         </div>
 
         {/* Message Body */}
         <div className="w-full space-y-4 text-justify text-slate-800">
-          <p className="mb-8">
+          <p className="mb-7">
             <strong>Dear Students and Parents,</strong>
           </p>
           <p>

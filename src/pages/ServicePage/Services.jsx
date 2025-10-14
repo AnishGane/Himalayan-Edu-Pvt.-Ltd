@@ -9,7 +9,7 @@ const Services = () => {
     <>
       <section id="service_section">
         <StyledHeading text={'Our Services'} />
-        <div className="wrapper mt-6 mb-4">
+        <div className="wrapper mt-6 mb-12">
           <article className="article_card gap-6">
             {ServiceLists.map((service, index) => (
               <ServiceCard key={index} service={service} />
