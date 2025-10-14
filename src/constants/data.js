@@ -384,76 +384,227 @@ const courses = [
   {
     id: 'n5-basic-level',
     title: 'N5 (Basic Level)',
-    details: [
-      '800 words, 100 kanji, basic grammar and sentences.',
-      'Read, listen, and speak simple daily Japanese.',
-      '4 months, 2 hours/day (150 hours total).',
+    details:
+      'N5 is the entry-level of the JLPT, aimed at complete beginners. It focuses on very basic Japanese used in daily life, such as greetings, telling the time, numbers, and basic questions. You will learn around 800 vocabulary words, 100 kanji characters, and fundamental grammar patterns. The grammar includes basic sentence structure (subject + object + verb), particles like は, を, に, and で, and basic verb conjugations like present and past tense. The listening section involves short conversations in a classroom or shopping context, spoken slowly. Reading materials include simple sentences in hiragana, katakana, and very basic kanji. Passing N5 shows you can handle simple interactions in Japanese.',
+    schedule: [
+      {
+        duration: '4 Months',
+        Study_Time: '2 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can comprehend everyday written and spoken Japanese.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write simple sentences using basic grammar and kanji.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can understand simple conversations spoken slowly.',
+      },
+    ],
+    subDetail:
+      'This level is typically reached after studying Japanese for approximately 150 hours and is perfect for those looking to build a solid foundation in the language. ',
   },
   {
     id: 'n4-elementary-level',
     title: 'N4 (Elementary Level)',
-    details: [
-      '1,500 words, 300 kanji, expanded grammar.',
-      'Read short texts, follow everyday conversations, express familiar ideas.',
-      '4 months, 2 hours/day (300 hours total).',
+    details:
+      'N4 builds on the foundation of N5, expanding vocabulary to about 1,500 words and 300 kanji. Grammar at this level includes more verb forms (te-form, nai-form, ta-form), casual and polite forms, and basic sentence patterns involving giving/receiving, comparisons, and expressing desire or obligation. Listening involves longer conversations and short dialogues in everyday contexts. Reading includes short passages, notices, and messages using basic grammar and familiar kanji. N4 certifies that you can participate in simple everyday conversations and understand essential written and spoken material related to personal life, school, and work.',
+    schedule: [
+      {
+        duration: '4 Months',
+        study_Time: '2 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can read short texts and understand everyday written Japanese.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write simple paragraphs using basic kanji and vocabulary.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can follow conversations spoken at normal slow pace.',
+      },
+    ],
+    subDetail:
+      'Level N4 is typically reached after 300 hours of study and is great for students who wish to improve their communication in everyday situations.',
   },
   {
     id: 'n3-intermediate-level',
     title: 'N3 (Intermediate Level)',
-    details: [
-      '3,750 words, 650 kanji, advanced grammar (causative, keigo basics).',
-      'Read short essays, understand natural-speed speech, express diverse ideas.',
-      '4 months, 2 hours/day (450 hours total).',
+    details:
+      'N3 is the transitional level between basic and advanced Japanese. Vocabulary increases significantly to around 3,750 words and 650 kanji. You’ll master complex grammar structures like passive, causative, potential, conditional, and commonly used expressions. You’ll also learn how to handle keigo (honorific language) at a basic level. Listening comprehension requires understanding longer conversations, announcements, and interviews at near-natural speed. Reading includes short essays, reviews, advertisements, and news excerpts. N3-level students can handle practical everyday situations and begin to understand nuanced ideas, although full fluency is not expected.',
+    schedule: [
+      {
+        duration: '6 Months',
+        study_Time: '2 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can understand short essays and common texts.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write structured paragraphs with correct grammar.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can comprehend natural-speed speech on everyday topics.',
+      },
+    ],
+    subDetail:
+      'This level is typically reached after 450hours of study and provides the foundation for intermediate fluency in Japanese.',
   },
   {
     id: 'n2-upper-intermediate-level',
     title: 'N2 (Upper-Intermediate Level)',
-    details: [
-      '6,000 words, 1,000 kanji, advanced grammar and keigo.',
-      'Read articles/manuals, follow lectures/conversations, express complex ideas.',
-      '4 months, 2 hours/day (600 hours total).',
+    details:
+      'N2 is the level most employers and universities in Japan require. It involves around 6,000 vocabulary words, 1,000 kanji, and mastery of advanced grammar. You’ll use keigo more naturally, understand differences between formal and informal expressions, and interpret implied meanings. The listening section includes business conversations, lectures, and everyday discussions at natural speed. Reading includes news articles, essays, instruction manuals, and opinion pieces. Successfully passing N2 means you can study or work in Japanese-speaking environments, follow the news, and participate in advanced conversations.',
+    schedule: [
+      {
+        duration: '6 Months',
+        study_Time: '2 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can read and understand complex articles and manuals.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write formal and complex texts correctly.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can understand lectures and conversations at normal pace.',
+      },
+    ],
+    subDetail:
+      'Level N2 is typically reached after 600hours of study and prepares you for higher-level academic or professional pursuits in Japan.',
   },
   {
     id: 'n1-advanced-level',
     title: 'N1 (Advanced Level)',
-    details: [
-      '10,000+ words, 2,000 kanji, complex grammar and advanced vocabulary.',
-      'Read academic/legal texts, understand fast speech, express nuanced ideas.',
-      '4 months, 2 hours/day (900 hours total).',
+    details:
+      'N1 is the most difficult and prestigious level. It expects knowledge of over 10,000 vocabulary words and approximately 2,000 kanji. You’ll need to interpret complex grammar, nuanced writing, and high-level vocabulary. The listening section is especially challenging, featuring fast-paced speech, abstract discussions, and varying speech styles. The reading section includes academic essays, editorials, legal texts, and literature. N1 requires deep cultural understanding and mastery of formal Japanese used in government, academia, and professional settings. It is often required for jobs in translation, international business, or academic research in Japan.',
+    schedule: [
+      {
+        duration: '6 Months',
+        study_Time: '2 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can comprehend complex texts in various contexts.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write advanced texts using appropriate grammar and vocabulary.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can understand fast speech and nuanced conversations.',
+      },
+    ],
+    subDetail:
+      'Level N1 is achieved after approximately 900hours of study and prepares you for professional or academic pursuits in Japan.',
   },
   {
     id: 'jft',
     title: 'JFT',
-    details: [
-      'Can understand basic Japanese sentences and expressions.',
-      'Recognizes hiragana, katakana, and around 100 basic kanji.',
-      'Can understand simple conversations spoken slowly.',
+    details:
+      'The JFT is designed for learners who wish to assess their Japanese proficiency in practical, real-world contexts, particularly for those planning to study, work, or live in Japan. At Asahi, we offer preparation courses for all levels of the JFT, from A1 through B1, to ensure you build a strong foundation and progress steadily in your language skills.',
+    schedule: [
+      {
+        duration: '3 Months',
+        study_Time: '1.5 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can read basic Japanese texts and signs.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write simple sentences with basic vocabulary.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can understand slow, simple conversations.',
+      },
+    ],
+    subDetail: 'Basic Japanese proficiency for beginners.',
   },
   {
     id: 'jlpt',
     title: 'JLPT',
-    details: [
-      'Understands daily conversation and commonly used expressions.',
-      'Knows around 300 kanji and 1,500 vocabulary words.',
-      'Can read and understand basic texts with familiar topics.',
+    details:
+      'Japanese Language Proficiency Test in Nepal  is your gateway to study, work, and live in Japan with confidence. At, Asahi we offer structured and progressive curriculum to help you master the Japanese language from beginner to advanced levels. Whether you are looking to communicate effectively in Japanese, prepare for the Japanese Language Proficiency Test (JLPT), or gain a deeper understanding of the language for personal or professional growth, our courses are designed to meet your needs. Explore our levels below, and start your journey to fluency in Japanese today! ',
+    schedule: [
+      {
+        duration: '3 Months',
+        study_Time: '2 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can read basic texts and understand familiar expressions.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write simple sentences and paragraphs.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can comprehend everyday conversation and instructions.',
+      },
+    ],
+    subDetail: 'Standardized Japanese proficiency preparation.',
   },
   {
     id: 'nat',
     title: 'NAT',
-    details: [
-      'Can comprehend everyday written and spoken Japanese.',
-      'Understands casual and polite speech in various contexts.',
-      'Knows around 650 kanji and 3,000+ vocabulary words.',
+    details:
+      'NAT focuses on comprehension of everyday Japanese, understanding casual and polite speech, and knowledge of around 650 kanji and 3,000+ vocabulary words. Suitable for intermediate learners.',
+    schedule: [
+      {
+        duration: '4 Months',
+        study_Time: '2 hours per day',
+      },
     ],
+    Outcomes: [
+      {
+        name: 'Reading',
+        description: 'Can understand everyday written Japanese and signs.',
+      },
+      {
+        name: 'Writing',
+        description: 'Can write paragraphs expressing ideas clearly.',
+      },
+      {
+        name: 'Listening',
+        description: 'Can understand conversations in casual and formal contexts.',
+      },
+    ],
+    subDetail: 'Intermediate Japanese comprehension and communication skills.',
   },
 ];
+
+export default courses;
 
 export {
   navLinks,
