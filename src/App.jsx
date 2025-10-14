@@ -9,6 +9,7 @@ import ServiceDetail from './pages/ServicePage/ServiceDetail';
 
 // const Footer = React.lazy(() => import('./components/Footer'));
 import Footer from './components/Footer'; // ⬅️ Normal import (fast!)
+import CourseDetail from './pages/Courses/CourseDetail';
 
 // Lazy-loaded pages
 const Home = React.lazy(() => import('./pages/Home'));
@@ -26,14 +27,6 @@ const Contacts = React.lazy(() => import('./pages/Contacts'));
 
 // Courses
 const Courses = React.lazy(() => import('./pages/Courses/Courses'));
-const N5 = React.lazy(() => import('./pages/Courses/N5'));
-const N4 = React.lazy(() => import('./pages/Courses/N4'));
-const N3 = React.lazy(() => import('./pages/Courses/N3'));
-const N2 = React.lazy(() => import('./pages/Courses/N2'));
-const N1 = React.lazy(() => import('./pages/Courses/N1'));
-const JFT = React.lazy(() => import('./pages/Courses/JFT'));
-const JLPT = React.lazy(() => import('./pages/Courses/JLPT'));
-const NAT = React.lazy(() => import('./pages/Courses/NAT'));
 
 // Classes
 const Classes = React.lazy(() => import('./components/Classes'));
@@ -101,21 +94,14 @@ const App = () => {
 
           {/* Main Pages */}
           <Route path="/services" element={<Services />} />
-          {/* For Dynamically accesing the service contents */}
           <Route path="/services/:serviceId" element={<ServiceDetail />} />
+
           <Route path="/gallery" element={<Gallery />} />
           <Route path="/contact-us" element={<Contacts />} />
 
           {/* Courses */}
           <Route path="/courses" element={<Courses />} />
-          <Route path="/courses/n5" element={<N5 />} />
-          <Route path="/courses/n4" element={<N4 />} />
-          <Route path="/courses/n3" element={<N3 />} />
-          <Route path="/courses/n2" element={<N2 />} />
-          <Route path="/courses/n1" element={<N1 />} />
-          <Route path="/courses/jft" element={<JFT />} />
-          <Route path="/courses/jlpt" element={<JLPT />} />
-          <Route path="/courses/nat" element={<NAT />} />
+          <Route path="/courses/:courseId" element={<CourseDetail />} />
 
           {/* Classes */}
           <Route path="/class" element={<Classes />} />

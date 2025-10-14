@@ -39,11 +39,11 @@ const navLinks = [
     name: 'our courses',
     link: '/courses',
     subMenu: [
-      { name: 'N5 (Basic Level)', link: '/courses/n5' },
-      { name: 'N4 (Elementary Level)', link: '/courses/n4' },
-      { name: 'N3 (Intermediate Level)', link: '/courses/n3' },
-      { name: 'N2 (Upper-Intermediate Level)', link: '/courses/n2' },
-      { name: 'N1 (Advanced Level)', link: '/courses/n1' },
+      { name: 'N5 (Basic Level)', link: '/courses/n5-basic-level' },
+      { name: 'N4 (Elementary Level)', link: '/courses/n4-elementary-level' },
+      { name: 'N3 (Intermediate Level)', link: '/courses/n3-intermediate-level' },
+      { name: 'N2 (Upper-Intermediate Level)', link: '/courses/n2-upper-intermediate-level' },
+      { name: 'N1 (Advanced Level)', link: '/courses/n1-advanced-level' },
       { name: 'JFT (Japan Foundation Test)', link: '/courses/jft' },
       { name: 'Japanese Language Proficiency Test (JLPT)', link: '/courses/jlpt' },
       { name: 'NAT (Nihongo Achievement Test)', link: '/courses/nat' },
@@ -380,6 +380,81 @@ const faqData = [
   },
 ];
 
+const courses = [
+  {
+    id: 'n5-basic-level',
+    title: 'N5 (Basic Level)',
+    details: [
+      '800 words, 100 kanji, basic grammar and sentences.',
+      'Read, listen, and speak simple daily Japanese.',
+      '4 months, 2 hours/day (150 hours total).',
+    ],
+  },
+  {
+    id: 'n4-elementary-level',
+    title: 'N4 (Elementary Level)',
+    details: [
+      '1,500 words, 300 kanji, expanded grammar.',
+      'Read short texts, follow everyday conversations, express familiar ideas.',
+      '4 months, 2 hours/day (300 hours total).',
+    ],
+  },
+  {
+    id: 'n3-intermediate-level',
+    title: 'N3 (Intermediate Level)',
+    details: [
+      '3,750 words, 650 kanji, advanced grammar (causative, keigo basics).',
+      'Read short essays, understand natural-speed speech, express diverse ideas.',
+      '4 months, 2 hours/day (450 hours total).',
+    ],
+  },
+  {
+    id: 'n2-upper-intermediate-level',
+    title: 'N2 (Upper-Intermediate Level)',
+    details: [
+      '6,000 words, 1,000 kanji, advanced grammar and keigo.',
+      'Read articles/manuals, follow lectures/conversations, express complex ideas.',
+      '4 months, 2 hours/day (600 hours total).',
+    ],
+  },
+  {
+    id: 'n1-advanced-level',
+    title: 'N1 (Advanced Level)',
+    details: [
+      '10,000+ words, 2,000 kanji, complex grammar and advanced vocabulary.',
+      'Read academic/legal texts, understand fast speech, express nuanced ideas.',
+      '4 months, 2 hours/day (900 hours total).',
+    ],
+  },
+  {
+    id: 'jft',
+    title: 'JFT',
+    details: [
+      'Can understand basic Japanese sentences and expressions.',
+      'Recognizes hiragana, katakana, and around 100 basic kanji.',
+      'Can understand simple conversations spoken slowly.',
+    ],
+  },
+  {
+    id: 'jlpt',
+    title: 'JLPT',
+    details: [
+      'Understands daily conversation and commonly used expressions.',
+      'Knows around 300 kanji and 1,500 vocabulary words.',
+      'Can read and understand basic texts with familiar topics.',
+    ],
+  },
+  {
+    id: 'nat',
+    title: 'NAT',
+    details: [
+      'Can comprehend everyday written and spoken Japanese.',
+      'Understands casual and polite speech in various contexts.',
+      'Knows around 650 kanji and 3,000+ vocabulary words.',
+    ],
+  },
+];
+
 export {
   navLinks,
   galleryData,
@@ -392,4 +467,5 @@ export {
   checkLists,
   features,
   faqData,
+  courses,
 };
