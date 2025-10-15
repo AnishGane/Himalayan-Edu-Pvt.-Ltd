@@ -61,8 +61,12 @@ const navLinks = [
         link: '/class/nat',
       },
       {
-        name: 'IFT_SSW',
+        name: 'IFT-SSW',
         link: '/class/ift-ssw',
+      },
+      {
+        name: 'EPS Topik UBT',
+        link: '/class/eps-topik-ubt',
       },
     ],
   },
@@ -786,7 +790,32 @@ const courses = [
   },
 ];
 
-export default courses;
+const classes = [
+  {
+    id: 'jlpt',
+    title: 'JLPT',
+    description:
+      'The Japanese-Language Proficiency Test or JLPT, is a standardized criterion-referenced test to evaluate and certify Japanese language proficiency for non-native speakers, covering language knowledge, reading ability, and listening ability. The test is held twice a year in Japan and selected countries (on the first Sunday of July and December), and once a year in other regions (either on the first Sunday of December or July depending on region). The JLPT is conducted by the Japan Foundation for tests overseas (with cooperation of local host institutions), and Japan Educational Exchanges and Services for tests in Japan.',
+  },
+  {
+    id: 'nat',
+    title: 'NAT',
+    description:
+      'The Japanese Language NAT-TEST is an examination that measures the Japanese language ability of students who are not native Japanese speakers. The tests are separated by difficulty (five levels) and general ability is measured in three categories: Grammar/Vocabulary, Listening and Reading Comprehension. The format of the exam and the types of questions are equivalent to those that appear on the Japanese-Language Proficiency Test (JLPT).',
+  },
+  {
+    id: 'ift-ssw',
+    title: 'IFT-SSW',
+    description:
+      'In order to obtain SSW (Specified Skilled Worker) status of residence, it is necessary to pass the “Japan Foundation Test for Basic Japanese (JFT-Basic)” or acquire the N4 certificate for the “Japanese Language Proficiency Test (JLPT).',
+  },
+  {
+    id: 'eps-topik-ubt',
+    title: 'EPS TOPIK UBT',
+    description:
+      'In ubiquitous-based testing (UBT), testing, scoring, and grade management are performed using tablets and smartphones Computer-Based Testing (CBT): Computer-based testing (CBT) involves reading questions, responding to them on individual computers and submitting them.',
+  },
+];
 
 export {
   navLinks,
@@ -801,4 +830,5 @@ export {
   features,
   faqData,
   courses,
+  classes,
 };

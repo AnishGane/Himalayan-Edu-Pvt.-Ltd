@@ -9,7 +9,7 @@ import { courses } from '../../constants/data';
 
 const Courses = () => {
   return (
-    <section id="courses" className="mt-12 mb-20 w-full px-3 2xl:px-40">
+    <section id="courses" className="mt-4 mb-20 w-full px-3 md:mt-12 2xl:px-40">
       <div className="top_section mb-14 max-w-3xl">
         <StyledHeading text={'What We Offer'} />
         <p className="mt-3 text-justify leading-relaxed text-slate-800">
@@ -24,11 +24,11 @@ const Courses = () => {
       {/* Courses Cards */}
       <div className="bottom_section mt-10 w-full rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-red-50 p-6">
         {/* Top 3 cards */}
-        <div className="grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-12 lg:grid-cols-3">
           {courses.slice(0, 3).map((course, index) => (
             <div
               key={index}
-              className="flex flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              className="flex flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-white px-2 py-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8"
             >
               <div className="flex flex-col items-center gap-2">
                 <GiJapaneseBridge className="text-main-indigo size-16" />
@@ -60,11 +60,11 @@ const Courses = () => {
         </div>
 
         {/* Second row (2 cards half-width each) */}
-        <div className="mt-12 flex flex-col items-center gap-8 lg:flex-row lg:justify-center">
+        <div className="mt-6 flex flex-col items-center gap-8 md:mt-12 lg:flex-row lg:justify-center">
           {courses.slice(3, 5).map((course, index) => (
             <div
               key={index}
-              className="flex w-full flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg lg:w-1/2"
+              className="flex w-full flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-white px-2 py-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8 lg:w-1/2"
             >
               <div className="flex flex-col items-center gap-2">
                 <GiJapaneseBridge className="text-main-indigo size-16" />
@@ -97,11 +97,11 @@ const Courses = () => {
 
         {/* Remaining cards (if any) */}
         {courses.length > 5 && (
-          <div className="mt-12 grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+          <div className="mt-6 grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-12 lg:grid-cols-3">
             {courses.slice(5).map((course, index) => (
               <div
                 key={index}
-                className="bg- flex flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-white p-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                className="bg- flex flex-col items-center gap-y-6 rounded-2xl border border-gray-300 bg-white px-2 py-8 shadow-md transition-all duration-300 hover:-translate-y-1 hover:shadow-lg md:p-8"
               >
                 <div className="flex flex-col items-center gap-2">
                   <GiJapaneseBridge className="text-main-indigo size-16" />

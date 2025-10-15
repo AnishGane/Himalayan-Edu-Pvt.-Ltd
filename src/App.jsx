@@ -18,17 +18,11 @@ const Courses = React.lazy(() => import('./pages/Courses/Courses'));
 const Introduction = React.lazy(() => import('./pages/About/Introduction'));
 const MessageFromMD = React.lazy(() => import('./pages/About/MessageFromMD'));
 const Faq = React.lazy(() => import('./pages/About/Faq'));
-const WhyChooseUs = React.lazy(() => import('./pages/About/WhyChooseUs'));pCours
+const WhyChooseUs = React.lazy(() => import('./pages/About/WhyChooseUs'));
 
 const ServiceDetail = React.lazy(() => import('./pages/ServicePage/ServiceDetail'));
-
 const CourseDetail = React.lazy(() => import('./pages/Courses/CourseDetail'));
-
-// Classes
-const Classes = React.lazy(() => import('./components/Classes'));
-const JLPTClass = React.lazy(() => import('./pages/Class/JLPT'));
-const NATClass = React.lazy(() => import('./pages/Class/NAT'));
-const IFTSSW = React.lazy(() => import('./pages/Class/IFTSSW'));
+const ClassDetails = React.lazy(() => import('./pages/Class/ClassDetails'));
 
 const ScrollToTopOnRouteChange = () => {
   const { pathname } = useLocation();
@@ -99,10 +93,7 @@ const App = () => {
           <Route path="/courses/:courseId" element={<CourseDetail />} />
 
           {/* Classes */}
-          <Route path="/class" element={<Classes />} />
-          <Route path="/class/jlpt" element={<JLPTClass />} />
-          <Route path="/class/nat" element={<NATClass />} />
-          <Route path="/class/ift-ssw" element={<IFTSSW />} />
+          <Route path="/class/:classId" element={<ClassDetails />} />
         </Routes>
       </Suspense>
       <Footer />
