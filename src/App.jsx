@@ -5,28 +5,24 @@ import ScrollToTop from './components/ScrollToTop';
 import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Loading from './components/Loading';
-import ServiceDetail from './pages/ServicePage/ServiceDetail';
+import Footer from './components/Footer';
 
-// const Footer = React.lazy(() => import('./components/Footer'));
-import Footer from './components/Footer'; // ⬅️ Normal import (fast!)
-import CourseDetail from './pages/Courses/CourseDetail';
-
-// Lazy-loaded pages
+// Main Pages
 const Home = React.lazy(() => import('./pages/Home'));
+const Gallery = React.lazy(() => import('./pages/Gallery'));
+const Contacts = React.lazy(() => import('./pages/Contacts'));
+const Services = React.lazy(() => import('./pages/ServicePage/Services'));
+const Courses = React.lazy(() => import('./pages/Courses/Courses'));
 
 // About pages
 const Introduction = React.lazy(() => import('./pages/About/Introduction'));
 const MessageFromMD = React.lazy(() => import('./pages/About/MessageFromMD'));
 const Faq = React.lazy(() => import('./pages/About/Faq'));
-const WhyChooseUs = React.lazy(() => import('./pages/About/WhyChooseUs'));
+const WhyChooseUs = React.lazy(() => import('./pages/About/WhyChooseUs'));pCours
 
-// Main pages
-const Services = React.lazy(() => import('./pages/ServicePage/Services'));
-const Gallery = React.lazy(() => import('./pages/Gallery'));
-const Contacts = React.lazy(() => import('./pages/Contacts'));
+const ServiceDetail = React.lazy(() => import('./pages/ServicePage/ServiceDetail'));
 
-// Courses
-const Courses = React.lazy(() => import('./pages/Courses/Courses'));
+const CourseDetail = React.lazy(() => import('./pages/Courses/CourseDetail'));
 
 // Classes
 const Classes = React.lazy(() => import('./components/Classes'));
@@ -75,9 +71,9 @@ const App = () => {
         <Navbar />
       </header>
 
-      {/* Scroll to top on route change */}
       <ScrollToTop />
 
+      {/* Scroll to top on route change */}
       <ScrollToTopOnRouteChange />
 
       {/* Spacer to offset fixed navbar height */}

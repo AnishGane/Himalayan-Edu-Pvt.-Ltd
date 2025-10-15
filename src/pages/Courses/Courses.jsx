@@ -50,7 +50,7 @@ const Courses = () => {
                 ))}
               </div>
 
-              <Link to={`/courses/${course.id}/`}>
+              <Link to={`/courses/${course.id}`}>
                 <button className="bg-cta-red cursor-pointer rounded-sm px-7 py-4 text-sm font-medium tracking-wide text-white shadow-sm transition-all duration-200 hover:bg-red-700">
                   Read More
                 </button>
