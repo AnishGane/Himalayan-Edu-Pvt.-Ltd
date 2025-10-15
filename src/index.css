@@ -371,13 +371,13 @@ body::-webkit-scrollbar {
         @apply w-full lg:pb-10 2xl:mx-auto 2xl:max-w-6xl;
 
         .form_container form {
-          @apply grid grid-cols-1 gap-4;
+          @apply grid grid-cols-1 gap-5;
 
           div {
             @apply flex flex-col md:flex-row md:gap-16;
 
             input {
-              @apply text-main-indigo bg-zen-gray w-full flex-1 border border-black px-6 py-4 outline-none focus:bg-transparent md:py-6;
+              @apply text-main-indigo bg-zen-gray w-full flex-1 border border-gray-400 px-6 py-4 outline-none focus:bg-transparent focus:shadow-md md:py-6;
             }
 
             :last-child {
@@ -386,12 +386,16 @@ body::-webkit-scrollbar {
           }
 
           textarea {
-            @apply bg-zen-gray w-full border border-black px-6 py-4 outline-none md:py-6;
+            @apply bg-zen-gray w-full border border-gray-400 px-6 py-4 outline-none focus:shadow-md md:py-6;
           }
 
           button {
-            @apply bg-cta-red wide hover:bg-cta-hover mx-auto w-fit cursor-pointer rounded-sm px-9 py-5 text-white transition-colors outline-none;
+            @apply bg-cta-red wide hover:bg-cta-hover mx-auto mt-2 mb-10 w-fit cursor-pointer rounded-sm px-9 py-5 text-white transition-colors outline-none;
           }
+        }
+
+        .map_container {
+          @apply w-full overflow-hidden rounded-sm border border-gray-300 shadow-md;
         }
       }
     }
@@ -453,7 +457,7 @@ body::-webkit-scrollbar {
       @apply wide mx-auto mt-4 mb-12 w-full max-w-5xl rounded-lg bg-gradient-to-br from-gray-50 to-red-50 px-5 py-2 shadow-md md:my-16 md:border md:border-gray-200 md:px-12 md:py-8;
 
       h1 {
-        @apply text-main-indigo mb-6 text-3xl font-bold;
+        @apply text-main-indigo mb-6 text-4xl font-bold;
       }
 
       ul {
@@ -467,7 +471,7 @@ body::-webkit-scrollbar {
           @apply flex w-full items-center justify-between p-5 text-left focus:outline-none;
 
           p {
-            @apply text-lg font-medium text-gray-900;
+            @apply text-[17px] font-medium text-gray-900;
           }
         }
       }

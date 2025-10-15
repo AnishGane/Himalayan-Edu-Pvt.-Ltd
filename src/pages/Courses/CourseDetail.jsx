@@ -24,68 +24,170 @@ const CourseDetail = () => {
   }
 
   return (
-    <section id="courses_details">
+    <motion.section
+      key={courseId} // ensures animation restarts when route (course) changes
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      exit={{ opacity: 0, y: 30 }}
+      transition={{ duration: 0.4, ease: 'easeInOut' }}
+      id="courses_details"
+    >
       <div className="max-w-4xl">
         <h1>{matchedCourse.title}</h1>
         <p className="text-charcoal-gray mb-6 text-justify">{matchedCourse.details}</p>
 
-        {matchedCourse.schedule.map((item, index) => (
-          <ul key={index}>
-            {Object.keys(item).map((key) => (
-              <li key={index} className="mb-2">
-                <strong className="capitalize">{key.replace('_', ' ')}:</strong> {item[key]}
-              </li>
-            ))}
-          </ul>
-        ))}
-
-        <div className="mb-6">
-          <p className="text-lg font-bold">Key Learning Outcomes:</p>
-          <div className="mt-6 max-w-3xl space-y-4">
-            {matchedCourse.Outcomes.map((outcome, index) => (
-              <motion.div
-                key={index}
-                whileHover={{ scale: 1.01 }}
-                transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                className="outcome_div"
-              >
-                <button onClick={() => toggleOutcome(index)}>
-                  <p key={index}>{outcome.name}</p>
-                  <div className="size-3.5 cursor-pointer">
-                    {activeIndex === index ? (
-                      <span>
-                        <FaMinus />
-                      </span>
-                    ) : (
-                      <span>
-                        <FaPlus />
-                      </span>
-                    )}
-                  </div>
-                </button>
-
-                <AnimatePresence>
-                  {activeIndex === index && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.35, ease: 'easeInOut' }}
-                      className="overflow-hidden"
-                    >
-                      <p className="text-charcoal-gray px-5 pb-5 text-[15px] leading-relaxed">
-                        {outcome.description}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+        {/* Duration & Study Time */}
+        {matchedCourse?.schedule?.length > 0 && (
+          <div className="mb-8">
+            <h2 className="text-main-indigo mb-3 text-xl font-semibold">Course Schedule:</h2>
+            {matchedCourse.schedule.map((item, index) => (
+              <ul key={index} className="mb-3 list-disc pl-6">
+                {Object.entries(item).map(([key, value]) => (
+                  <li key={key} className="text-gray-700">
+                    <strong className="capitalize">{key.replace('_', ' ')}:</strong> {value}
+                  </li>
+                ))}
+              </ul>
             ))}
           </div>
-        </div>
+        )}
 
-        <p>{matchedCourse.subDetail}</p>
-        <p className="mt-6">
+        {/* Button Links for JLPT, JFT & NAT Course */}
+        {matchedCourse?.hasButtonLink === true && matchedCourse?.Levels?.length > 0 && (
+          <div className="mb-8 flex w-full max-w-3xl flex-col flex-wrap items-start gap-x-8 gap-y-4 sm:flex-row">
+            {matchedCourse.Levels.map((link, index) => (
+              <a
+                className="bg-main-indigo rounded-sm p-4 text-sm text-white shadow-md"
+                href={`#${link.levelId}`}
+                onClick={(e) => {
+                  e.preventDefault(); // stop auto scroll
+                  const target = document.getElementById(link.levelId);
+                  if (target) {
+                    const yOffset = -144; // for fixed header height in px -(equals to using scroll-mt-36 in tailwind)
+                    const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
+                    window.scrollTo({ top: y, behavior: 'smooth' });
+                  }
+                }}
+              >
+                <button className="cursor-pointer">
+                  {link.levelTitle
+                    .replace(' Japanese', '')
+                    .replace(' Preparation Course', '')
+                    .trim()}
+                </button>
+              </a>
+            ))}
+          </div>
+        )}
+
+        {/* Key Learning Outcomes */}
+        {matchedCourse?.Outcomes?.length > 0 && (
+          <div className="mb-6">
+            <p className="text-main-indigo text-lg font-bold">Key Learning Outcomes:</p>
+            <div className="mt-6 max-w-3xl space-y-4">
+              {matchedCourse?.Outcomes.map((outcome, index) => (
+                <motion.div
+                  key={index}
+                  whileHover={{ scale: 1.01 }}
+                  transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                  className="outcome_div"
+                >
+                  <button onClick={() => toggleOutcome(index)}>
+                    <p key={index}>{outcome.name}</p>
+                    <div className="size-3.5 cursor-pointer">
+                      {activeIndex === index ? (
+                        <span>
+                          <FaMinus />
+                        </span>
+                      ) : (
+                        <span>
+                          <FaPlus />
+                        </span>
+                      )}
+                    </div>
+                  </button>
+
+                  <AnimatePresence>
+                    {activeIndex === index && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: 'auto', opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                        className="overflow-hidden"
+                      >
+                        <p className="text-charcoal-gray px-5 pb-5 text-[15px] leading-relaxed">
+                          {outcome.description}
+                        </p>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {matchedCourse?.subDetail && (
+          <p className="mb-6 text-gray-700">{matchedCourse.subDetail}</p>
+        )}
+
+        {/* Levels of Course a/c to Id */}
+        {matchedCourse?.Levels?.length > 0 && (
+          <div className="mb-6 w-full max-w-3xl">
+            <h2 className="text-main-indigo mb-3 text-[1.7rem] font-bold">
+              Levels of {matchedCourse.title}
+            </h2>
+
+            <div className="mt-6 flex w-full flex-col gap-8">
+              {matchedCourse.Levels.map((level, index) => (
+                <div
+                  id={level.levelId}
+                  key={index}
+                  className="space-y-5 rounded-md border border-gray-300 bg-white px-5 py-8 pl-5 shadow-md md:pr-16"
+                >
+                  <h3 className="text-[1.275rem] font-bold">{level.levelTitle}</h3>
+                  <p className="text-charcoal-gray text-justify">{level.levelDescription}</p>
+
+                  {/* Key Areas */}
+                  <div className="space-y-3">
+                    <p className="text-lg font-semibold">Key Areas Covered:</p>
+                    <ul className="mt-1 list-disc space-y-2 pl-6">
+                      {(level.keyAreas || level.KeyAreas)?.map((area, i) => (
+                        <li key={i} className="text-charcoal-gray text-[15px]">
+                          {area}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Duration + Study Time */}
+                  <div>
+                    {level.courseDuration ? (
+                      <p>
+                        <span className="font-semibold">Duration:</span>{' '}
+                        <span className="text-charcoal-gray text-[15px]">
+                          {level.courseDuration || level.CourseDuration}
+                        </span>
+                      </p>
+                    ) : null}
+
+                    {level.studyTime && (
+                      <p>
+                        <span className="font-semibold">Study Time:</span>
+                        <span className="text-charcoal-gray text-[15px]"> {level.studyTime}</span>
+                      </p>
+                    )}
+                  </div>
+
+                  <p className="text-charcoal-gray">{level.levelSubDetails}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <p className="text-main-indigo mt-6">
           If you're interested feel free to
           <Link className="text-cta-red hover:text-cta-hover ml-1 underline" to="/contact_us">
             contact us
@@ -93,7 +195,7 @@ const CourseDetail = () => {
           .
         </p>
       </div>
-    </section>
+    </motion.section>
   );
 };
 

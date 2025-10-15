@@ -8,32 +8,6 @@ const Gallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const modalRef = useRef(null);
 
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setShowFullImage(false);
-      }
-    };
-
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  useEffect(() => {
-    const html = document.documentElement;
-
-    if (showFullImage) {
-      html.style.overflow = 'hidden';
-    } else {
-      html.style.overflow = '';
-    }
-
-    return () => {
-      html.style.overflow = '';
-    };
-  }, [showFullImage]);
-
   const openImage = (index) => {
     setCurrentIndex(index);
     setShowFullImage(true);
@@ -48,6 +22,47 @@ const Gallery = () => {
   const nextImage = () => {
     setCurrentIndex((prev) => (prev === galleryData.length - 1 ? 0 : prev + 1));
   };
+
+  // handle overflow
+  useEffect(() => {
+    const html = document.documentElement;
+
+    if (showFullImage) {
+      html.style.overflow = 'hidden';
+    } else {
+      html.style.overflow = '';
+    }
+
+    return () => {
+      html.style.overflow = '';
+    };
+  }, [showFullImage]);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setShowFullImage(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
+
+  // handle keyboard arrows - Right and Left
+  useEffect(() => {
+    const handleKeyPress = (e) => {
+      if (e.key === 'ArrowRight') {
+        setCurrentIndex((prev) => (prev === galleryData.length - 1 ? 0 : prev + 1)); // next Image
+      } else if (e.key === 'ArrowLeft') {
+        setCurrentIndex((prev) => (prev === 0 ? galleryData.length - 1 : prev - 1)); // prev Image
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => window.removeEventListener('keydown', handleKeyPress);
+  }, [galleryData.length]);
 
   return (
     <section id="gallery_section">

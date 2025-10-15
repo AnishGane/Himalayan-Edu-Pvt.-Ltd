@@ -39,7 +39,7 @@ const Courses = () => {
               </div>
 
               <div className="flex min-h-[140px] w-full flex-col gap-3 px-4 text-left">
-                {course.details.map((detail, i) => (
+                {course?.courseDetails?.map((detail, i) => (
                   <p
                     className="flex items-start gap-2 text-[15px] leading-relaxed text-slate-700"
                     key={i}
@@ -75,7 +75,7 @@ const Courses = () => {
               </div>
 
               <div className="flex min-h-[100px] w-full flex-col gap-3 px-4 text-left">
-                {course.details.map((detail, i) => (
+                {course?.courseDetails?.map((detail, i) => (
                   <p
                     className="flex items-start gap-2 text-[15px] leading-relaxed text-slate-700"
                     key={i}
@@ -112,7 +112,7 @@ const Courses = () => {
                 </div>
 
                 <div className="flex min-h-[140px] w-full flex-col gap-3 px-4 text-left">
-                  {course.details.map((detail, i) => (
+                  {course?.courseDetails?.map((detail, i) => (
                     <p
                       className="flex items-start gap-2 text-[15px] leading-relaxed text-slate-700"
                       key={i}
