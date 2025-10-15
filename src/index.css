@@ -18,8 +18,6 @@
   /* accent colors */
   --color-cta-red: #f32f2fee;
   --color-cta-hover: rgba(220, 38, 38, 0.9);
-  --color-matcha-green: #7ba05b;
-  --color-hover-golden: #d4a017;
 }
 
 ::selection {
