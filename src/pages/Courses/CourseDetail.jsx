@@ -18,7 +18,7 @@ const CourseDetail = () => {
   if (!matchedCourse) {
     return (
       <div className="mt-10 flex h-[81dvh] w-full items-center justify-center">
-        <p className="wide text-3xl font-bold text-red-600 uppercase">Course not found</p>
+        <p className="text-3xl font-bold tracking-wide text-red-600 uppercase">Course not found</p>
       </div>
     );
   }
@@ -31,9 +31,10 @@ const CourseDetail = () => {
       exit={{ opacity: 0, y: 30 }}
       transition={{ duration: 0.4, ease: 'easeInOut' }}
       id="courses_details"
+      className="mx-auto mt-4 mb-12 w-full max-w-5xl rounded-lg bg-gradient-to-br from-gray-50 to-red-50 px-5 py-2 tracking-wide shadow-md md:my-16 md:border md:border-gray-200 md:px-12 md:py-8"
     >
       <div className="max-w-4xl">
-        <h1>{matchedCourse.title}</h1>
+        <h1 className="text-main-indigo mb-6 text-4xl font-bold">{matchedCourse.title}</h1>
         <p className="text-charcoal-gray mb-6 text-justify">{matchedCourse.details}</p>
 
         {/* Duration & Study Time */}
@@ -41,7 +42,7 @@ const CourseDetail = () => {
           <div className="mb-8">
             <h2 className="text-main-indigo mb-3 text-xl font-semibold">Course Schedule:</h2>
             {matchedCourse.schedule.map((item, index) => (
-              <ul key={index} className="mb-3 list-disc pl-6">
+              <ul key={index} className="list-disc px-8 pl-6 md:px-12">
                 {Object.entries(item).map(([key, value]) => (
                   <li key={key} className="text-gray-700">
                     <strong className="capitalize">{key.replace('_', ' ')}:</strong> {value}
@@ -90,10 +91,15 @@ const CourseDetail = () => {
                   key={index}
                   whileHover={{ scale: 1.01 }}
                   transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                  className="outcome_div"
+                  className="outcome_div overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm transition-colors duration-200 hover:bg-gray-100"
                 >
-                  <button onClick={() => toggleOutcome(index)}>
-                    <p key={index}>{outcome.name}</p>
+                  <button
+                    className="flex w-full items-center justify-between p-5 text-left focus:outline-none"
+                    onClick={() => toggleOutcome(index)}
+                  >
+                    <p className="text-[17px] font-medium text-gray-900" key={index}>
+                      {outcome.name}
+                    </p>
                     <div className="size-3.5 cursor-pointer">
                       {activeIndex === index ? (
                         <span>
@@ -132,7 +138,7 @@ const CourseDetail = () => {
           <p className="mb-6 text-gray-700">{matchedCourse.subDetail}</p>
         )}
 
-        {/* Levels of Course a/c to Id */}
+        {/* Levels of Course a/c to courseId */}
         {matchedCourse?.Levels?.length > 0 && (
           <div className="mb-6 w-full max-w-3xl">
             <h2 className="text-main-indigo mb-3 text-[1.7rem] font-bold">

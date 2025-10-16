@@ -4,7 +4,7 @@ import StyledHeading from '../../components/StyleHeading';
 
 const MessageFromMD = () => {
   return (
-    <section id="about_messageMD">
+    <section id="about_messageMD" className="relative p-3.5 md:mt-6 md:p-8 lg:mx-40">
       {/* Title */}
       <StyledHeading text={'Message from MD'} />
 

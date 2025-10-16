@@ -103,8 +103,11 @@ const Navbar = () => {
 
   return (
     <>
-      <nav ref={navRef}>
-        <motion.div animate={controls} className="relative">
+      <nav ref={navRef} className="fixed z-50 w-full bg-white 2xl:px-36">
+        <motion.div
+          animate={controls}
+          className="relative flex max-w-full flex-row items-center justify-between gap-5 py-3 md:px-5 md:py-3"
+        >
           <Link to="/">
             <img
               // data-aos="slide-right"
@@ -119,7 +122,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button / Hamburger Menu */}
           <button
-            className={`mobile-btn ${MediumDevice ? 'block' : ''}`}
+            className={`mobile-btn text-main-indigo mr-4 cursor-pointer hover:text-gray-900 focus:text-gray-900 focus:outline-none md:hidden ${MediumDevice ? 'block' : ''}`}
             onClick={handleMobileMenuToggle}
             aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
             aria-expanded={isMobileMenuOpen}
@@ -145,15 +148,19 @@ const Navbar = () => {
             variants={ulContainervariants}
             initial="hidden"
             animate="visible"
-            className={`${MediumDevice ? 'hidden' : ''} desktop-ul`}
+            className={`${MediumDevice ? 'hidden' : ''} desktop-ul hidden items-center gap-4 lg:flex`}
           >
             {navLinks.map((item, idx) => (
-              <motion.li variants={itemVariants} key={idx} className="group">
+              <motion.li
+                variants={itemVariants}
+                key={idx}
+                className="group relative font-medium tracking-wide"
+              >
                 {item.link && item.name != 'our courses' ? (
                   <NavLink
                     to={item.link || '#'}
                     className={({ isActive }) =>
-                      `desktop-ul-link ${isActive ? 'text-main-indigo' : 'text-gray-500'}`
+                      `desktop-ul-link hover:text-main-indigo flex cursor-pointer items-center gap-1 px-2 py-2 transition-colors duration-200 ${isActive ? 'text-main-indigo' : 'text-gray-500'}`
                     }
                   >
                     <span className="uppercase">{item.name}</span>
@@ -166,7 +173,7 @@ const Navbar = () => {
                       animate="visible"
                       onClick={() => handleDropdownToggle(idx)}
                       onMouseEnter={() => setOpenDropdown(idx)}
-                      className="submenu-btn"
+                      className="submenu-btn hover:text-main-indigo focus:text-main-indigo flex cursor-pointer items-center justify-center text-gray-500 transition-colors duration-200 focus:outline-none"
                       aria-expanded={openDropdown === idx}
                       aria-haspopup="true"
                     >
@@ -189,7 +196,7 @@ const Navbar = () => {
                     initial={{ opacity: 0, y: -10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.35, ease: 'easeOut' }}
-                    className="dropdown_menu-ul"
+                    className="dropdown_menu-ul absolute top-full left-0 z-50 mt-3 block w-56 flex-col bg-white text-left shadow-lg hover:text-white"
                     onMouseLeave={() => setOpenDropdown(null)}
                   >
                     {item.subMenu.map((sub, subIdx) => (
@@ -197,7 +204,7 @@ const Navbar = () => {
                         <NavLink
                           to={sub.link}
                           className={({ isActive }) =>
-                            `dropdown_menu-ul-link ${
+                            `dropdown_menu-ul-link hover:bg-main-indigo block p-4 text-[0.815rem] font-light text-black transition-all duration-200 hover:text-white ${
                               subIdx !== item.subMenu.length - 1
                                 ? 'border-b border-dashed border-gray-500'
                                 : ''
@@ -205,7 +212,9 @@ const Navbar = () => {
                           }
                           onClick={() => setOpenDropdown(null)}
                         >
-                          {subIdx === 0 && <hr></hr>}
+                          {subIdx === 0 && (
+                            <hr className="absolute top-0 left-0 h-[5px] w-full border-none bg-[#ffb7c5] outline-none"></hr>
+                          )}
                           <span className={`font-medium tracking-wider`}>{sub.name}</span>
                         </NavLink>
                       </li>
@@ -216,7 +225,9 @@ const Navbar = () => {
             ))}
             <motion.div variants={itemVariants}>
               <Link to={'/contact-us'}>
-                <button className="contact-btn">Contact us</button>
+                <button className="contact-btn bg-cta-red hover:bg-cta-hover cursor-pointer border px-7 py-3 text-[0.875rem] font-semibold tracking-wide text-white uppercase">
+                  Contact us
+                </button>
               </Link>
             </motion.div>
           </motion.ul>
@@ -226,28 +237,30 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div
             aria-label={isMobileMenuOpen ? 'background blur overlay' : ''}
-            className="bg-overlay"
+            className="bg-overlay fixed inset-0 z-10 w-full bg-black/50 backdrop-blur-sm"
             onClick={() => setIsMobileMenuOpen(false)}
           />
         )}
 
         {/* Mobile and Medium Device NavLinks */}
         {isMobileMenuOpen && (
-          <div className="mobile-menu">
+          <div className="mobile-menu absolute top-0 left-0 z-20 min-h-dvh w-80 bg-white md:w-[32rem]">
             <RxCross2
               size={25}
               className="absolute top-8 right-4 cursor-pointer"
               onClick={handleMobileMenuToggle}
             />
 
-            <ul className={`mobile-ul ${MediumDevice ? 'block' : 'hidden'}`}>
+            <ul
+              className={`mobile-ul absolute top-25 right-0 left-0 z-50 flex min-h-dvh w-80 flex-col text-left font-medium md:w-[32rem] md:pr-4 ${MediumDevice ? 'block' : 'hidden'}`}
+            >
               {navLinks.map((item, idx) => (
                 <li key={idx}>
                   {item.link && item.name != 'our courses' ? (
                     <NavLink
                       to={item.link}
                       className={({ isActive }) =>
-                        `mobile_ul-link ${isActive ? 'text-active-link' : ''}`
+                        `mobile_ul-link block border-b border-b-gray-200 px-4 py-3 text-black transition-all duration-200 hover:bg-gray-100 ${isActive ? 'text-active-link' : ''}`
                       }
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -257,7 +270,7 @@ const Navbar = () => {
                     <span className="flex flex-col items-start">
                       <button
                         onClick={() => handleDropdownToggle(idx)}
-                        className="mobile_ul-btn"
+                        className="mobile_ul-btn flex w-full justify-between border-b border-b-gray-200 px-4 py-3 text-left text-black transition-colors duration-200 hover:bg-gray-100 focus:outline-none"
                         aria-expanded={openDropdown === idx}
                         aria-haspopup="true"
                       >

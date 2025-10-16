@@ -16,7 +16,7 @@ const ServiceDetail = () => {
 
   if (!matchedService) {
     return (
-      <div className="wrapper mt-10 flex min-h-screen flex-col items-center justify-center text-center">
+      <div className="wrapper relative z-30 mt-10 flex min-h-screen w-full flex-col items-center justify-center rounded-lg bg-gradient-to-br from-gray-50 to-red-50 text-center md:mt-2 md:border md:border-gray-200 md:p-6">
         <h2 className="text-2xl font-semibold text-gray-700">Service Not Found</h2>
         <Link
           to="/services"

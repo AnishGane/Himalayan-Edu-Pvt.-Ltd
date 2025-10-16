@@ -21,7 +21,7 @@ const CheckList = () => {
 
   return (
     <motion.div
-      className="checklist"
+      className="checklist flex flex-col gap-3 text-gray-700"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

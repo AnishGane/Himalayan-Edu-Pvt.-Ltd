@@ -5,7 +5,10 @@ import TestimonialCard from './TestimonialCard';
 
 const Testimonial = () => {
   return (
-    <section id="home_testimonial" className="relative">
+    <section
+      id="home_testimonial"
+      className="bg-section-bg relative w-full overflow-x-hidden pt-8 pb-12 2xl:px-40"
+    >
       {/* Bottom Fade Grid Background */}
       <div
         className="absolute inset-0 z-0"
@@ -22,13 +25,13 @@ const Testimonial = () => {
       />
 
       {/* Bottom fade overlay */}
-      <div className="bottom_fade"></div>
+      <div className="bottom_fade pointer-events-none absolute bottom-0 left-0 z-10 h-14 w-full bg-gradient-to-t from-white to-transparent"></div>
 
       {/* Top fade overlay */}
-      <div className="top_fade"></div>
+      <div className="top_fade pointer-events-none absolute top-0 left-0 z-10 h-20 w-full bg-gradient-to-b from-white to-transparent"></div>
 
       {/* Content */}
-      <div className="home_content">
+      <div className="home_content relative z-20 w-full px-3">
         <Title
           className={'leading-2 md:leading-4 lg:leading-10'}
           subheading={'What Student Says'}

@@ -58,7 +58,7 @@ const AboutWrapper = () => {
 
 const App = () => {
   return (
-    <main>
+    <main className="w-full overflow-x-hidden">
       {/* Header */}
       <header className="fixed top-0 left-0 z-50 w-full bg-white">
         <Banner />

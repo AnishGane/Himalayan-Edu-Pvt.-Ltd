@@ -8,7 +8,7 @@ const ClassDetails = () => {
   return (
     <section
       id="class_details"
-      className="wide mx-auto mt-4 mb-12 w-full max-w-5xl rounded-lg bg-gradient-to-br from-gray-50 to-red-50 px-5 py-2 shadow-md md:my-16 md:border md:border-gray-200 md:px-12 md:py-8"
+      className="mx-auto mt-4 mb-12 w-full max-w-5xl rounded-lg bg-gradient-to-br from-gray-50 to-red-50 px-5 py-2 tracking-wide shadow-md md:my-16 md:border md:border-gray-200 md:px-12 md:py-8"
     >
       <div className="min-h-[80dvh]">
         <h1 className="text-main-indigo mb-4 text-4xl font-bold">{matchedClass.title}</h1>

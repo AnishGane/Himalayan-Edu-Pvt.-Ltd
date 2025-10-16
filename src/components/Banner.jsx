@@ -11,19 +11,19 @@ import { AiFillInstagram } from 'react-icons/ai';
 const Banner = () => {
   const mediumSize = useMediaQuery({ maxWidth: 1037 });
   return (
-    <section className={`banner ${mediumSize ? 'hidden' : 'block'}`}>
-      <div>
+    <section className={`hidden md:px-2 lg:block 2xl:px-36 ${mediumSize ? 'hidden' : 'block'}`}>
+      <div className="flex max-w-full flex-row items-center justify-between gap-5 px-5 py-2">
         <div className="flex items-center justify-center gap-10">
-          <div className="left-div">
+          <div className="left-div flex items-center justify-center gap-1 leading-0">
             <MdEmail fill="#1A2E55" size={18} />
             <p className="text-[0.88rem] text-slate-700">himalayanedu@gmail.com</p>
           </div>
-          <div className="left-div">
+          <div className="left-div flex items-center justify-center gap-1 leading-0">
             <BsFillTelephoneFill fill="#1A2E55" size={16} />
             <p className="text-[0.78rem] text-slate-700">+977 981234567</p>
           </div>
         </div>
-        <div className="banner_socials">
+        <div className="banner_socials flex items-center justify-center gap-6">
           {socials.map((social, index) => (
             <a href={social.link} key={index} target="_blank" rel="noopener noreferrer">
               <social.icon
@@ -45,7 +45,7 @@ const Banner = () => {
           ))}
         </div>
       </div>
-      <hr />
+      <hr className="mx-auto h-[1px] w-[98%] border-none bg-gray-300" />
     </section>
   );
 };

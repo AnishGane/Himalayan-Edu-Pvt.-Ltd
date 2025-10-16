@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 const GridCard = ({ cardData }) => {
   return (
     <motion.div
-      className="cardData_card relative"
+      className="cardData_card relative flex w-full flex-col items-center justify-start overflow-hidden"
       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
       initial={{ opacity: 0, y: 30, filter: 'blur(1px)' }}
       whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
@@ -26,7 +26,7 @@ const GridCard = ({ cardData }) => {
         <img
           src={cardData.image}
           alt={`${cardData.title || cardData.name} image`}
-          className={` ${
+          className={`aspect-[4/3] w-full rounded-t-sm object-cover transition-transform duration-300 ${
             !cardData.post ? 'hover:scale-[1.019]' : 'grayscale-50 hover:grayscale-0'
           }`}
         />
@@ -39,7 +39,7 @@ const GridCard = ({ cardData }) => {
             transition={{ duration: 0.5, ease: 'easeInOut' }}
           >
             <Link to={cardData.link}>
-              <button className="view_btn">
+              <button className="view_btn bg-cta-red hover:bg-cta-hover absolute top-5 right-5 grid cursor-pointer place-items-center rounded-full p-2 text-white">
                 <TbLocation size={20} className="-translate-x-[1px]" />
               </button>
             </Link>
@@ -49,11 +49,17 @@ const GridCard = ({ cardData }) => {
 
       {/* Title / Post */}
       {cardData.title ? (
-        <span className="block text-center font-medium">{cardData.title}</span>
+        <span className="bg-zen-gray block w-full py-4 text-center text-2xl font-medium tracking-wide">
+          {cardData.title}
+        </span>
       ) : cardData.post ? (
         <div className="flex w-full flex-col items-center justify-center text-center">
-          <h3 className="font-semibold">{cardData.name}</h3>
-          <p className="text-sm text-gray-600">{cardData.post}</p>
+          <h3 className="bg-zen-gray w-full pt-4 pb-1 text-center text-2xl font-semibold tracking-wide">
+            {cardData.name}
+          </h3>
+          <p className="bg-zen-gray text-charcoal-gray w-full pb-4 text-center text-sm tracking-wide">
+            {cardData.post}
+          </p>
         </div>
       ) : null}
     </motion.div>

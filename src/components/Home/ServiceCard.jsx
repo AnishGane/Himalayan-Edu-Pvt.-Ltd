@@ -7,7 +7,7 @@ const ServiceCard = ({ service }) => {
 
   return (
     <motion.div
-      className="service_card will-change-transform"
+      className="service_card flex h-full w-full flex-col items-center justify-center rounded-md border border-gray-300 bg-white p-5 tracking-wide will-change-transform"
       style={{
         boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px',
       }}
@@ -17,10 +17,16 @@ const ServiceCard = ({ service }) => {
       transition={{ duration: 0.3, ease: 'easeOut' }}
     >
       <service.icon className="text-main-indigo mt-3 text-2xl" size={48} />
-      <h1>{service.title}</h1>
-      <p>{service.description}</p>
+      <h1 className="text-main-indigo my-5 text-center text-lg font-semibold sm:text-xl md:text-2xl">
+        {service.title}
+      </h1>
+      <p className="text-charcoal-gray max-w-[18.8rem] text-center leading-[1.315rem] sm:max-w-sm">
+        {service.description}
+      </p>
       <Link to={`/services/${slug}`}>
-        <button>Read More</button>
+        <button className="bg-cta-red hover:bg-cta-hover mt-8 mb-4 cursor-pointer rounded-sm px-6 py-3 text-white transition-all duration-300 hover:scale-[1.015]">
+          Read More
+        </button>
       </Link>
     </motion.div>
   );
