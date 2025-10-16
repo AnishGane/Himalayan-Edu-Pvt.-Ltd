@@ -1,6 +1,7 @@
 import React, { Suspense } from 'react';
 import { CarouselSlides } from '../constants/data';
 import Loading from '../components/Loading';
+import PageTitle from '../components/PageTitle';
 
 // Lazy load Testimonial
 const Testimonial = React.lazy(() => import('../components/Home/Testimonial'));
@@ -12,16 +13,19 @@ const TestPreparation = React.lazy(() => import('../components/Home/TestPreparat
 
 const Home = () => {
   return (
-    <section>
-      <Suspense fallback={<Loading />}>
-        <Carousel images={CarouselSlides} autoPlay={true} />
-        <Hero />
-        <Service />
-        <TestPreparation />
-        <Testimonial />
-        <OurTeam />
-      </Suspense>
-    </section>
+    <>
+      <PageTitle title="Home - Himalayan Educational Group Service Pvt. Ltd." />
+      <section>
+        <Suspense fallback={<Loading />}>
+          <Carousel images={CarouselSlides} autoPlay={true} />
+          <Hero />
+          <Service />
+          <TestPreparation />
+          <Testimonial />
+          <OurTeam />
+        </Suspense>
+      </section>
+    </>
   );
 };
 
