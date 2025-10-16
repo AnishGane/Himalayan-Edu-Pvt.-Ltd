@@ -31,7 +31,7 @@ const CourseDetail = () => {
       exit={{ opacity: 0, y: 30 }}
       transition={{ duration: 0.4, ease: 'easeInOut' }}
       id="courses_details"
-      className="mx-auto mt-4 mb-12 w-full max-w-5xl rounded-lg bg-gradient-to-br from-gray-50 to-red-50 px-5 py-2 tracking-wide shadow-md md:my-16 md:border md:border-gray-200 md:px-12 md:py-8"
+      className="mx-auto mt-4 mb-12 w-full max-w-5xl rounded-lg from-gray-50 to-red-50 px-5 py-2 tracking-wide md:my-16 md:border md:border-gray-200 md:bg-gradient-to-br md:px-12 md:py-8 md:shadow-md"
     >
       <div className="max-w-4xl">
         <h1 className="text-main-indigo mb-6 text-4xl font-bold">{matchedCourse.title}</h1>
@@ -193,7 +193,7 @@ const CourseDetail = () => {
           </div>
         )}
 
-        <p className="text-main-indigo mt-6">
+        <p className="text-main-indigo mt-6 mb-4">
           If you're interested feel free to
           <Link className="text-cta-red hover:text-cta-hover ml-1 underline" to="/contact_us">
             contact us

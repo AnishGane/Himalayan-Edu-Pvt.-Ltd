@@ -5,7 +5,7 @@ import StyledHeading from '../../components/StyleHeading';
 
 const Introduction = () => {
   return (
-    <section id="about_introduction" className="mb-16 relative p-3.5 md:mt-6 md:p-8 lg:mx-40">
+    <section id="about_introduction" className="relative mb-16 p-3.5 md:mt-6 md:p-8 lg:mx-40">
       <StyledHeading text="Introduction" />
 
       <div className="flex flex-col items-start gap-6 space-x-10 md:gap-10 lg:mt-5 lg:flex-row lg:gap-0 2xl:space-x-16">

@@ -9,8 +9,8 @@ import { courses } from '../../constants/data';
 
 const Courses = () => {
   return (
-    <section id="courses" className="mt-4 mb-20 w-full px-3 md:mt-12 2xl:px-40">
-      <div className="top_section mb-14 max-w-3xl">
+    <section id="courses" className="mt-4 mb-8 w-full px-3 md:mt-12 md:mb-20 2xl:px-40">
+      <div className="top_section mb-6 max-w-3xl md:mb-14">
         <StyledHeading text={'What We Offer'} />
         <p className="mt-3 text-justify leading-relaxed text-slate-800">
           Embark on your Japanese learning journey with us, where every course level offers a
@@ -22,7 +22,7 @@ const Courses = () => {
       </div>
 
       {/* Courses Cards */}
-      <div className="bottom_section mt-10 w-full rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-red-50 p-6">
+      <div className="bottom_section w-full rounded-lg border border-gray-200 bg-gradient-to-br from-gray-50 to-red-50 px-2 py-4 md:mt-10 md:p-6">
         {/* Top 3 cards */}
         <div className="grid grid-cols-1 gap-x-8 gap-y-6 md:grid-cols-2 md:gap-y-12 lg:grid-cols-3">
           {courses.slice(0, 3).map((course, index) => (

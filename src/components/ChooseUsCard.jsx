@@ -1,15 +1,19 @@
 import React from 'react';
 import { motion } from 'motion/react';
+import { useDisableMotion } from '../hooks/useDisableMotion';
 
 const ChooseUsCard = ({ feature, index }) => {
+  const isMobile = useDisableMotion();
   return (
     <motion.div
       key={index}
       className="flex flex-col items-center rounded-md border border-gray-300 bg-white px-16 py-10 text-center shadow-md transition-shadow duration-200 hover:shadow-lg"
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.4, delay: index * 0.1, ease: 'easeInOut' }}
+      {...(!isMobile && {
+        initial: { opacity: 0, y: 40 },
+        whileInView: { opacity: 1, y: 0 },
+        viewport: { once: true },
+        transition: { duration: 0.4, delay: index * 0.1, ease: 'easeInOut' },
+      })}
     >
       <div className="mb-4">
         {

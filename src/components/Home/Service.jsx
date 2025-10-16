@@ -34,8 +34,8 @@ const Service = () => {
           heading={'Our Services'}
         />
 
-        <div className="wrapper relative z-30 mt-6 w-full rounded-lg bg-gradient-to-br from-gray-50 to-red-50 md:mt-2 md:border md:border-gray-200 md:p-6">
-          <article className="article_card grid grid-cols-1 gap-7 gap-x-8 gap-y-12 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
+        <div className="wrapper relative z-30 mt-6 w-full rounded-lg bg-transparent from-gray-50 to-red-50 md:mt-2 md:border md:border-gray-200 md:bg-gradient-to-br md:p-6">
+          <article className="article_card grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
             {ServiceLists.map((service, index) => (
               <ServiceCard
                 key={index}

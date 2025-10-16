@@ -2,25 +2,30 @@ import React from 'react';
 import { TbLocation } from 'react-icons/tb';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
+import { useDisableMotion } from '../hooks/useDisableMotion';
 
 const GridCard = ({ cardData }) => {
+  const isMobile = useDisableMotion();
+
   return (
     <motion.div
       className="cardData_card relative flex w-full flex-col items-center justify-start overflow-hidden"
       style={{ boxShadow: 'rgba(99, 99, 99, 0.2) 0px 2px 8px 0px' }}
-      initial={{ opacity: 0, y: 30, filter: 'blur(1px)' }}
-      whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-      viewport={{ once: false, amount: 0.3 }}
-      transition={{
-        type: 'spring',
-        stiffness: 60, // ↓ reduced stiffness → smoother motion
-        damping: 25, // ↑ increased damping → less bounce
-        duration: 1,
-      }}
-      whileHover={{
-        scale: 1.015,
-        transition: { type: 'spring', stiffness: 200, damping: 20 },
-      }}
+      {...(!isMobile && {
+        initial: { opacity: 0, y: 30, filter: 'blur(1px)' },
+        whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+        viewport: { once: false, amount: 0.1 },
+        transition: {
+          type: 'spring',
+          stiffness: 60,
+          damping: 25,
+          duration: 1,
+        },
+        whileHover: {
+          scale: 1.015,
+          transition: { type: 'spring', stiffness: 200, damping: 20 },
+        },
+      })}
     >
       <div className="relative overflow-hidden">
         <img
@@ -34,9 +39,11 @@ const GridCard = ({ cardData }) => {
         {cardData.title && (
           <motion.div
             className="absolute inset-0 flex items-center justify-center bg-black/0 transition-all duration-300 hover:bg-black/20"
-            initial={{ opacity: 0 }}
-            whileHover={{ opacity: 1 }}
-            transition={{ duration: 0.5, ease: 'easeInOut' }}
+            {...(!isMobile && {
+              initial: { opacity: 0 },
+              whileHover: { opacity: 1 },
+              transition: { duration: 0.5, ease: 'easeInOut' },
+            })}
           >
             <Link to={cardData.link}>
               <button className="view_btn bg-cta-red hover:bg-cta-hover absolute top-5 right-5 grid cursor-pointer place-items-center rounded-full p-2 text-white">

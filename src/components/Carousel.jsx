@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
+import { useDisableMotion } from '../hooks/useDisableMotion';
 
 const AUTO_PLAY_INTERVAL_MS = 4000;
 
@@ -10,6 +11,7 @@ const Carousel = ({ images = [], autoPlay }) => {
   const [current, setCurrent] = useState(0);
   const timerRef = useRef(null);
   const touchStartXRef = useRef(null);
+  const isMobile = useDisableMotion();
 
   const goTo = (index) => {
     if (slides.length === 0) return;
@@ -51,7 +53,7 @@ const Carousel = ({ images = [], autoPlay }) => {
         className="relative h-[480px] overflow-hidden sm:h-[360px] md:h-[460px] lg:h-[700px]"
       >
         {/* Slides wrapper */}
-        <motion.div
+        <div
           className="slide_wrapper flex h-full w-full transition-transform duration-700 ease-out"
           style={{ transform: `translateX(-${current * 100}%)` }}
         >
@@ -72,9 +74,11 @@ const Carousel = ({ images = [], autoPlay }) => {
               {current === idx && (
                 <motion.div
                   className="overlay_content absolute top-10 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 px-6 text-center text-white sm:top-1/2 sm:-translate-y-1/2"
-                  initial={{ opacity: 0, y: 40 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.2 }}
+                  {...(!isMobile && {
+                    initial: { opacity: 0, y: 40 },
+                    animate: { opacity: 1, y: 0 },
+                    transition: { duration: 0.6, delay: 0.2 },
+                  })}
                 >
                   {slide.tagline && (
                     <div className="tagline animate-fadeIn mx-auto mb-5 flex max-w-fit items-center justify-center gap-2 rounded-full bg-gradient-to-r from-green-500/30 to-blue-500/30 px-5 py-2 text-[9px] font-semibold tracking-wider text-green-200 uppercase shadow-lg backdrop-blur-md sm:mb-4 sm:text-[11px]">
@@ -98,7 +102,7 @@ const Carousel = ({ images = [], autoPlay }) => {
 
                   {slide.cta && (
                     <Link to={slide.href}>
-                      <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer rounded-sm px-6 py-4 text-xs font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5">
+                      <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer rounded-sm px-6 py-4 text-[13px] font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5">
                         {slide.cta}
                       </button>
                     </Link>
@@ -107,7 +111,7 @@ const Carousel = ({ images = [], autoPlay }) => {
               )}
             </div>
           ))}
-        </motion.div>
+        </div>
 
         {/* Arrows */}
         {slides.length > 1 && (

@@ -4,11 +4,13 @@ import { Link } from 'react-router-dom';
 
 import Loading from '../Loading';
 import { motion } from 'motion/react';
+import { useDisableMotion } from '../../hooks/useDisableMotion';
 import CheckList from './CheckList';
 
 const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
 const Hero = () => {
+  const isMobile = useDisableMotion();
   return (
     <section id="hero" className="bg-section-bg relative w-full overflow-x-hidden py-10 2xl:px-40">
       {/* Diagonal Fade Grid Background - Top Right */}
@@ -44,9 +46,9 @@ const Hero = () => {
             className={'leading-9 md:leading-12 lg:leading-14'}
           />
           <motion.p
-            initial={{ opacity: 0, y: 40, filter: 'blur(6px)' }}
-            whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-            transition={{ duration: 0.4, delay: 0.2, ease: 'easeOut' }}
+            initial={isMobile ? false : { opacity: 0, y: 40, filter: 'blur(6px)' }}
+            whileInView={isMobile ? false : { opacity: 1, y: 0, filter: 'blur(0px)' }}
+            transition={isMobile ? false : { duration: 0.4, delay: 0.2, ease: 'easeOut' }}
             className="para mb-8 pr-3 text-justify tracking-wide text-gray-900"
           >
             Topa International Education Center was established in 2004 with the aim to facilitate

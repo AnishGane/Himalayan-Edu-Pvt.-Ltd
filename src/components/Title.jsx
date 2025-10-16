@@ -1,34 +1,41 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { useMediaQuery } from 'react-responsive';
+import { useDisableMotion } from '../hooks/useDisableMotion';
 
 const Title = ({ subheading, heading, className, whileInView = true }) => {
   const isSmallScreen = useMediaQuery({ query: '(max-width: 767px)' });
+  const isMobile = useDisableMotion();
 
   // Logic:
   // - Always animate whileInView on small screens
   // - Respect prop on medium & large screens
   const shouldAnimateInView = isSmallScreen ? true : whileInView;
 
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.65, ease: 'easeOut', staggerChildren: 0.25 },
-    },
-  };
+  // ✅ Disable motion variants if on mobile
+  const containerVariants = isMobile
+    ? {}
+    : {
+        hidden: { opacity: 0, y: 50 },
+        visible: {
+          opacity: 1,
+          y: 0,
+          transition: { duration: 0.65, ease: 'easeOut', staggerChildren: 0.25 },
+        },
+      };
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: { opacity: 1, y: 0 },
-  };
+  const itemVariants = isMobile
+    ? {}
+    : {
+        hidden: { opacity: 0, y: 20 },
+        visible: { opacity: 1, y: 0 },
+      };
 
   return (
     <motion.div
       variants={containerVariants}
-      initial="hidden"
-      {...(shouldAnimateInView
+      initial={isMobile ? false : 'hidden'}
+      {...(shouldAnimateInView && !isMobile
         ? { whileInView: 'visible', viewport: { once: false, amount: 0.5 } }
         : { animate: 'visible' })}
       className="flex flex-col gap-2"
@@ -39,9 +46,9 @@ const Title = ({ subheading, heading, className, whileInView = true }) => {
       </motion.div>
 
       <motion.h1
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.7, ease: 'easeOut' }}
+        initial={isMobile ? false : { opacity: 0, y: 20 }}
+        animate={isMobile ? false : { opacity: 1, y: 0 }}
+        transition={isMobile ? {} : { duration: 0.7, ease: 'easeOut' }}
         className={`mb-4 text-[1.875rem] font-bold text-slate-900 uppercase sm:mb-8 md:text-[2.1rem] lg:text-5xl ${className}`}
       >
         {heading}

@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
 import { motion, useAnimation } from 'motion/react';
+import { useDisableMotion } from '../hooks/useDisableMotion';
 import { useLocation } from 'react-router-dom';
 
 import { navLinks, socials } from '../constants/data';
@@ -21,6 +22,7 @@ const Navbar = () => {
   const MediumDevice = useMediaQuery({ maxWidth: 1037 });
   const location = useLocation();
   const controls = useAnimation();
+  const isMobile = useDisableMotion();
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -72,45 +74,48 @@ const Navbar = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
-  const ulContainervariants = {
-    hidden: { opacity: 0, y: -30, filter: 'blur(6px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.6,
-        ease: [0.25, 0.1, 0.25, 1],
-        staggerChildren: 0.12,
-        delayChildren: 0.2,
-      },
-    },
-  };
+  const ulContainervariants = !isMobile
+    ? {
+        hidden: { opacity: 0, y: -30, filter: 'blur(6px)' },
+        visible: {
+          opacity: 1,
+          y: 0,
+          filter: 'blur(0px)',
+          transition: {
+            duration: 0.6,
+            ease: [0.25, 0.1, 0.25, 1],
+            staggerChildren: 0.12,
+            delayChildren: 0.2,
+          },
+        },
+      }
+    : {}; // empty for mobile
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: -15, scale: 0.95, filter: 'blur(4px)' },
-    visible: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: 'blur(0px)',
-      transition: {
-        duration: 0.55,
-        ease: [0.33, 1, 0.68, 1],
-      },
-    },
-  };
+  const itemVariants = !isMobile
+    ? {
+        hidden: { opacity: 0, y: -15, scale: 0.95, filter: 'blur(4px)' },
+        visible: {
+          opacity: 1,
+          y: 0,
+          scale: 1,
+          filter: 'blur(0px)',
+          transition: {
+            duration: 0.55,
+            ease: [0.33, 1, 0.68, 1],
+          },
+        },
+      }
+    : {}; // empty for mobile
 
   return (
     <>
       <nav ref={navRef} className="fixed z-50 w-full bg-white 2xl:px-36">
         <motion.div
-          animate={controls}
+          {...(!isMobile && { animate: controls })} // only animate on desktop
           className="relative flex max-w-full flex-row items-center justify-between gap-5 py-3 md:px-5 md:py-3"
         >
           <Link to="/">
             <img
-              // data-aos="slide-right"
               src="/images/Himalayan Logo.png"
               alt="Himalayan Language Institute Logo"
               className="ml-3 h-auto w-36 object-contain sm:w-36 md:ml-0"
@@ -145,14 +150,16 @@ const Navbar = () => {
 
           {/* Desktop NavLinks */}
           <motion.ul
-            variants={ulContainervariants}
-            initial="hidden"
-            animate="visible"
+            {...(!isMobile && {
+              variants: ulContainervariants,
+              initial: 'hidden',
+              animate: 'visible',
+            })}
             className={`${MediumDevice ? 'hidden' : ''} desktop-ul hidden items-center gap-4 lg:flex`}
           >
             {navLinks.map((item, idx) => (
               <motion.li
-                variants={itemVariants}
+                {...(!isMobile && { variants: itemVariants })}
                 key={idx}
                 className="group relative font-medium tracking-wide"
               >
@@ -316,7 +323,7 @@ const Navbar = () => {
               ))}
               <div className="flex w-full items-center justify-center border-y border-gray-300">
                 <Link to={'/contact-us'}>
-                  <button className="contact-btn my-2 ml-0">Contact Us</button>
+                  <button className="contact-btn my-3.5 ml-0">Contact Us</button>
                 </Link>
               </div>
               <Link

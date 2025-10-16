@@ -3,11 +3,13 @@ import { testimonials } from '../../constants/data';
 
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'motion/react';
+import { useDisableMotion } from '../../hooks/useDisableMotion';
 
 const TestimonialCard = () => {
   const [current, setCurrent] = useState(0);
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
+  const isMobile = useDisableMotion();
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % testimonials.length);
   const prevSlide = () =>
@@ -44,9 +46,11 @@ const TestimonialCard = () => {
     <>
       {/* Slider Container */}
       <motion.div
-        initial={{ opacity: 0, y: 30, filter: 'blur(6px)' }}
-        whileInView={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-        transition={{ duration: 0.5, ease: 'easeOut' }}
+        {...(!isMobile && {
+          initial: { opacity: 0, y: 30, filter: 'blur(6px)' },
+          whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
+          transition: { duration: 0.5, ease: 'easeOut' },
+        })}
         className="relative mx-auto mt-4 w-full lg:w-1/2"
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}

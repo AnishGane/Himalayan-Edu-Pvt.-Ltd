@@ -4,9 +4,11 @@ import { FaQuestionCircle, FaChevronDown } from 'react-icons/fa';
 import { useState } from 'react';
 import StyledHeading from '../../components/StyleHeading';
 import { faqData } from '../../constants/data';
+import { useDisableMotion } from '../../hooks/useDisableMotion';
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
+  const isMobile = useDisableMotion();
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -22,8 +24,8 @@ const Faq = () => {
           {faqData.map((faq, index) => (
             <motion.div
               key={index}
-              whileHover={{ scale: 1.01 }}
-              transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+              whileHover={isMobile ? {} : { scale: 1.01 }}
+              transition={isMobile ? {} : { type: 'spring', stiffness: 200, damping: 15 }}
               className="overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm transition-colors duration-200 hover:bg-gray-100"
             >
               <button
@@ -32,7 +34,7 @@ const Faq = () => {
               >
                 <div className="flex items-center gap-3">
                   <FaQuestionCircle className="faq_icon text-cta-red text-xl" />
-                  <h3 className="text-lg font-medium text-gray-900">{faq.question}</h3>
+                  <h3 className="font-medium text-gray-900 md:text-lg">{faq.question}</h3>
                 </div>
 
                 <motion.div
@@ -53,7 +55,7 @@ const Faq = () => {
                     transition={{ duration: 0.4, ease: 'easeInOut' }}
                     className="overflow-hidden"
                   >
-                    <p className="faq_answer px-12 pb-5 text-[15px] leading-relaxed text-gray-700">
+                    <p className="faq_answer px-12 pb-5 text-[13px] leading-relaxed text-gray-700 md:text-[15px]">
                       {faq.answer}
                     </p>
                   </motion.div>

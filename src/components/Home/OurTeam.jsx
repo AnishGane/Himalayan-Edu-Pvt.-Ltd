@@ -7,7 +7,7 @@ const OurTeam = () => {
   return (
     <section
       id="home_ourteam"
-      className="bg-section-bg relative w-full overflow-x-hidden pt-8 pb-12 2xl:px-40"
+      className="bg-section-bg relative w-full overflow-x-hidden pt-8 pb-4 md:pb-6 2xl:px-40"
     >
       {/* Bottom Fade Grid Background */}
       <div
@@ -39,7 +39,7 @@ const OurTeam = () => {
         />
 
         <div className="wrapper relative z-30 mt-6 mb-4 w-full rounded-lg bg-gradient-to-br from-gray-50 to-red-50 md:mt-2 md:border md:border-gray-200 md:p-6">
-          <article className="article_card grid grid-cols-1 gap-x-8 gap-y-12 md:grid-cols-2 lg:grid-cols-3">
+          <article className="article_card grid grid-cols-1 gap-6 md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3">
             {OurTeamData.map((team, index) => (
               <GridCard key={index} cardData={team} />
             ))}
