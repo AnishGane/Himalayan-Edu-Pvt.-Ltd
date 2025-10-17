@@ -5,6 +5,8 @@ import StyledHeading from '../../components/StyleHeading';
 import PageTitle from '../../components/PageTitle';
 import MetaTags from '../../components/MetaTags';
 
+// import Imgix from 'react-imgix';
+
 const Introduction = () => {
   const title = 'About - Himalayan Educational Group Service Pvt. Ltd.';
   const description = 'Learn more about Himalayan Educational Group Service Pvt. Ltd.';
@@ -20,7 +22,7 @@ const Introduction = () => {
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
             <img
-              src="/images/image_1.webp"
+              src="https://himalayanedu.imgix.net/image_1.webp?w=800&auto=format,compress"
               alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
               loading="lazy"
