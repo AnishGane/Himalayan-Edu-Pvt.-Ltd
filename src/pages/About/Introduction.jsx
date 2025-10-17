@@ -10,6 +10,9 @@ const Introduction = () => {
   const title = 'About - Himalayan Educational Group Service Pvt. Ltd.';
   const description = 'Learn more about Himalayan Educational Group Service Pvt. Ltd.';
   const url = 'https://localhost:5173/about/introduction';
+
+  // Base URL for Imgix: your live deployed site, without /public
+  const baseURL = 'https://himalayan-edu-pvt-ltd.onrender.com/';
   return (
     <>
       <MetaTags title={title} description={description} url={url} />
@@ -21,11 +24,13 @@ const Introduction = () => {
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
             <Imgix
-              src="images/image_1.webp"
-              baseURL="https://himalayan-edu-pvt-ltd.onrender.com/"
+              src="images/image_1.webp" // relative path from baseURL
+              baseURL={baseURL} // your live site URL
               sizes="(max-width: 600px) 480px, (max-width: 960px) 720px, 1080px"
+              imgixParams={{ auto: 'format,compress', fit: 'max' }}
               alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
+              loading="lazy"
             />
           </div>
 
