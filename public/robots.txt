@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://himalayan-edu-pvt-ltd.vercel.app/sitemap.xml

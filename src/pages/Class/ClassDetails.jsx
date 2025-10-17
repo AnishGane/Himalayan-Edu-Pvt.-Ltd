@@ -9,7 +9,7 @@ const ClassDetails = () => {
   const matchedClass = classes.find((c) => c.id === classId);
   const title = `${matchedClass.title} - Himalayan Educational Group Service Pvt. Ltd.`;
   const description = matchedClass.description;
-  const url = `https://localhost:5173/class/${matchedClass.id}`;
+  const url = `https://himalayan-edu-pvt-ltd.vercel.app/class/${matchedClass.id}`;
   return (
     <>
       <MetaTags title={title} description={description} url={url} />

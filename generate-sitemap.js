@@ -1,7 +1,7 @@
 import fs from 'fs';
 import { courses, ServiceLists } from './src/constants/data.js';
 
-const domain = 'https://localhost:5173';
+const domain = 'https://himalayan-edu-pvt-ltd.vercel.app';
 
 const staticUrls = [
   '/',

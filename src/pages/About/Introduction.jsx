@@ -10,7 +10,7 @@ import MetaTags from '../../components/MetaTags';
 const Introduction = () => {
   const title = 'About - Himalayan Educational Group Service Pvt. Ltd.';
   const description = 'Learn more about Himalayan Educational Group Service Pvt. Ltd.';
-  const url = 'https://localhost:5173/about/introduction';
+  const url = 'https://himalayan-edu-pvt-ltd.vercel.app/about/introduction';
   return (
     <>
       <MetaTags title={title} description={description} url={url} />

@@ -13,7 +13,7 @@ const Courses = () => {
   const title = 'Courses - Himalayan Educational Group Service Pvt. Ltd.';
   const description =
     'Embark on your Japanese learning journey with Himalayan Educational Group. Explore beginner to advanced courses, master grammar, vocabulary, and real-world conversation skills.';
-  const url = 'https://localhost:5173/courses';
+  const url = 'https://himalayan-edu-pvt-ltd.vercel.app/courses';
 
   return (
     <>

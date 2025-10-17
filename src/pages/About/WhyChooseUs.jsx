@@ -9,7 +9,7 @@ const WhyChooseUs = () => {
   const title = 'Why Choose Us - Himalayan Educational Group Service Pvt. Ltd.';
   const description =
     'Learn more about Himalayan Educational Group Service Pvt. Ltd. for why choosing us.';
-  const url = 'https://localhost:5173/about/why-choose-us';
+  const url = 'https://himalayan-edu-pvt-ltd.vercel.app/about/why-choose-us';
   return (
     <>
       <MetaTags title={title} description={description} url={url} />

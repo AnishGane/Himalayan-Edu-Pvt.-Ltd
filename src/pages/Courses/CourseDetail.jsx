@@ -28,7 +28,7 @@ const CourseDetail = () => {
 
   const title = `${matchedCourse.title} - Himalayan Educational Group Service Pvt. Ltd.`;
   const description = `Join our ${matchedCourse.title} course to improve your Japanese skills. Learn key grammar, vocabulary, and practical conversation with structured lessons.`;
-  const url = `https://localhost:5173/courses/${matchedCourse.id}`;
+  const url = `https://himalayan-edu-pvt-ltd.vercel.app/courses/${matchedCourse.id}`;
 
   return (
     <>

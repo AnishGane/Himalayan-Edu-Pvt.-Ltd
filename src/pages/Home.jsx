@@ -19,7 +19,7 @@ const Home = () => {
         title="Home - Himalayan Educational Group Service Pvt. Ltd."
         description="Start your Japanese learning journey with Himalayan Educational Group Service Pvt. Ltd. Explore courses, test preparation, and expert guidance to reach fluency."
         keywords="Japanese language course, JLPT, JFT, NAT, Himalayan Educational Group, online Japanese learning, Japanese classes, language school"
-        url="https://localhost:5173/"
+        url="https://himalayan-edu-pvt-ltd.vercel.app/"
       />
       <PageTitle title="Home - Himalayan Educational Group Service Pvt. Ltd." />
       <section>

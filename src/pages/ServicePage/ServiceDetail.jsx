@@ -33,7 +33,7 @@ const ServiceDetail = () => {
 
   const title = `${matchedService.title} - Himalayan Educational Group Service Pvt. Ltd.`;
   const description = matchedService.description;
-  const url = `https://localhost:5173/services/${serviceId}`;
+  const url = `https://himalayan-edu-pvt-ltd.vercel.app/services/${serviceId}`;
 
   return (
     <section

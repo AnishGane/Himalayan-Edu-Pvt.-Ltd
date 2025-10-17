@@ -51,7 +51,7 @@ const Contacts = () => {
   const title = 'Contact Us - Himalayan Educational Group Service Pvt. Ltd.';
   const description =
     'Get in touch with Himalayan Educational Group Service Pvt. Ltd. for any inquiries or feedback.';
-  const url = 'https://localhost:5173/contact-us';
+  const url = 'https://himalayan-edu-pvt-ltd.vercel.app/contact-us';
 
   return (
     <>

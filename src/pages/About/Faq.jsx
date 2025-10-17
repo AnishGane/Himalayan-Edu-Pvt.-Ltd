@@ -13,7 +13,7 @@ const Faq = () => {
   const title = 'Frequently Asked Questions - Himalayan Educational Group Service Pvt. Ltd.';
   const description =
     'Learn about our frequently asked questions and answers to help you understand our services and products better.';
-  const url = 'https://localhost:5173/about/faq';
+  const url = 'https://himalayan-edu-pvt-ltd.vercel.app/about/faq';
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);

@@ -7,6 +7,7 @@ const MetaTags = ({ title, description, url, image }) => {
       {/* Primary Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
+      <meta name="robots" content="index, follow" />
       <link rel="canonical" href={url} />
       {/* Keywords */}
       <meta

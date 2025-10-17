@@ -10,7 +10,7 @@ const Services = () => {
   const title = 'Services - Himalayan Educational Group Service Pvt. Ltd.';
   const description =
     'Discover our services including Japanese courses, translation, and cultural workshops designed for learners of all levels.';
-  const url = 'https://localhost:5173/services';
+  const url = 'https://himalayan-edu-pvt-ltd.vercel.app/services';
   return (
     <>
       <MetaTags title={title} description={description} url={url} />

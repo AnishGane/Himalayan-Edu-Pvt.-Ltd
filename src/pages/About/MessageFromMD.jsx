@@ -6,7 +6,7 @@ import PageTitle from '../../components/PageTitle';
 const MessageFromMD = () => {
   const title = 'Message from MD - Himalayan Educational Group Service Pvt. Ltd.';
   const description = 'This is a message from our Managing Director.';
-  const url = 'https://localhost:5173/about/message';
+  const url = 'https://himalayan-edu-pvt-ltd.vercel.app/about/message';
   return (
     <>
       <PageTitle title="Message from MD - Himalayan Educational Group Service Pvt. Ltd." />
