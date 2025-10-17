@@ -4,15 +4,11 @@ import { Link } from 'react-router-dom';
 import StyledHeading from '../../components/StyleHeading';
 import PageTitle from '../../components/PageTitle';
 import MetaTags from '../../components/MetaTags';
-import Imgix from 'react-imgix';
 
 const Introduction = () => {
   const title = 'About - Himalayan Educational Group Service Pvt. Ltd.';
   const description = 'Learn more about Himalayan Educational Group Service Pvt. Ltd.';
   const url = 'https://localhost:5173/about/introduction';
-
-  // Base URL for Imgix: your live deployed site, without /public
-  const baseURL = 'https://himalayan-edu-pvt-ltd.onrender.com/';
   return (
     <>
       <MetaTags title={title} description={description} url={url} />
@@ -23,11 +19,14 @@ const Introduction = () => {
         <div className="flex flex-col items-start gap-6 space-x-10 md:gap-10 lg:mt-5 lg:flex-row lg:gap-0 2xl:space-x-16">
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
-            <Imgix
-              src="images/image_1.webp" // relative path from baseURL
-              baseURL={baseURL} // your live site URL
+            <img
+              src="https://himalayanedu.imgix.net/images/image_1.webp?auto=format,compress"
+              srcSet="
+                 https://himalayanedu.imgix.net/images/image_1.webp?w=480&auto=format,compress 480w,
+                 https://himalayanedu.imgix.net/images/image_1.webp?w=720&auto=format,compress 720w,
+                 https://himalayanedu.imgix.net/images/image_1.webp?w=1080&auto=format,compress 1080w
+               "
               sizes="(max-width: 600px) 480px, (max-width: 960px) 720px, 1080px"
-              imgixParams={{ auto: 'format,compress', fit: 'max' }}
               alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
               loading="lazy"
