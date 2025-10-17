@@ -20,11 +20,11 @@ const Introduction = () => {
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
             <img
-              src="https://himalayanedu.imgix.net/image_1.webp?auto=format,compress"
+              src="https://himalayanedu.imgix.net/images/image_1.webp?auto=format,compress"
               srcSet="
-                 https://himalayanedu.imgix.net/image_1.webp?w=480&auto=format,compress 480w,
-                 https://himalayanedu.imgix.net/image_1.webp?w=720&auto=format,compress 720w,
-                 https://himalayanedu.imgix.net/image_1.webp?w=1080&auto=format,compress 1080w
+                 https://himalayanedu.imgix.net/images/image_1.webp?w=480&auto=format,compress 480w,
+                 https://himalayanedu.imgix.net/images/image_1.webp?w=720&auto=format,compress 720w,
+                 https://himalayanedu.imgix.net/images/image_1.webp?w=1080&auto=format,compress 1080w
                "
               sizes="(max-width: 600px) 480px, (max-width: 960px) 720px, 1080px"
               alt="About"
