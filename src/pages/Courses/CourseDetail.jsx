@@ -11,6 +11,7 @@ const CourseDetail = () => {
   const { courseId } = useParams();
   const [activeIndex, setActiveIndex] = useState(null);
   const matchedCourse = courses.find((c) => c.id === courseId);
+  const smDevice = window.innerWidth < 748;
 
   const toggleOutcome = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -61,13 +62,14 @@ const CourseDetail = () => {
             <div className="mb-8 flex w-full max-w-3xl flex-col flex-wrap items-start gap-x-8 gap-y-4 sm:flex-row">
               {matchedCourse.Levels.map((link, index) => (
                 <a
+                  key={index}
                   className="bg-main-indigo rounded-sm p-4 text-sm text-white shadow-md"
                   href={`#${link.levelId}`}
                   onClick={(e) => {
                     e.preventDefault(); // stop auto scroll
                     const target = document.getElementById(link.levelId);
                     if (target) {
-                      const yOffset = -144; // for fixed header height in px -(equals to using scroll-mt-36 in tailwind)
+                      const yOffset = smDevice ? -100 : -144; // for fixed header height in px -(equals to using scroll-mt-36 in tailwind)
                       const y = target.getBoundingClientRect().top + window.pageYOffset + yOffset;
                       window.scrollTo({ top: y, behavior: 'smooth' });
                     }

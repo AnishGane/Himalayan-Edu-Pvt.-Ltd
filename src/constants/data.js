@@ -316,7 +316,6 @@ const galleryData = [
   },
 ];
 
-// Data for feature cards
 const features = [
   {
     id: 1,
@@ -817,6 +816,40 @@ const classes = [
   },
 ];
 
+const footerLinks = [
+  {
+    name: 'Service',
+    link: '/services',
+  },
+  {
+    name: 'Our Courses',
+    link: '/courses',
+  },
+  {
+    name: 'Gallery',
+    link: '/gallery',
+  },
+  {
+    name: 'Message from MD',
+    link: '/about/message',
+  },
+  {
+    name: 'Test Preparation',
+    link: '/class/jlpt',
+  },
+  {
+    name: 'FAQs',
+    link: '/about/faq',
+  },
+  {
+    name: 'Contact Us',
+    link: '/contact-us',
+  },
+  {
+    name: ' ',
+  },
+];
+
 export {
   navLinks,
   galleryData,
@@ -831,4 +864,5 @@ export {
   faqData,
   courses,
   classes,
+  footerLinks,
 };

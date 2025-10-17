@@ -12,7 +12,6 @@ const Title = ({ subheading, heading, className, whileInView = true }) => {
   // - Respect prop on medium & large screens
   const shouldAnimateInView = isSmallScreen ? true : whileInView;
 
-  // ✅ Disable motion variants if on mobile
   const containerVariants = isMobile
     ? {}
     : {

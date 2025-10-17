@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { Suspense, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 import StyledHeading from '../components/StyleHeading';
 import PageTitle from '../components/PageTitle';
+import Loading from '../components/Loading';
 
 const Contacts = () => {
   const form = useRef();
@@ -33,7 +34,7 @@ const Contacts = () => {
     }
   };
 
-  // Function to render status message
+  // Send status message
   const sendMessage = () => {
     if (status === 'success')
       return <p className="font-semibold text-green-600">✅ Message sent — thank you!</p>;
@@ -102,7 +103,7 @@ const Contacts = () => {
               />
 
               <button
-                className="bg-cta-red hover:bg-cta-hover mx-auto mt-2 mb-6 w-fit cursor-pointer rounded-sm px-9 py-4 tracking-wide text-white transition-colors outline-none"
+                className="bg-cta-red hover:bg-cta-hover mx-auto mt-2 mb-6 w-fit cursor-pointer rounded-sm px-9 py-4 font-semibold tracking-wide text-white transition-colors outline-none"
                 type="submit"
               >
                 {status === 'sending' ? 'Sending…' : 'SUBMIT'}
@@ -113,15 +114,17 @@ const Contacts = () => {
             </form>
           </div>
 
-          <div className="map_container w-full overflow-hidden rounded-sm border border-gray-300 shadow-md">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.4134831958713!2d85.38285237615378!3d27.673612526977266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb058a73f99739%3A0x41f1148aae4502c5!2sHimalayan%20Educational%20Group%20Service!5e0!3m2!1sen!2snp!4v1760509673165!5m2!1sen!2snp"
-              className="h-[460px] w-full"
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
+          <Suspense fallback={<Loading />}>
+            <div className="map_container w-full overflow-hidden rounded-sm border border-gray-300 shadow-md">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3533.4134831958713!2d85.38285237615378!3d27.673612526977266!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb058a73f99739%3A0x41f1148aae4502c5!2sHimalayan%20Educational%20Group%20Service!5e0!3m2!1sen!2snp!4v1760509673165!5m2!1sen!2snp"
+                className="h-[460px] w-full"
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+          </Suspense>
         </div>
       </section>
     </>

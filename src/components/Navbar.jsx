@@ -7,7 +7,6 @@ import { useLocation } from 'react-router-dom';
 
 import { navLinks, socials } from '../constants/data';
 
-// Icons
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { MdOutlineEmail } from 'react-icons/md';
 import { RxCross2 } from 'react-icons/rx';
@@ -89,7 +88,7 @@ const Navbar = () => {
           },
         },
       }
-    : {}; // empty for mobile
+    : {};
 
   const itemVariants = !isMobile
     ? {
@@ -105,7 +104,7 @@ const Navbar = () => {
           },
         },
       }
-    : {}; // empty for mobile
+    : {};
 
   return (
     <>
@@ -118,7 +117,7 @@ const Navbar = () => {
             <img
               src="/images/Himalayan Logo.png"
               alt="Himalayan Educational Group Service Pvt. Ltd. Logo"
-              className="ml-3 h-auto w-36 object-contain sm:w-36 md:ml-0"
+              className="ml-3 h-auto w-36 border-none object-contain outline-none sm:w-36 md:ml-0"
               onClick={() => setIsMobileMenuOpen(false)}
             />
           </Link>

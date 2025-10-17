@@ -5,6 +5,7 @@ import { BsFillTelephoneFill } from 'react-icons/bs';
 import { FaLocationDot } from 'react-icons/fa6';
 import { MdPhoneAndroid } from 'react-icons/md';
 import { IoMailUnread } from 'react-icons/io5';
+import { footerLinks } from '../constants/data';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -23,7 +24,7 @@ const Footer = () => {
           <div>
             <h2 className="pb-5 text-[19px] font-bold">ABOUT US</h2>
 
-            <p className="mb-1 line-clamp-3">
+            <p className="mb-1 line-clamp-3 font-semibold">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur praesentium
               perferendis quo, itaque placeat dignissimos iure quos asperiores, nostrum, maxime a
               tenetur nulla voluptatibus incidunt. Harum culpa impedit libero, ducimus repellendus
@@ -45,45 +46,39 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-10">
             {/* First column */}
             <div>
-              <h2>QUICK LINKS</h2>
-              <ul className="flex flex-col gap-1">
-                <li className="w-fit text-[17px] transition-colors duration-200 hover:text-gray-200">
-                  <Link to={'/services'}>Services</Link>
-                </li>
-                <li className="w-fit text-[17px] transition-colors duration-200 hover:text-gray-200">
-                  <Link to={'/courses'}>Our Courses</Link>
-                </li>
-                <li className="w-fit text-[17px] transition-colors duration-200 hover:text-gray-200">
-                  <Link to={'/gallery'}>Gallery</Link>
-                </li>
-                <li className="w-fit text-[17px] transition-colors duration-200 hover:text-gray-200">
-                  <Link to={'/about/message'}>Message from MD</Link>
-                </li>
+              <h2 className="pb-5 text-[19px] font-bold">QUICK LINKS</h2>
+              <ul className="space-y-1 font-semibold">
+                {footerLinks.slice(0, 4).map((link, index) => (
+                  <li
+                    key={index}
+                    className="w-fit text-[16.5px] transition-colors duration-200 hover:text-gray-200"
+                  >
+                    <Link to={link.link}>{link.name}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
             {/* Second column */}
             <div>
-              <h2>QUICK LINKS</h2>
-              <ul>
-                <li>
-                  <Link to={'/class'}>Test Preparation</Link>
-                </li>
-                <li>
-                  <Link to={'/about/faq'}>FAQs</Link>
-                </li>
-                <li>
-                  <Link to={'/contact-us'}>Contact Us</Link>
-                </li>
-                <li>&nbsp;</li>
+              <h2 className="pb-5 text-[19px] font-bold">QUICK LINKS</h2>
+              <ul className="space-y-1 font-semibold">
+                {footerLinks.slice(4).map((link, index) => (
+                  <li
+                    key={index}
+                    className="w-fit text-[16.5px] transition-colors duration-200 hover:text-gray-200"
+                  >
+                    <Link to={link.link}>{link.name}</Link>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
           {/* Right div */}
           <div className="right-link w-full justify-self-end lg:w-auto">
-            <h2>CONTACT INFO</h2>
-            <div className="flex flex-col items-start gap-1 tracking-wide">
+            <h2 className="pb-5 text-[19px] font-bold">CONTACT INFO</h2>
+            <div className="flex flex-col items-start space-y-1 font-semibold tracking-wide">
               <p className="flex items-center justify-center gap-3">
                 <FaLocationDot size={15} />
                 <span className="text-[17px]">Minbhawan Marga 31, Kathmandu, Nepal</span>

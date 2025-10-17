@@ -7,7 +7,6 @@ import { checkLists } from '../../constants/data';
 const CheckList = () => {
   const isMobile = useDisableMotion();
 
-  // Define motion variants only if not mobile
   const containerVariants = isMobile
     ? {}
     : {

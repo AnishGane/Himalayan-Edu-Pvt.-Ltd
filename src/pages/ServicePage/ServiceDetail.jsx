@@ -66,7 +66,7 @@ const ServiceDetail = () => {
         {/* Back button */}
         <div className="mt-10 flex justify-center">
           <Link to="/services">
-            <button className="bg-cta-red hover:bg-cta-hover flex cursor-pointer items-center gap-1.5 rounded-lg px-8 py-4 text-white shadow-md transition-all duration-200 hover:scale-[1.015]">
+            <button className="bg-cta-red hover:bg-cta-hover flex cursor-pointer items-center gap-1.5 rounded-lg px-8 py-4 font-semibold text-white shadow-md transition-all duration-200 hover:scale-[1.015]">
               <FaArrowLeft className="size-4" /> Back to Services
             </button>
           </Link>
