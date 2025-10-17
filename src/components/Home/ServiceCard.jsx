@@ -30,8 +30,15 @@ const ServiceCard = ({ service }) => {
         {service.description}
       </p>
 
-      <Link to={`/services/${slug}`}>
-        <button className="bg-cta-red hover:bg-cta-hover mt-8 mb-4 cursor-pointer rounded-sm px-6 py-3 text-white transition-all duration-300 hover:scale-[1.015]">
+      <Link aria-label='Service card Read More' to={`/services/${slug}`}>
+        <button
+          aria-label="Read More"
+          className="mt-8 mb-4 cursor-pointer rounded-sm px-6 py-3 font-semibold transition-all duration-300 hover:scale-[1.015]"
+          style={{
+            backgroundColor: '#b91c1c', // darker red to improve contrast
+            color: '#ffffff', // text remains white
+          }}
+        >
           Read More
         </button>
       </Link>

@@ -33,6 +33,7 @@ const Footer = () => {
             </p>
             <div className="group flex w-fit flex-col">
               <Link
+                aria-label="read more about us"
                 to="/about/introduction"
                 className="font-semibold tracking-wide text-white transition-colors duration-300"
               >
@@ -53,7 +54,9 @@ const Footer = () => {
                     key={index}
                     className="w-fit text-[16.5px] transition-colors duration-200 hover:text-gray-200"
                   >
-                    <Link to={link.link}>{link.name}</Link>
+                    <Link aria-label="quick links" to={link.link}>
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>
@@ -68,7 +71,9 @@ const Footer = () => {
                     key={index}
                     className="w-fit text-[16.5px] transition-colors duration-200 hover:text-gray-200"
                   >
-                    <Link to={link.link}>{link.name}</Link>
+                    <Link aria-label="quick links" to={link.link}>
+                      {link.name}
+                    </Link>
                   </li>
                 ))}
               </ul>

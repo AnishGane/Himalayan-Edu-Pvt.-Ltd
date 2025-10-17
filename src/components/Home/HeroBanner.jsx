@@ -20,8 +20,11 @@ const HeroBanner = () => {
             STUDYING IN JAPAN OFFERS A UNIQUE OPPORTUNITY
           </p>
         </div>
-        <Link to={'/contact-us'}>
-          <button className="bg-main-indigo mt-4 cursor-pointer rounded-sm px-8 py-5 text-xs font-semibold tracking-wide text-white hover:bg-gray-900 sm:mt-0 sm:text-sm">
+        <Link aria-label="contact us" to={'/contact-us'}>
+          <button
+            aria-label="Contact Us"
+            className="bg-main-indigo mt-4 cursor-pointer rounded-sm px-8 py-5 text-xs font-semibold tracking-wide text-white hover:bg-gray-900 sm:mt-0 sm:text-sm"
+          >
             START NOW
           </button>
         </Link>

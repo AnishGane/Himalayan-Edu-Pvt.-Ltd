@@ -24,87 +24,80 @@ const Gallery = () => {
     setCurrentIndex((prev) => (prev === galleryData.length - 1 ? 0 : prev + 1));
   };
 
-  // handle overflow
+  // Prevent background scroll
   useEffect(() => {
     const html = document.documentElement;
-
-    if (showFullImage) {
-      html.style.overflow = 'hidden';
-    } else {
-      html.style.overflow = '';
-    }
-
+    html.style.overflow = showFullImage ? 'hidden' : '';
     return () => {
       html.style.overflow = '';
     };
   }, [showFullImage]);
 
+  // Click outside to close
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
     const handleClickOutside = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setShowFullImage(false);
+        closeImage();
       }
     };
-
     document.addEventListener('mousedown', handleClickOutside);
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-  // handle keyboard arrows - Right and Left
+  // Keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e) => {
-      if (e.key === 'ArrowRight') {
-        setCurrentIndex((prev) => (prev === galleryData.length - 1 ? 0 : prev + 1)); // next Image
-      } else if (e.key === 'ArrowLeft') {
-        setCurrentIndex((prev) => (prev === 0 ? galleryData.length - 1 : prev - 1)); // prev Image
-      }
+      if (!showFullImage) return;
+
+      if (e.key === 'ArrowRight') nextImage();
+      else if (e.key === 'ArrowLeft') prevImage();
+      else if (e.key === 'Escape') closeImage();
     };
 
     window.addEventListener('keydown', handleKeyPress);
     return () => window.removeEventListener('keydown', handleKeyPress);
-  }, [galleryData.length]);
+  }, [showFullImage]);
 
   return (
     <>
       <PageTitle title="Gallery - Himalayan Educational Group Service Pvt. Ltd." />
-      <section id="gallery_section" className="relative p-3.5 md:mt-6 md:p-8 lg:mx-40">
-        {/*  Diagonal Cross Grid Bottom Background */}
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundImage: `
-        linear-gradient(45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%),
-        linear-gradient(-45deg, transparent 49%, #e5e7eb 49%, #e5e7eb 51%, transparent 51%)
-      `,
-            backgroundSize: '40px 40px',
-            WebkitMaskImage:
-              'radial-gradient(ellipse 100% 80% at 50% 100%, #000 50%, transparent 90%)',
-            maskImage: 'radial-gradient(ellipse 100% 80% at 50% 100%, #000 50%, transparent 90%)',
-          }}
-        />
-
-        <StyledHeading text={'Gallery'} />
+      <section
+        id="gallery_section"
+        className="relative p-3.5 md:mt-6 md:p-8 lg:mx-40"
+        aria-labelledby="gallery-heading"
+      >
+        <StyledHeading text={'Gallery'} id="gallery-heading" />
 
         {/* Gallery Grid */}
         <div className="wrapper relative z-30 mt-6 mb-12 w-full rounded-lg bg-gradient-to-br from-gray-50 to-red-50 md:mt-2 md:border md:border-gray-200 md:p-6">
-          <article className="article_card grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3">
+          <article
+            className="article_card grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3"
+            role="list"
+          >
             {galleryData.map((g, index) => (
               <div
-                title="Click to Enlarge"
-                className="relative transition-all duration-200 hover:scale-[1.012]"
                 key={index}
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-red-300 transition-all duration-200 hover:scale-[1.012] md:aspect-16/11"
+                role="listitem"
               >
-                <img
-                  src={g.image}
-                  className="h-full w-full cursor-crosshair rounded-sm object-cover"
-                  alt={`Image No.${g.id}`}
-                  loading="lazy"
+                <button
                   onClick={() => openImage(index)}
-                />
-                <p className="bg-cta-red absolute bottom-2 left-3 flex h-4 w-4 items-center justify-center rounded-full p-4 text-sm font-semibold text-white">
+                  aria-label={`Open image ${index + 1} of ${galleryData.length}`}
+                  className="h-full w-full cursor-pointer focus:ring-2 focus:ring-red-500 focus:outline-none"
+                >
+                  <img
+                    src={g.image}
+                    alt={g.alt || `Gallery Image ${index + 1}`}
+                    loading="lazy"
+                    className="h-full w-full object-cover"
+                  />
+                </button>
+                <span
+                  className="bg-cta-red absolute bottom-2 left-3 flex h-4 w-4 items-center justify-center rounded-full p-4 text-sm font-semibold text-white"
+                  aria-hidden="true"
+                >
                   {index + 1}
-                </p>
+                </span>
               </div>
             ))}
           </article>
@@ -112,28 +105,36 @@ const Gallery = () => {
 
         {/* Fullscreen Lightbox */}
         {showFullImage && (
-          <div className="fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black/70 p-4 backdrop-blur-sm">
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-label={`Image ${currentIndex + 1} of ${galleryData.length}`}
+          >
             <div ref={modalRef} className="relative w-full max-w-5xl">
               {/* Close Button */}
               <button
-                className="absolute -top-8 -right-2 cursor-pointer text-3xl text-white transition hover:text-red-500 md:text-4xl lg:-right-8"
                 onClick={closeImage}
+                aria-label="Close image"
+                className="absolute -top-8 -right-2 text-3xl text-white transition hover:text-red-500 md:text-4xl lg:-right-8"
               >
                 <IoClose />
               </button>
 
               {/* Left Arrow */}
               <button
-                className="absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-left-10"
                 onClick={prevImage}
+                aria-label="Previous image"
+                className="absolute top-1/2 left-1 -translate-y-1/2 text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-left-10"
               >
                 <IoChevronBack />
               </button>
 
               {/* Right Arrow */}
               <button
-                className="absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-right-10"
                 onClick={nextImage}
+                aria-label="Next image"
+                className="absolute top-1/2 right-1 -translate-y-1/2 text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-right-10"
               >
                 <IoChevronForward />
               </button>
@@ -141,8 +142,8 @@ const Gallery = () => {
               {/* Full Image */}
               <img
                 src={galleryData[currentIndex].image}
-                alt={`Gallery ${currentIndex + 1}`}
-                className="max-h-[80vh] w-full cursor-pointer rounded-md object-contain"
+                alt={galleryData[currentIndex].alt || `Gallery Image ${currentIndex + 1}`}
+                className="max-h-[80vh] w-full rounded-md object-contain"
               />
 
               {/* Image Counter */}

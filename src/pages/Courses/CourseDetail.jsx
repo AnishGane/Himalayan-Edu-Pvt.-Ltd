@@ -91,50 +91,51 @@ const CourseDetail = () => {
             <div className="mb-6">
               <p className="text-main-indigo text-lg font-bold">Key Learning Outcomes:</p>
               <div className="mt-6 max-w-3xl space-y-4">
-                {matchedCourse?.Outcomes.map((outcome, index) => (
-                  <motion.div
-                    key={index}
-                    whileHover={{ scale: 1.01 }}
-                    transition={{ type: 'spring', stiffness: 200, damping: 15 }}
-                    className="outcome_div overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm transition-colors duration-200 hover:bg-gray-100"
-                  >
-                    <button
-                      className="flex w-full items-center justify-between p-5 text-left focus:outline-none"
-                      onClick={() => toggleOutcome(index)}
+                {matchedCourse?.Outcomes.map((outcome, index) => {
+                  const isOpen = activeIndex === index;
+                  return (
+                    <motion.div
+                      key={index}
+                      whileHover={{ scale: 1.01 }}
+                      transition={{ type: 'spring', stiffness: 200, damping: 15 }}
+                      className="outcome_div overflow-hidden rounded-lg border border-gray-300 bg-white shadow-sm transition-colors duration-200 hover:bg-gray-100"
                     >
-                      <p className="text-[17px] font-medium text-gray-900" key={index}>
-                        {outcome.name}
-                      </p>
-                      <div className="size-3.5 cursor-pointer">
-                        {activeIndex === index ? (
-                          <span>
-                            <FaMinus />
-                          </span>
-                        ) : (
-                          <span>
-                            <FaPlus />
-                          </span>
-                        )}
-                      </div>
-                    </button>
+                      <button
+                        aria-expanded={isOpen}
+                        aria-controls={`outcome-panel-${index}`}
+                        id={`outcome-header-${index}`}
+                        className="flex w-full items-center justify-between p-5 text-left focus:outline-none"
+                        onClick={() => toggleOutcome(index)}
+                      >
+                        <p className="text-[17px] font-medium text-gray-900" key={index}>
+                          {outcome.name}
+                        </p>
+                        <div className="size-3.5 cursor-pointer" aria-hidden="true">
+                          {isOpen ? <FaMinus /> : <FaPlus />}
+                        </div>
+                      </button>
 
-                    <AnimatePresence>
-                      {activeIndex === index && (
-                        <motion.div
-                          initial={{ height: 0, opacity: 0 }}
-                          animate={{ height: 'auto', opacity: 1 }}
-                          exit={{ height: 0, opacity: 0 }}
-                          transition={{ duration: 0.35, ease: 'easeInOut' }}
-                          className="overflow-hidden"
-                        >
-                          <p className="text-charcoal-gray px-5 pb-5 text-[15px] leading-relaxed">
-                            {outcome.description}
-                          </p>
-                        </motion.div>
-                      )}
-                    </AnimatePresence>
-                  </motion.div>
-                ))}
+                      <AnimatePresence>
+                        {activeIndex === index && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: 'auto', opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.35, ease: 'easeInOut' }}
+                            className="overflow-hidden"
+                            id={`outcome-panel-${index}`}
+                            role="region"
+                            aria-labelledby={`outcome-header-${index}`}
+                          >
+                            <p className="text-charcoal-gray px-5 pb-5 text-[15px] leading-relaxed">
+                              {outcome.description}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </motion.div>
+                  );
+                })}
               </div>
             </div>
           )}
@@ -154,6 +155,7 @@ const CourseDetail = () => {
                 {matchedCourse.Levels.map((level, index) => (
                   <div
                     id={level.levelId}
+                    aria-labelledby={`level-title-${index}`}
                     key={index}
                     className="space-y-5 rounded-md border border-gray-300 bg-white px-5 py-8 pl-5 shadow-md md:pr-16"
                   >
@@ -200,7 +202,11 @@ const CourseDetail = () => {
 
           <p className="text-main-indigo mt-6 mb-4">
             If you're interested feel free to
-            <Link className="text-cta-red hover:text-cta-hover ml-1 underline" to="/contact_us">
+            <Link
+              aria-label="contact us"
+              className="text-cta-red hover:text-cta-hover ml-1 underline"
+              to="/contact_us"
+            >
               contact us
             </Link>
             .

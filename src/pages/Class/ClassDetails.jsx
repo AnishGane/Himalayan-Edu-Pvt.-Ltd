@@ -19,6 +19,7 @@ const ClassDetails = () => {
           <p className="text-charcoal-gray mt-8">
             If interested, you can{' '}
             <Link
+              aria-label="contact us"
               to={'/contact-us'}
               className="text-cta-red hover:text-cta-hover cursor-pointer underline"
             >

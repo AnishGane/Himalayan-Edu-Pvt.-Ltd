@@ -25,7 +25,13 @@ const Banner = () => {
         </div>
         <div className="banner_socials flex items-center justify-center gap-6">
           {socials.map((social, index) => (
-            <a href={social.link} key={index} target="_blank" rel="noopener noreferrer">
+            <a
+              href={social.link}
+              key={index}
+              target="_blank"
+              aria-label="social"
+              rel="noopener noreferrer"
+            >
               <social.icon
                 fill="#1A2E55"
                 className={` ${

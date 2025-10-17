@@ -26,6 +26,7 @@ const ScrollToTop = () => {
       {showScrollTop && (
         <motion.button
           key="scrollToTopBtn"
+          aria-labelledby="scrollToTopBtn"
           onClick={scrollTop}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}

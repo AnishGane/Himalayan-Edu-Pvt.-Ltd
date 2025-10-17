@@ -45,8 +45,11 @@ const GridCard = ({ cardData }) => {
               transition: { duration: 0.5, ease: 'easeInOut' },
             })}
           >
-            <Link to={cardData.link}>
-              <button className="view_btn bg-cta-red hover:bg-cta-hover absolute top-5 right-5 grid cursor-pointer place-items-center rounded-full p-2 text-white">
+            <Link aria-label='"View' to={cardData.link}>
+              <button
+                aria-label="View"
+                className="view_btn bg-cta-red hover:bg-cta-hover absolute top-5 right-5 grid cursor-pointer place-items-center rounded-full p-2 text-white"
+              >
                 <TbLocation size={20} className="-translate-x-[1px]" />
               </button>
             </Link>
@@ -61,9 +64,9 @@ const GridCard = ({ cardData }) => {
         </span>
       ) : cardData.post ? (
         <div className="flex w-full flex-col items-center justify-center text-center">
-          <h3 className="bg-zen-gray w-full pt-4 pb-1 text-center text-2xl font-semibold tracking-wide">
+          <p className="bg-zen-gray w-full pt-4 pb-1 text-center text-2xl font-semibold tracking-wide">
             {cardData.name}
-          </h3>
+          </p>
           <p className="bg-zen-gray text-charcoal-gray w-full pb-4 text-center text-sm tracking-wide">
             {cardData.post}
           </p>

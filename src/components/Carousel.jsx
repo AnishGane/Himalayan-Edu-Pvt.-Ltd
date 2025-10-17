@@ -63,7 +63,7 @@ const Carousel = ({ images = [], autoPlay }) => {
                 src={slide.src}
                 alt={`slide-${idx + 1}`}
                 className="h-full w-full object-cover"
-                // loading="lazy"
+                loading="lazy"
                 draggable={false}
               />
 
@@ -101,8 +101,11 @@ const Carousel = ({ images = [], autoPlay }) => {
                   )}
 
                   {slide.cta && (
-                    <Link to={slide.href}>
-                      <button className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer rounded-sm px-6 py-4 text-[13px] font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5">
+                    <Link aria-label="Go to page" to={slide.href}>
+                      <button
+                        aria-label={`${slide.cta}`}
+                        className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer rounded-sm px-6 py-4 text-[13px] font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5"
+                      >
                         {slide.cta}
                       </button>
                     </Link>

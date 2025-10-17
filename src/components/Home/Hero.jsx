@@ -61,8 +61,11 @@ const Hero = () => {
           <CheckList />
 
           {/* CTA */}
-          <Link to={'/about/introduction'}>
-            <button className="bg-cta-red hover:bg-cta-hover mt-8 cursor-pointer rounded-sm px-8 py-4 text-xs font-semibold text-white uppercase transition-colors duration-200 sm:text-sm">
+          <Link aria-label="Learn more" to={'/about/introduction'}>
+            <button
+              aria-label="Learn more"
+              className="bg-cta-red hover:bg-cta-hover mt-8 cursor-pointer rounded-sm px-8 py-4 text-xs font-semibold text-white uppercase transition-colors duration-200 sm:text-sm"
+            >
               Learn more
             </button>
           </Link>

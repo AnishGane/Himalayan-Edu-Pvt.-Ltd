@@ -41,7 +41,7 @@ const Title = ({ subheading, heading, className, whileInView = true }) => {
     >
       <motion.div variants={itemVariants} className="mb-2 flex items-center gap-2 lg:mb-0">
         <div className="h-2 w-2 bg-[#f32f2fee]" />
-        <h4 className="text-[1rem] font-semibold">{subheading}</h4>
+        <p className="text-[1rem] font-semibold">{subheading}</p>
       </motion.div>
 
       <motion.h1

@@ -113,7 +113,7 @@ const Navbar = () => {
           {...(!isMobile && { animate: controls })} // only animate on desktop
           className="relative flex max-w-full flex-row items-center justify-between gap-5 py-3 md:px-5 md:py-3"
         >
-          <Link to="/">
+          <Link aria-label="Home" to="/">
             <img
               src="/images/Logo.webp"
               alt="Himalayan Educational Group Service Pvt. Ltd. Logo"
@@ -170,7 +170,7 @@ const Navbar = () => {
                     <span className="uppercase">{item.name}</span>
                   </NavLink>
                 ) : (
-                  <Link to={item?.link}>
+                  <Link aria-label="Go to" to={item?.link}>
                     <motion.button
                       variants={itemVariants}
                       initial="hidden"
@@ -228,8 +228,11 @@ const Navbar = () => {
               </motion.li>
             ))}
             <motion.div variants={itemVariants}>
-              <Link to={'/contact-us'}>
-                <button className="contact-btn bg-cta-red hover:bg-cta-hover cursor-pointer border px-7 py-3 text-[0.875rem] font-semibold tracking-wide text-white uppercase">
+              <Link aria-label="contact us" to={'/contact-us'}>
+                <button
+                  aria-label="contact us"
+                  className="contact-btn bg-cta-red hover:bg-cta-hover cursor-pointer border px-7 py-3 text-[0.875rem] font-semibold tracking-wide text-white uppercase"
+                >
                   Contact us
                 </button>
               </Link>
@@ -278,7 +281,11 @@ const Navbar = () => {
                         aria-expanded={openDropdown === idx}
                         aria-haspopup="true"
                       >
-                        <Link to={item?.link} onClick={() => setIsMobileMenuOpen(false)}>
+                        <Link
+                          aria-label="navigation link name"
+                          to={item?.link}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
                           <span className="tracking-wide capitalize">{item.name}</span>
                         </Link>
                         {item.subMenu && (
@@ -319,13 +326,20 @@ const Navbar = () => {
                 </li>
               ))}
               <div className="flex w-full items-center justify-center border-y border-gray-300">
-                <Link to={'/contact-us'}>
-                  <button className="contact-btn my-3.5 ml-0">Contact Us</button>
+                <Link
+                  aria-label="contact us"
+                  to={'/contact-us'}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <button aria-label="contact us" className="contact-btn my-3.5 ml-0">
+                    Contact Us
+                  </button>
                 </Link>
               </div>
               <Link
+                aria-label="contact us with email"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="hover:text-active-link mt-10 flex items-center justify-center gap-2"
+                className="mt-10 flex items-center justify-center gap-2"
                 to={'/contact'}
               >
                 <MdOutlineEmail />

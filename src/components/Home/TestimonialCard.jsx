@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { testimonials } from '../../constants/data';
-
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'motion/react';
 import { useDisableMotion } from '../../hooks/useDisableMotion';
@@ -17,14 +16,10 @@ const TestimonialCard = () => {
 
   useEffect(() => {
     let interval;
-
     if (window.innerWidth >= 768) {
       interval = setInterval(nextSlide, 3000);
     }
-
-    return () => {
-      if (interval) clearInterval(interval);
-    };
+    return () => interval && clearInterval(interval);
   }, []);
 
   const handleTouchStart = (e) => {
@@ -35,17 +30,18 @@ const TestimonialCard = () => {
     handleSwipe();
   };
   const handleSwipe = () => {
-    if (touchStartX.current - touchEndX.current > 50) {
-      nextSlide();
-    }
-    if (touchEndX.current - touchStartX.current > 50) {
-      prevSlide();
-    }
+    if (touchStartX.current - touchEndX.current > 50) nextSlide();
+    if (touchEndX.current - touchStartX.current > 50) prevSlide();
   };
+
   return (
     <>
       {/* Slider Container */}
       <motion.div
+        role="region"
+        aria-roledescription="carousel"
+        aria-label="Student testimonials"
+        aria-live="polite"
         {...(!isMobile && {
           initial: { opacity: 0, y: 30, filter: 'blur(6px)' },
           whileInView: { opacity: 1, y: 0, filter: 'blur(0px)' },
@@ -58,6 +54,9 @@ const TestimonialCard = () => {
         {testimonials.map((t, i) => (
           <div
             key={i}
+            role="group"
+            aria-roledescription="slide"
+            aria-label={`Testimonial ${i + 1} of ${testimonials.length}`}
             className={`transition-opacity duration-700 ease-in-out ${
               i === current ? 'opacity-100' : 'absolute inset-0 opacity-0'
             }`}
@@ -66,14 +65,14 @@ const TestimonialCard = () => {
               {/* Left Text */}
               <div className="flex-1 text-center md:text-left">
                 <p className="text-charcoal-gray mb-4 italic">“{t.text}”</p>
-                <h4 className="text-main-indigo text-lg font-semibold">{t.name}</h4>
+                <p className="text-main-indigo text-lg font-semibold">{t.name}</p>
                 <span className="text-charcoal-gray text-sm">{t.major}</span>
               </div>
               {/* Right Image */}
               <div className="flex-shrink-0">
                 <img
                   src={t.image}
-                  alt={t.name}
+                  alt={`Portrait of ${t.name}`}
                   className="h-32 w-32 rounded-full border-4 border-gray-200 object-cover md:h-40 md:w-40"
                 />
               </div>
@@ -83,12 +82,17 @@ const TestimonialCard = () => {
 
         {/* Arrows (hidden on small screens) */}
         <button
+          type="button"
+          aria-label="Previous testimonial"
           onClick={prevSlide}
           className="border-cta-red absolute top-1/2 -left-6 hidden -translate-y-1/2 cursor-pointer rounded-full border-2 bg-white p-2 shadow-md hover:bg-gray-100 md:flex"
         >
           <FaChevronLeft className="text-main-indigo text-lg" />
         </button>
+
         <button
+          type="button"
+          aria-label="Next testimonial"
           onClick={nextSlide}
           className="border-cta-red absolute top-1/2 -right-6 hidden -translate-y-1/2 cursor-pointer rounded-full border-2 bg-white p-2 shadow-md hover:bg-gray-100 md:flex"
         >
@@ -97,15 +101,23 @@ const TestimonialCard = () => {
       </motion.div>
 
       {/* Dots */}
-      <div className="mt-3 flex justify-center space-x-2 sm:mt-6">
+      <div
+        className="mt-3 flex justify-center space-x-2 sm:mt-6"
+        role="tablist"
+        aria-label="Select testimonial"
+      >
         {testimonials.map((_, i) => (
           <button
             key={i}
+            type="button"
+            role="tab"
+            aria-label={`View testimonial ${i + 1}`}
+            aria-selected={i === current}
             onClick={() => setCurrent(i)}
-            className={`h-3 w-3 cursor-pointer rounded-full transition-colors ${
+            className={`size-3 cursor-pointer rounded-full transition-colors ${
               i === current ? 'bg-cta-red hover:bg-cta-hover' : 'bg-gray-300'
             }`}
-          ></button>
+          />
         ))}
       </div>
     </>

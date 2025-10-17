@@ -58,7 +58,11 @@ const Introduction = () => {
             </p>
             <p>
               After a brief introduction, also check our{' '}
-              <Link className="text-cta-red hover:text-cta-hover font-bold" to={'/services'}>
+              <Link
+                aria-label="Services"
+                className="text-cta-red hover:text-cta-hover font-bold"
+                to={'/services'}
+              >
                 Services
               </Link>{' '}
               .
