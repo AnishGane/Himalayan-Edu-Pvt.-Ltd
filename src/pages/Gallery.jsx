@@ -91,12 +91,14 @@ const Gallery = () => {
                 <button
                   onClick={() => openImage(index)}
                   aria-label={`Open image ${index + 1} of ${galleryData.length}`}
-                  className="h-full w-full cursor-pointer focus:ring-2 focus:ring-red-500 focus:outline-none"
+                  className="h-full w-full cursor-pointer"
                 >
                   <img
                     src={g.image}
                     alt={g.alt || `Gallery Image ${index + 1}`}
                     loading="lazy"
+                    width={200}
+                    height={300}
                     className="h-full w-full object-cover"
                   />
                 </button>
