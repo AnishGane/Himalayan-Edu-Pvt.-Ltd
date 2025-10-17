@@ -21,10 +21,10 @@ const Introduction = () => {
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
             <Imgix
-              src="https://himalayanedu.imgix.net/images/image_1.webp"
-              alt="About"
+              src="images/image_1.webp"
+              baseURL="https://himalayan-edu-pvt-ltd.onrender.com/"
               sizes="(max-width: 600px) 480px, (max-width: 960px) 720px, 1080px"
-              imgixParams={{ auto: 'format,compress' }}
+              alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
             />
           </div>
