@@ -61,12 +61,13 @@ const Hero = () => {
           <CheckList />
 
           {/* CTA */}
-          <Link aria-label="Learn more" to={'/about/introduction'}>
+          <Link aria-label="Go to Introduction Page" to={'/about/introduction'}>
             <button
-              aria-label="Learn more"
+              aria-label="Learn more about Himalayan Educational Group Service Pvt. Ltd."
+              alt="go to introduction"
               className="bg-cta-red hover:bg-cta-hover mt-8 cursor-pointer rounded-sm px-8 py-4 text-xs font-semibold text-white uppercase transition-colors duration-200 sm:text-sm"
             >
-              Learn more
+              Learn more about us
             </button>
           </Link>
         </div>

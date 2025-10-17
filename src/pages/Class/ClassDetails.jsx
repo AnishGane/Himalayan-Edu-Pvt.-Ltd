@@ -2,12 +2,17 @@ import React from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { classes } from '../../constants/data';
 import PageTitle from '../../components/PageTitle';
+import MetaTags from '../../components/MetaTags';
 
 const ClassDetails = () => {
   const { classId } = useParams();
   const matchedClass = classes.find((c) => c.id === classId);
+  const title = `${matchedClass.title} - Himalayan Educational Group Service Pvt. Ltd.`;
+  const description = matchedClass.description;
+  const url = `https://localhost:5173/class/${matchedClass.id}`;
   return (
     <>
+      <MetaTags title={title} description={description} url={url} />
       <PageTitle title={`${matchedClass.title} - Himalayan Educational Group Service Pvt. Ltd.`} />
       <section
         id="class_details"

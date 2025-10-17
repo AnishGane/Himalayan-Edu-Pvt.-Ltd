@@ -2,6 +2,7 @@ import React, { Suspense } from 'react';
 import { CarouselSlides } from '../constants/data';
 import Loading from '../components/Loading';
 import PageTitle from '../components/PageTitle';
+import MetaTags from '../components/MetaTags';
 
 // Lazy load Testimonial
 const Testimonial = React.lazy(() => import('../components/Home/Testimonial'));
@@ -14,6 +15,12 @@ const TestPreparation = React.lazy(() => import('../components/Home/TestPreparat
 const Home = () => {
   return (
     <>
+      <MetaTags
+        title="Home - Himalayan Educational Group Service Pvt. Ltd."
+        description="Start your Japanese learning journey with Himalayan Educational Group Service Pvt. Ltd. Explore courses, test preparation, and expert guidance to reach fluency."
+        keywords="Japanese language course, JLPT, JFT, NAT, Himalayan Educational Group, online Japanese learning, Japanese classes, language school"
+        url="https://localhost:5173/"
+      />
       <PageTitle title="Home - Himalayan Educational Group Service Pvt. Ltd." />
       <section>
         <Suspense fallback={<Loading />}>

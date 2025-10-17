@@ -31,6 +31,10 @@ const ServiceDetail = () => {
     );
   }
 
+  const title = `${matchedService.title} - Himalayan Educational Group Service Pvt. Ltd.`;
+  const description = matchedService.description;
+  const url = `https://localhost:5173/services/${serviceId}`;
+
   return (
     <section
       className="mt-6 mb-14 w-full max-w-4xl px-3.5 md:mx-auto md:mt-16 md:mb-20 md:px-8 lg:px-0"

@@ -3,10 +3,15 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import StyledHeading from '../../components/StyleHeading';
 import PageTitle from '../../components/PageTitle';
+import MetaTags from '../../components/MetaTags';
 
 const Introduction = () => {
+  const title = 'About - Himalayan Educational Group Service Pvt. Ltd.';
+  const description = 'Learn more about Himalayan Educational Group Service Pvt. Ltd.';
+  const url = 'https://localhost:5173/about/introduction';
   return (
     <>
+      <MetaTags title={title} description={description} url={url} />
       <PageTitle title="About - Himalayan Educational Group Service Pvt. Ltd." />
       <section id="about_introduction" className="relative mb-16 p-3.5 md:mt-6 md:p-8 lg:mx-40">
         <StyledHeading text="Introduction" />
@@ -59,7 +64,7 @@ const Introduction = () => {
             <p>
               After a brief introduction, also check our{' '}
               <Link
-                aria-label="Services"
+                aria-label="View all services offered by Himalayan Educational Group"
                 className="text-cta-red hover:text-cta-hover font-bold"
                 to={'/services'}
               >

@@ -24,7 +24,7 @@ const Footer = () => {
           <div>
             <h2 className="pb-5 text-[19px] font-bold">ABOUT US</h2>
 
-            <p className="mb-1 line-clamp-3 font-semibold">
+            <p className="line-clamp-3 font-semibold">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur praesentium
               perferendis quo, itaque placeat dignissimos iure quos asperiores, nostrum, maxime a
               tenetur nulla voluptatibus incidunt. Harum culpa impedit libero, ducimus repellendus
@@ -35,9 +35,9 @@ const Footer = () => {
               <Link
                 aria-label="read more about us"
                 to="/about/introduction"
-                className="font-semibold tracking-wide text-white transition-colors duration-300"
+                className="font-semibold tracking-wide text-white uppercase transition-colors duration-300"
               >
-                READ MORE
+                Know More
               </Link>
               <hr className="bg-main-indigo -mt-0.5 h-[2px] w-0 rounded-full border-none transition-all duration-300 group-hover:w-full" />
             </div>

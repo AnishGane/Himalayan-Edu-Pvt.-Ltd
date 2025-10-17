@@ -3,6 +3,7 @@ import { galleryData } from '../constants/data';
 import { IoChevronBack, IoChevronForward, IoClose } from 'react-icons/io5';
 import StyledHeading from '../components/StyleHeading';
 import PageTitle from '../components/PageTitle';
+import MetaTags from '../components/MetaTags';
 
 const Gallery = () => {
   const [showFullImage, setShowFullImage] = useState(false);
@@ -58,8 +59,15 @@ const Gallery = () => {
     return () => window.removeEventListener('keydown', handleKeyPress);
   }, [showFullImage]);
 
+  const title = 'Gallery - Himalayan Educational Group Service Pvt. Ltd.';
+  const description =
+    'Explore the gallery showcasing our classes, events, and Japanese cultural activities.';
+  const url = 'https://yourdomain.com/gallery';
+  const image = galleryData[0]?.image; // first image as preview
+
   return (
     <>
+      <MetaTags title={title} description={description} url={url} image={image} />
       <PageTitle title="Gallery - Himalayan Educational Group Service Pvt. Ltd." />
       <section
         id="gallery_section"

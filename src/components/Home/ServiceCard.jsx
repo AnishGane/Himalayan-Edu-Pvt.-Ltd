@@ -30,16 +30,16 @@ const ServiceCard = ({ service }) => {
         {service.description}
       </p>
 
-      <Link aria-label='Service card Read More' to={`/services/${slug}`}>
+      <Link aria-label="Service card Read More" to={`/services/${slug}`}>
         <button
-          aria-label="Read More"
+          aria-label={`Explore More about the ${slug} Service`}
           className="mt-8 mb-4 cursor-pointer rounded-sm px-6 py-3 font-semibold transition-all duration-300 hover:scale-[1.015]"
           style={{
             backgroundColor: '#b91c1c', // darker red to improve contrast
             color: '#ffffff', // text remains white
           }}
         >
-          Read More
+          Explore More
         </button>
       </Link>
     </motion.div>

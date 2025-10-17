@@ -6,6 +6,7 @@ import { FaPlus, FaMinus } from 'react-icons/fa6';
 
 import { courses } from '../../constants/data';
 import PageTitle from '../../components/PageTitle';
+import MetaTags from '../../components/MetaTags';
 
 const CourseDetail = () => {
   const { courseId } = useParams();
@@ -25,8 +26,13 @@ const CourseDetail = () => {
     );
   }
 
+  const title = `${matchedCourse.title} - Himalayan Educational Group Service Pvt. Ltd.`;
+  const description = `Join our ${matchedCourse.title} course to improve your Japanese skills. Learn key grammar, vocabulary, and practical conversation with structured lessons.`;
+  const url = `https://localhost:5173/courses/${matchedCourse.id}`;
+
   return (
     <>
+      <MetaTags title={title} description={description} url={url} />
       <PageTitle title={`${matchedCourse.title} - Himalayan Educational Group Service Pvt. Ltd.`} />
       <motion.section
         key={courseId} // ensures animation restarts when route (course) changes

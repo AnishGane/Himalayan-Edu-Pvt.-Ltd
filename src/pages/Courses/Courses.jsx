@@ -7,10 +7,17 @@ import { FaCheck } from 'react-icons/fa6';
 import StyledHeading from '../../components/StyleHeading';
 import { courses } from '../../constants/data';
 import PageTitle from '../../components/PageTitle';
+import MetaTags from '../../components/MetaTags';
 
 const Courses = () => {
+  const title = 'Courses - Himalayan Educational Group Service Pvt. Ltd.';
+  const description =
+    'Embark on your Japanese learning journey with Himalayan Educational Group. Explore beginner to advanced courses, master grammar, vocabulary, and real-world conversation skills.';
+  const url = 'https://localhost:5173/courses';
+
   return (
     <>
+      <MetaTags title={title} description={description} url={url} />
       <PageTitle title="Courses - Himalayan Educational Group Service Pvt. Ltd." />
       <section
         id="courses"

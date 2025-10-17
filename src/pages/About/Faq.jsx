@@ -5,10 +5,15 @@ import StyledHeading from '../../components/StyleHeading';
 import { faqData } from '../../constants/data';
 import { useDisableMotion } from '../../hooks/useDisableMotion';
 import PageTitle from '../../components/PageTitle';
+import MetaTags from '../../components/MetaTags';
 
 const Faq = () => {
   const [activeIndex, setActiveIndex] = useState(null);
   const isMobile = useDisableMotion();
+  const title = 'Frequently Asked Questions - Himalayan Educational Group Service Pvt. Ltd.';
+  const description =
+    'Learn about our frequently asked questions and answers to help you understand our services and products better.';
+  const url = 'https://localhost:5173/about/faq';
 
   const toggleFAQ = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
@@ -16,7 +21,8 @@ const Faq = () => {
 
   return (
     <>
-      <PageTitle title="Frequently Asked Questions - Himalayan Educational Group Service Pvt. Ltd." />
+      <MetaTags title={title} description={description} url={url} />
+      <PageTitle title={title} />
       <section
         id="faq"
         className="relative p-3.5 md:mt-6 md:p-8 lg:mx-40"
