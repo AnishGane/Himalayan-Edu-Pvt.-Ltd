@@ -50,7 +50,7 @@ const Carousel = ({ images = [], autoPlay }) => {
       <div
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
-        className="relative h-[480px] overflow-hidden sm:h-[360px] md:h-[460px] lg:h-[700px]"
+        className="relative h-[480px] overflow-hidden sm:h-[360px] md:h-[460px] lg:h-[740px]"
       >
         {/* Slides wrapper */}
         <div

@@ -13,7 +13,7 @@ const Footer = () => {
   return (
     <footer className="relative w-full overflow-x-hidden bg-gradient-to-r from-red-400 to-red-600 py-4 2xl:px-40">
       <img
-        src="/images/background_img_overlay.jpg"
+        src="/images/background_img_overlay.webp"
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover opacity-20"
         alt="background footer image"

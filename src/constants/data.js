@@ -107,25 +107,25 @@ const TestClasses = [
     id: 1,
     title: 'NAT',
     link: '/class/nat',
-    image: '/images/carousel_img5.jpeg',
+    image: '/images/image_1.webp',
   },
   {
     id: 2,
     title: 'JLPT',
     link: '/class/jlpt',
-    image: '/images/carousel_img1.jpg',
+    image: '/images/image_2.webp',
   },
   {
     id: 3,
     title: 'IFT_SSW',
     link: '/class/ift-ssw',
-    image: '/images/carousel_img2.jpg',
+    image: '/images/image_3.webp',
   },
 ];
 
 const CarouselSlides = [
   {
-    src: '/images/carousel_img1.jpg',
+    src: '/images/image_1.webp',
     tagline: 'Study in best environment',
     subtitle: 'Guiding you to your dream university',
     headline: 'Fulfill your Dream here.',
@@ -133,7 +133,7 @@ const CarouselSlides = [
     href: '/about/introduction',
   },
   {
-    src: '/images/carousel_img2.jpg',
+    src: '/images/image_2.webp',
     tagline: 'Trusted by thousands',
     subtitle: 'Building brighter futures abroad',
     headline: 'Your journey starts with us.',
@@ -141,7 +141,7 @@ const CarouselSlides = [
     href: '/services',
   },
   {
-    src: '/images/carousel_img3.jpg',
+    src: '/images/image_3.webp',
     tagline: 'Expert guidance',
     subtitle: 'Personalized counseling for every student',
     headline: 'Achieve journey with us together.',
@@ -256,42 +256,42 @@ const testimonials = [
   {
     name: 'Ayumi Tanaka',
     major: 'Computer Science Student',
-    image: '/images/carousel_img2.jpg',
+    image: '/images/image_1.webp',
     text: 'Studying with Asahi helped me not only learn Japanese but also adjust quickly to life in Japan. The support was incredible!',
   },
   {
     name: 'Raj Sharma',
     major: 'Business Administration',
-    image: '/images/carousel_img2.jpg',
+    image: '/images/image_2.webp',
     text: 'Thanks to the guidance, I secured admission at my dream university in Tokyo. Their process was seamless and stress-free.',
   },
   {
     name: 'Sakura Ito',
     major: 'Engineering',
-    image: '/images/carousel_img2.jpg',
+    image: '/images/image_3.webp',
     text: 'The Japanese language classes were engaging and practical. I felt confident to communicate during my exchange program.',
   },
   {
     name: 'Prakash Karki',
     major: 'Hospitality Management',
-    image: '/images/carousel_img2.jpg',
+    image: '/images/image_4.webp',
     text: 'Visa processing was smooth, and the career counseling helped me find the right path. Truly life-changing experience!',
   },
 ];
 
 const OurTeamData = [
   {
-    image: '/images/carousel_img5.jpeg',
+    image: '/images/image_1.webp',
     name: 'Raj Sharma',
     post: 'Business Administration',
   },
   {
-    image: '/images/carousel_img2.jpg',
+    image: '/images/image_2.webp',
     name: 'Raj Sharma',
     post: 'Business Administration',
   },
   {
-    image: '/images/carousel_img5.jpeg',
+    image: '/images/image_3.webp',
     name: 'Raj Sharma',
     post: 'Business Administration',
   },
@@ -300,19 +300,19 @@ const OurTeamData = [
 const galleryData = [
   {
     id: 1,
-    image: '/images/carousel_img1.jpg',
+    image: '/images/image_1.webp',
   },
   {
     id: 2,
-    image: '/images/carousel_img2.jpg',
+    image: '/images/image_2.webp',
   },
   {
     id: 3,
-    image: '/images/carousel_img3.jpg',
+    image: '/images/image_3.webp',
   },
   {
     id: 4,
-    image: '/images/carousel_img5.jpeg',
+    image: '/images/image_6.webp',
   },
 ];
 

@@ -31,7 +31,7 @@ const GridCard = ({ cardData }) => {
         <img
           src={cardData.image}
           alt={`${cardData.title || cardData.name} image`}
-          className={`aspect-[4/3] w-full rounded-t-sm object-cover transition-transform duration-300 ${
+          className={`aspect-1 w-full rounded-t-sm object-cover transition-transform duration-300 ${
             !cardData.post ? 'hover:scale-[1.019]' : 'grayscale-50 hover:grayscale-0'
           }`}
         />

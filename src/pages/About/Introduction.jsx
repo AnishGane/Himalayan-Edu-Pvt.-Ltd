@@ -15,7 +15,7 @@ const Introduction = () => {
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
             <img
-              src="/images/carousel_img2.jpg"
+              src="/images/image_1.webp"
               alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
               loading="lazy"
