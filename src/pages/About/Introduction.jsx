@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import StyledHeading from '../../components/StyleHeading';
 import PageTitle from '../../components/PageTitle';
 import MetaTags from '../../components/MetaTags';
-import Imgix from 'react-imgix';
 
 const Introduction = () => {
   const title = 'About - Himalayan Educational Group Service Pvt. Ltd.';
@@ -20,10 +19,8 @@ const Introduction = () => {
         <div className="flex flex-col items-start gap-6 space-x-10 md:gap-10 lg:mt-5 lg:flex-row lg:gap-0 2xl:space-x-16">
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 md:w-1/3 lg:h-[450px] 2xl:h-[500px]">
-            <Imgix
-              src="https://himalayanedu.imgix.net/images/image_1.webp"
-              imgixParams={{ auto: 'format,compress', fit: 'max' }}
-              sizes="(max-width: 600px) 480px, (max-width: 960px) 720px, 1080px"
+            <img
+              src="/images/image_1.webp"
               alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
               loading="lazy"
