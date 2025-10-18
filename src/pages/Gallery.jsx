@@ -83,7 +83,7 @@ const Gallery = () => {
         <StyledHeading text={'Gallery'} id="gallery-heading" />
 
         {/* Gallery Grid */}
-        <div className="wrapper relative z-30 mt-6 mb-12 w-full rounded-lg bg-gradient-to-br from-gray-50 to-red-50 md:mt-2 md:border md:border-gray-200 md:p-6">
+        <div className="wrapper relative z-30 mt-6 mb-8 w-full rounded-lg bg-gradient-to-br from-gray-50 to-red-50 md:mt-2 md:border md:border-gray-200 md:p-6">
           <article
             className="article_card grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-x-8 md:gap-y-12 lg:grid-cols-3"
             role="list"

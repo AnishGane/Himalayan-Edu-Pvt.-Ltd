@@ -343,7 +343,7 @@ const Navbar = () => {
                 aria-label="contact us with email"
                 onClick={() => setIsMobileMenuOpen(false)}
                 className="mt-10 flex items-center justify-center gap-2"
-                to={'/contact'}
+                to={'/contact-us'}
               >
                 <MdOutlineEmail />
                 himalayanedu@gmail.com

@@ -75,7 +75,7 @@ const MessageFromMD = () => {
               and I love to teach language whenever I got the chance. So join me where I will be
               personally facilitate you for language and study in Japan.
             </p>
-            <div className="mb-16 space-y-1 md:mb-8">
+            <div className="mb-8 space-y-1">
               <p className="font-bold">Pramila Puri</p>
               <p className="font-semibold">Managing Director</p>
               <p className="text-sm">N2 Level Language Instructor and Counselor</p>

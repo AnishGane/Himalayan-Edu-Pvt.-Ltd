@@ -91,7 +91,7 @@ const Faq = () => {
           </div>
 
           {/* Contact CTA */}
-          <div className="cta mt-16 mb-8 text-center">
+          <div className="cta my-8 text-center">
             <p className="mb-3 text-gray-700">Still have questions? We’d love to help.</p>
             <motion.a
               href="/contact-us"
