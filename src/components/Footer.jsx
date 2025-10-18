@@ -31,20 +31,18 @@ const Footer = () => {
         <div className="grid-links relative z-40 grid w-full grid-cols-1 items-start justify-between gap-6 px-3 py-6 text-[#1A1B25] sm:grid-cols-2 sm:pl-16 md:gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
           {/* left div */}
           <div>
-            <h2 className="pb-5 text-[19px] font-bold">ABOUT US</h2>
+            <h2 className="pb-2 text-[19px] font-bold md:pb-5">ABOUT US</h2>
 
-            <p className="line-clamp-3 pb-1 font-semibold">
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur praesentium
-              perferendis quo, itaque placeat dignissimos iure quos asperiores, nostrum, maxime a
-              tenetur nulla voluptatibus incidunt. Harum culpa impedit libero, ducimus repellendus
-              tenetur quaerat totam esse, voluptatum aspernatur cumque sit omnis? Ipsum itaque
-              aspernatur beatae voluptatibus.
+            <p className="line-clamp-3 pb-1 text-sm leading-[1.4rem] font-medium tracking-wide md:text-[16.5px] md:leading-[1.67rem]">
+              Himalayan Education Group Service Pvt. Ltd. is a well-known & a trusted educational
+              service provider in Nepal. We are committed to providing quality education to
+              students.
             </p>
             <div className="group flex w-fit flex-col">
               <Link
                 aria-label="read more about us"
                 to="/about/introduction"
-                className="font-semibold tracking-wide text-white uppercase transition-colors duration-300"
+                className="text-sm font-medium tracking-wide text-white uppercase transition-colors duration-300 md:text-[16.5px]"
               >
                 Know More
               </Link>
