@@ -10,6 +10,7 @@ const Gallery = () => {
   const [showFullImage, setShowFullImage] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const modalRef = useRef(null);
+  const isMobile = window.innerWidth < 768;
 
   const openImage = (index) => {
     setCurrentIndex(index);
@@ -100,7 +101,7 @@ const Gallery = () => {
                     alt={g.alt}
                     className="h-full w-full object-cover"
                     responsiveWidths={[240, 360, 480, 640]} // smaller versions for mobile grid
-                    quality={70}
+                    quality={60} // 👈 reduce slightly for mobile grid
                   />
                 </button>
                 <span
@@ -155,7 +156,8 @@ const Gallery = () => {
                 src={galleryData[currentIndex].image}
                 alt={galleryData[currentIndex].alt}
                 className="max-h-[80vh] w-full cursor-default rounded-md object-contain"
-                responsiveWidths={[800, 1200, 1600, 2000]} // larger sizes
+                responsiveWidths={[800, 1200, 1600, 2000]}
+                quality={isMobile ? 70 : 80}
               />
               {/* Image Counter */}
               <p className="mt-2 text-right text-[14px] font-medium text-white sm:text-base">
