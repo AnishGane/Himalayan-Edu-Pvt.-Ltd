@@ -28,12 +28,12 @@ const Footer = () => {
         aria-hidden="true"
       />
       <div className="flex flex-col">
-        <div className="grid-links relative z-40 grid w-full grid-cols-1 items-start justify-between gap-10 px-3 py-6 text-[#1A1B25] sm:grid-cols-2 sm:pl-16 lg:grid-cols-[1.2fr_1fr_1fr]">
+        <div className="grid-links relative z-40 grid w-full grid-cols-1 items-start justify-between gap-6 px-3 py-6 text-[#1A1B25] sm:grid-cols-2 sm:pl-16 md:gap-10 lg:grid-cols-[1.2fr_1fr_1fr]">
           {/* left div */}
           <div>
             <h2 className="pb-5 text-[19px] font-bold">ABOUT US</h2>
 
-            <p className="line-clamp-3 font-semibold">
+            <p className="pb-1 line-clamp-3 font-semibold">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur praesentium
               perferendis quo, itaque placeat dignissimos iure quos asperiores, nostrum, maxime a
               tenetur nulla voluptatibus incidunt. Harum culpa impedit libero, ducimus repellendus
@@ -56,8 +56,8 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-10">
             {/* First column */}
             <div>
-              <h2 className="pb-5 text-[19px] font-bold">QUICK LINKS</h2>
-              <ul className="space-y-1 font-semibold">
+              <h2 className="pb-2 md:pb-5 text-[19px] font-bold">QUICK LINKS</h2>
+              <ul className="space-y-1 font-medium">
                 {footerLinks.slice(0, 4).map((link, index) => (
                   <li
                     key={index}
@@ -73,8 +73,8 @@ const Footer = () => {
 
             {/* Second column */}
             <div>
-              <h2 className="pb-5 text-[19px] font-bold">QUICK LINKS</h2>
-              <ul className="space-y-1 font-semibold">
+              <h2 className="pb-2 md:pb-5 text-[19px] font-bold">QUICK LINKS</h2>
+              <ul className="space-y-1 font-medium">
                 {footerLinks.slice(4).map((link, index) => (
                   <li
                     key={index}
@@ -91,8 +91,8 @@ const Footer = () => {
 
           {/* Right div */}
           <div className="right-link w-full justify-self-end lg:w-auto">
-            <h2 className="pb-5 text-[19px] font-bold">CONTACT INFO</h2>
-            <div className="flex flex-col items-start space-y-1 font-semibold tracking-wide">
+            <h2 className="pb-2 md:pb-5 text-[19px] font-bold">CONTACT INFO</h2>
+            <div className="flex flex-col items-start space-y-1 font-medium tracking-wide">
               <p className="flex items-center justify-center gap-3">
                 <FaLocationDot size={15} />
                 <span className="text-[17px]">Minbhawan Marga 31, Kathmandu, Nepal</span>
