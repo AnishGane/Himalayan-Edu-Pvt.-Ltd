@@ -35,7 +35,7 @@ const ScrollToTop = () => {
             duration: 0.3,
             ease: [0.25, 0.1, 0.25, 1],
           }}
-          className="fixed right-5 bottom-5 z-[200] flex cursor-pointer items-center justify-center rounded-full bg-black p-3 text-white shadow-lg transition-all duration-300 hover:bg-gray-900 sm:right-10 sm:bottom-10"
+          className="fixed right-5 bottom-5 z-[200] flex cursor-pointer items-center justify-center rounded-full border border-gray-300 bg-black p-3 text-white shadow-md transition-all duration-300 hover:bg-gray-900 sm:right-10 sm:bottom-10"
           aria-label="Scroll to top"
         >
           <RiArrowDropDownLine size={28} className="rotate-180" />
