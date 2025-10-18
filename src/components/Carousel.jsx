@@ -52,7 +52,7 @@ const Carousel = ({ images = [], autoPlay }) => {
   if (slides.length === 0) return null;
 
   return (
-    <section id="Carousel" className="relative mt-3 max-w-full select-none">
+    <section id="Carousel" className="relative max-w-full select-none">
       <div
         onTouchStart={handleTouchStart}
         onTouchEnd={handleTouchEnd}
