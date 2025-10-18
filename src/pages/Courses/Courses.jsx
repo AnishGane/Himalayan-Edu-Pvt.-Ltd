@@ -21,7 +21,7 @@ const Courses = () => {
       <PageTitle title="Courses - Himalayan Educational Group Service Pvt. Ltd." />
       <section
         id="courses"
-        className="mt-4 mb-8 w-full p-3.5 md:mt-6 md:mb-20 md:p-8 2xl:px-40"
+        className="mt-4 mb-6 w-full p-3.5 md:mt-6 md:mb-20 md:p-8 2xl:px-40"
         aria-labelledby="courses-heading"
       >
         <div className="top_section mb-6 max-w-3xl md:mb-14">

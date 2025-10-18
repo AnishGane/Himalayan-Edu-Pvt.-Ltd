@@ -20,7 +20,7 @@ const Introduction = () => {
     <>
       <MetaTags title={title} description={description} url={url} />
       <PageTitle title="About - Himalayan Educational Group Service Pvt. Ltd." />
-      <section id="about_introduction" className="relative mb-8 p-3.5 md:mt-6 md:p-8 2xl:mx-40">
+      <section id="about_introduction" className="relative mb-6 p-3.5 md:mt-6 md:p-8 2xl:mx-40">
         <StyledHeading text="Introduction" />
 
         <div className="flex flex-col items-start gap-6 space-x-10 md:gap-10 lg:mt-5 lg:flex-row lg:gap-0 2xl:space-x-16">
