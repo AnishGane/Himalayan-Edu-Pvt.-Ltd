@@ -13,6 +13,11 @@ const Carousel = ({ images = [], autoPlay }) => {
   const timerRef = useRef(null);
   const touchStartXRef = useRef(null);
   const isMobile = useDisableMotion();
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
 
   const goTo = (index) => {
     if (slides.length === 0) return;
@@ -64,9 +69,9 @@ const Carousel = ({ images = [], autoPlay }) => {
                 src={slide.src}
                 alt={`slide-${idx + 1}`}
                 className="h-full w-full object-cover"
-                responsiveWidths={[480, 768, 1024, 1440, 1920]}
-                quality={window.innerWidth < 768 ? 60 : 75}
-                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 100vw"
+                responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+                quality={isMobileWidth ? 60 : 75}
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
               />
 
               {/* Dark gradient overlay for readability */}

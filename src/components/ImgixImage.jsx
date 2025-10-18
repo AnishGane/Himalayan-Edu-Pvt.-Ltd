@@ -7,9 +7,9 @@ const ImgixImage = ({
   alt = '',
   className = '',
   fit = 'crop',
-  quality = 75,
-  sizes = '(max-width: 640px) 80vw, (max-width: 1024px) 40vw, 25vw',
-  responsiveWidths = [320, 480, 640, 768, 1024, 1280],
+  quality = 70,
+  sizes = '(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 33vw',
+  responsiveWidths = [240, 320, 360, 400, 480, 640, 768, 1024, 1280],
   lazy = true,
   fallback = true,
   ...props
