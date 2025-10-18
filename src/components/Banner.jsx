@@ -20,7 +20,7 @@ const Banner = () => {
           </div>
           <div className="left-div flex items-center justify-center gap-1 leading-0">
             <BsFillTelephoneFill fill="#1A2E55" size={16} />
-            <p className="text-[0.78rem] text-slate-700">+977 981234567</p>
+            <p className="text-[0.78rem] text-slate-700">+977 981234567777777777777</p>
           </div>
         </div>
         <div className="banner_socials flex items-center justify-center gap-6">
