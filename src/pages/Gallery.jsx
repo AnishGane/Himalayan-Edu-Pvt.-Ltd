@@ -100,8 +100,9 @@ const Gallery = () => {
                     src={g.image}
                     alt={g.alt}
                     className="h-full w-full object-cover"
-                    responsiveWidths={[240, 360, 480, 640]} // smaller versions for mobile grid
-                    quality={60} // 👈 reduce slightly for mobile grid
+                    responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+                    quality={isMobileWidth ? 60 : 75}
+                    sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
                   />
                 </button>
                 <span
@@ -156,8 +157,9 @@ const Gallery = () => {
                 src={galleryData[currentIndex].image}
                 alt={galleryData[currentIndex].alt}
                 className="max-h-[80vh] w-full cursor-default rounded-md object-contain"
-                responsiveWidths={[800, 1200, 1600, 2000]}
-                quality={isMobile ? 70 : 80}
+                responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+                quality={isMobileWidth ? 60 : 75}
+                sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
               />
               {/* Image Counter */}
               <p className="mt-2 text-right text-[14px] font-medium text-white sm:text-base">
