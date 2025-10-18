@@ -3,14 +3,22 @@ import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
 import fs from 'fs';
 
-// https://vite.dev/config/
-export default defineConfig({
-  plugins: [react(), tailwindcss()],
-  server: {
-    https: {
+const isDev = process.env.NODE_ENV === 'development';
+
+// HTTPS config only for local development
+const httpsConfig = isDev
+  ? {
       key: fs.readFileSync('./localhost-key.pem'),
       cert: fs.readFileSync('./localhost.pem'),
-    },
-    port: 5173,
-  },
+    }
+  : undefined;
+
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+  server: isDev
+    ? {
+        https: httpsConfig,
+        port: 5173,
+      }
+    : undefined,
 });
