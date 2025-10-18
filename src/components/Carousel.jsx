@@ -80,7 +80,7 @@ const Carousel = ({ images = [], autoPlay }) => {
               {/* Overlay content */}
               {current === idx && (
                 <motion.div
-                  className="overlay_content absolute top-10 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 px-6 text-center text-white sm:top-1/2 sm:-translate-y-1/2"
+                  className="overlay_content absolute top-20 left-1/2 z-20 w-full max-w-5xl -translate-x-1/2 bg-red-400 px-6 text-center text-white sm:top-1/2 sm:-translate-y-1/2"
                   {...(!isMobile && {
                     initial: { opacity: 0, y: 40 },
                     animate: { opacity: 1, y: 0 },
@@ -95,14 +95,14 @@ const Carousel = ({ images = [], autoPlay }) => {
                   )}
 
                   {slide.subtitle && (
-                    <p className="animate-fadeIn mb-8 text-sm tracking-wide text-white [animation-delay:200ms] sm:mb-4 md:text-lg">
+                    <p className="animate-fadeIn mb-4 text-sm tracking-wide text-white [animation-delay:200ms] sm:mb-4 md:mb-8 md:text-lg">
                       {slide.subtitle}
                     </p>
                   )}
 
                   {slide.headline && (
                     <h1
-                      className="animate-fadeUp tracking- mb-10 text-4xl leading-[2.75rem] font-extrabold text-white drop-shadow-xl [animation-delay:400ms] md:text-5xl md:leading-[4.25rem] lg:text-6xl"
+                      className="animate-fadeUp tracking- mb-6 text-4xl leading-[2.75rem] font-extrabold text-white drop-shadow-xl [animation-delay:400ms] md:mb-10 md:text-5xl md:leading-[4.25rem] lg:text-6xl"
                       dangerouslySetInnerHTML={{ __html: slide.headline }}
                     />
                   )}

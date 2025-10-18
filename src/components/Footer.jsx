@@ -33,7 +33,7 @@ const Footer = () => {
           <div>
             <h2 className="pb-5 text-[19px] font-bold">ABOUT US</h2>
 
-            <p className="pb-1 line-clamp-3 font-semibold">
+            <p className="line-clamp-3 pb-1 font-semibold">
               Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur praesentium
               perferendis quo, itaque placeat dignissimos iure quos asperiores, nostrum, maxime a
               tenetur nulla voluptatibus incidunt. Harum culpa impedit libero, ducimus repellendus
@@ -56,12 +56,12 @@ const Footer = () => {
           <div className="grid grid-cols-2 gap-10">
             {/* First column */}
             <div>
-              <h2 className="pb-2 md:pb-5 text-[19px] font-bold">QUICK LINKS</h2>
-              <ul className="space-y-1 font-medium">
+              <h2 className="pb-2 text-[19px] font-bold md:pb-5">QUICK LINKS</h2>
+              <ul className="space-y-1.5 font-medium">
                 {footerLinks.slice(0, 4).map((link, index) => (
                   <li
                     key={index}
-                    className="w-fit text-[16.5px] transition-colors duration-200 hover:text-gray-200"
+                    className="w-fit text-sm transition-colors duration-200 hover:text-gray-200 md:text-[16.5px]"
                   >
                     <Link aria-label="quick links" to={link.link}>
                       {link.name}
@@ -73,12 +73,12 @@ const Footer = () => {
 
             {/* Second column */}
             <div>
-              <h2 className="pb-2 md:pb-5 text-[19px] font-bold">QUICK LINKS</h2>
-              <ul className="space-y-1 font-medium">
+              <h2 className="pb-2 text-[19px] font-bold md:pb-5">QUICK LINKS</h2>
+              <ul className="space-y-1.5 font-medium">
                 {footerLinks.slice(4).map((link, index) => (
                   <li
                     key={index}
-                    className="w-fit text-[16.5px] transition-colors duration-200 hover:text-gray-200"
+                    className="w-fit text-sm transition-colors duration-200 hover:text-gray-200 md:text-[16.5px]"
                   >
                     <Link aria-label="quick links" to={link.link}>
                       {link.name}
@@ -91,23 +91,25 @@ const Footer = () => {
 
           {/* Right div */}
           <div className="right-link w-full justify-self-end lg:w-auto">
-            <h2 className="pb-2 md:pb-5 text-[19px] font-bold">CONTACT INFO</h2>
-            <div className="flex flex-col items-start space-y-1 font-medium tracking-wide">
+            <h2 className="pb-2 text-[19px] font-bold md:pb-5">CONTACT INFO</h2>
+            <div className="flex flex-col items-start space-y-1.5 font-medium tracking-wide">
               <p className="flex items-center justify-center gap-3">
                 <FaLocationDot size={15} />
-                <span className="text-[17px]">Minbhawan Marga 31, Kathmandu, Nepal</span>
+                <span className="text-sm md:text-[16.5px]">
+                  Minbhawan Marga 31, Kathmandu, Nepal
+                </span>
               </p>
               <p className="flex items-center justify-center gap-3">
                 <BsFillTelephoneFill size={15} />
-                <span className="text-[17px]"> +977 01 5914662</span>
+                <span className="text-sm md:text-[16.5px]"> +977 01 5914662</span>
               </p>
               <p className="flex items-center justify-center gap-3">
                 <MdPhoneAndroid size={15} />
-                <span className="text-[17px]"> +977 9802342674</span>
+                <span className="text-sm md:text-[16.5px]"> +977 9802342674</span>
               </p>
               <p className="flex items-center justify-center gap-3">
                 <IoMailUnread size={15} />
-                <span className="text-[17px]">himalayanedu@gmail.com</span>
+                <span className="text-sm md:text-[16.5px]">himalayanedu@gmail.com</span>
               </p>
             </div>
           </div>
