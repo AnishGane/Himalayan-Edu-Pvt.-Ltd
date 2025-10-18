@@ -21,7 +21,7 @@ const Introduction = () => {
           {/* Left Image */}
           <div className="h-64 w-full md:h-96 lg:h-[450px] lg:w-1/3 2xl:h-[500px]">
             <ImgixImage
-              src="/images/image_1.webp"
+              src="/image_1.webp"
               alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
             />

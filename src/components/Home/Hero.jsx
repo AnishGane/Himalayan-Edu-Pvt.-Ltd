@@ -31,7 +31,7 @@ const Hero = () => {
         {/* Left div */}
         <div className="z-30 max-w-2xl md:h-[34rem]">
           <ImgixImage
-            src="/images/Hero_image.webp"
+            src="/Hero_image.webp"
             alt="hero left image"
             className="aspect-square w-full object-contain md:h-[30rem]"
           />

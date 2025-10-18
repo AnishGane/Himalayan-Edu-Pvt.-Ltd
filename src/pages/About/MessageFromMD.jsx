@@ -19,7 +19,7 @@ const MessageFromMD = () => {
           <div className="mb-2 flex w-full flex-shrink-0 justify-center sm:justify-start md:mt-2 md:mb-6 lg:w-1/3">
             <ImgixImage
               title="Our Managing Director"
-              src="/images/image_6.webp"
+              src="/image_6.webp"
               alt="Managing Director"
               className="h-[400px] w-full rounded-sm object-cover"
             />

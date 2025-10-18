@@ -116,7 +116,7 @@ const Navbar = () => {
         >
           <Link aria-label="Home" to="/">
             <ImgixImage
-              src="/images/Logo.webp"
+              src="/Logo.webp"
               alt="Himalayan Educational Group Service Pvt. Ltd. Logo"
               className="ml-3 h-auto w-36 border-none object-contain outline-none sm:w-36 md:ml-0"
               onClick={() => setIsMobileMenuOpen(false)}

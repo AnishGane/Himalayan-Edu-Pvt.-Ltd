@@ -14,7 +14,7 @@ const Footer = () => {
   return (
     <footer className="relative w-full overflow-x-hidden bg-gradient-to-r from-red-400 to-red-600 py-4 2xl:px-40">
       <ImgixImage
-        src="/images/background_img_overlay.webp"
+        src="/background_img_overlay.webp"
         alt="background footer image"
         className="absolute inset-0 h-full w-full object-cover opacity-20"
         aria-hidden="true"
