@@ -23,6 +23,18 @@ const Navbar = () => {
   const location = useLocation();
   const controls = useAnimation();
   const isMobile = useDisableMotion();
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => setIsMobileWidth(window.innerWidth < 768);
+    handleResize();
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -119,6 +131,9 @@ const Navbar = () => {
               src="/Logo.webp"
               alt="Himalayan Educational Group Service Pvt. Ltd. Logo"
               className="ml-3 h-auto w-36 border-none object-contain outline-none sm:w-36 md:ml-0"
+              responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+              quality={isMobileWidth ? 60 : 75}
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
               onClick={() => setIsMobileMenuOpen(false)}
             />
           </Link>
@@ -367,7 +382,7 @@ const Navbar = () => {
                               : 'hover:border-active-link hover:text-active-link'
                     }`}
                   >
-                    <social.icon className="size-[1.25rem]" />
+                    <social.icon className="size-5" />
                   </a>
                 ))}
               </li>

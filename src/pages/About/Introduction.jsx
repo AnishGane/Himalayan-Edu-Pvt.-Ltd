@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { Link } from 'react-router-dom';
 import StyledHeading from '../../components/StyleHeading';
@@ -7,6 +7,12 @@ import MetaTags from '../../components/MetaTags';
 import ImgixImage from '../../components/ImgixImage';
 
 const Introduction = () => {
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
+
   const title = 'About - Himalayan Educational Group Service Pvt. Ltd.';
   const description = 'Learn more about Himalayan Educational Group Service Pvt. Ltd.';
   const url = 'https://himalayan-edu-pvt-ltd.vercel.app/about/introduction';
@@ -24,6 +30,9 @@ const Introduction = () => {
               src="/image_1.webp"
               alt="About"
               className="h-full w-full rounded-sm object-cover shadow-lg"
+              responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+              quality={isMobileWidth ? 60 : 75}
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
             />
           </div>
 

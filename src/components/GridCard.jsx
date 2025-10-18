@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbLocation } from 'react-icons/tb';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
@@ -7,6 +7,11 @@ import ImgixImage from './ImgixImage';
 
 const GridCard = ({ cardData }) => {
   const isMobile = useDisableMotion();
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
 
   return (
     <motion.div
@@ -35,6 +40,9 @@ const GridCard = ({ cardData }) => {
           className={`aspect-1 w-full rounded-t-sm object-cover transition-transform duration-300 ${
             !cardData.post ? 'hover:scale-[1.019]' : 'grayscale-50 hover:grayscale-0'
           }`}
+          responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+          quality={isMobileWidth ? 60 : 75}
+          sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
         />
 
         {cardData.title && (

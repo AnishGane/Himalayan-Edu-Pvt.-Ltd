@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import StyledHeading from '../../components/StyleHeading';
 import PageTitle from '../../components/PageTitle';
@@ -8,6 +8,11 @@ const MessageFromMD = () => {
   const title = 'Message from MD - Himalayan Educational Group Service Pvt. Ltd.';
   const description = 'This is a message from our Managing Director.';
   const url = 'https://himalayan-edu-pvt-ltd.vercel.app/about/message';
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
   return (
     <>
       <PageTitle title="Message from MD - Himalayan Educational Group Service Pvt. Ltd." />
@@ -22,6 +27,9 @@ const MessageFromMD = () => {
               src="/image_6.webp"
               alt="Managing Director"
               className="h-[400px] w-full rounded-sm object-cover"
+              responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+              quality={isMobileWidth ? 60 : 75}
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
             />
           </div>
 

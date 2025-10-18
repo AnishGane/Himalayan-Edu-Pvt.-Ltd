@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import Title from '../../components/Title';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,11 @@ const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
 const Hero = () => {
   const isMobile = useDisableMotion();
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
   return (
     <section id="hero" className="bg-section-bg relative w-full overflow-x-hidden py-10 2xl:px-40">
       {/* Diagonal Fade Grid Background - Top Right */}
@@ -34,6 +39,9 @@ const Hero = () => {
             src="/Hero_image.webp"
             alt="hero left image"
             className="aspect-square w-full object-contain md:h-[30rem]"
+            responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+            quality={isMobileWidth ? 60 : 75}
+            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
           />
         </div>
 

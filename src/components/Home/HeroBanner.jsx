@@ -1,14 +1,22 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import ImgixImage from '../ImgixImage';
 
 const HeroBanner = () => {
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
+
   return (
     <div className="hero_banner relative mx-3 mt-6 h-60 w-auto overflow-hidden rounded-lg bg-gradient-to-r from-red-400 to-red-600 sm:mx-7 sm:mt-10 sm:h-70 md:max-w-4xl lg:mx-auto 2xl:max-w-7xl">
       <ImgixImage
         src="/background_img_overlay.webp"
         className="absolute inset-0 h-full w-full object-cover opacity-40"
         alt="hero banner background image"
+        responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+        quality={isMobileWidth ? 60 : 75}
+        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
       />
       {/* Content */}
       <div className="content relative z-10 flex h-full w-full flex-col items-center justify-center text-center sm:px-12 sm:text-left md:gap-10 lg:flex-row lg:justify-between lg:gap-0">

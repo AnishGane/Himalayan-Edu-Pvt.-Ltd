@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { BsFillTelephoneFill } from 'react-icons/bs';
@@ -10,6 +10,11 @@ import ImgixImage from './ImgixImage';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
 
   return (
     <footer className="relative w-full overflow-x-hidden bg-gradient-to-r from-red-400 to-red-600 py-4 2xl:px-40">
@@ -17,6 +22,9 @@ const Footer = () => {
         src="/background_img_overlay.webp"
         alt="background footer image"
         className="absolute inset-0 h-full w-full object-cover opacity-20"
+        responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+        quality={isMobileWidth ? 60 : 75}
+        sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
         aria-hidden="true"
       />
       <div className="flex flex-col">

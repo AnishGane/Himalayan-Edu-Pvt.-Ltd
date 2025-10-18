@@ -10,6 +10,11 @@ const TestimonialCard = () => {
   const touchStartX = useRef(0);
   const touchEndX = useRef(0);
   const isMobile = useDisableMotion();
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
 
   const nextSlide = () => setCurrent((prev) => (prev + 1) % testimonials.length);
   const prevSlide = () =>
@@ -75,6 +80,9 @@ const TestimonialCard = () => {
                   src={t.image}
                   alt={`Portrait of ${t.name}`}
                   className="h-32 w-32 rounded-full border-4 border-gray-200 object-cover md:h-40 md:w-40"
+                  responsiveWidths={[240, 320, 360, 480, 768, 1024, 1440, 1920]}
+                  quality={isMobileWidth ? 60 : 75}
+                  sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 50vw"
                 />
               </div>
             </div>
