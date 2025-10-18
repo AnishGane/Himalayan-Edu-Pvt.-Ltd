@@ -10,7 +10,11 @@ const Gallery = () => {
   const [showFullImage, setShowFullImage] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
   const modalRef = useRef(null);
-  const isMobile = window.innerWidth < 768;
+  const [isMobileWidth, setIsMobileWidth] = useState(false);
+
+  useEffect(() => {
+    setIsMobileWidth(window.innerWidth < 768);
+  }, []);
 
   const openImage = (index) => {
     setCurrentIndex(index);
