@@ -211,7 +211,7 @@ const CourseDetail = () => {
             <Link
               aria-label="contact us"
               className="text-cta-red hover:text-cta-hover ml-1 underline"
-              to="/contact_us"
+              to="/contact-us"
             >
               contact us
             </Link>
