@@ -268,7 +268,7 @@ const Navbar = () => {
                 <li key={idx}>
                   {item.link && item.name != 'our courses' ? (
                     <NavLink
-                      to={item.link}
+                      to={item.link || '#'}
                       className={({ isActive }) =>
                         `mobile_ul-link block border-b border-b-gray-200 px-4 py-3 text-black transition-all duration-200 hover:bg-gray-100 ${isActive ? 'text-active-link' : ''}`
                       }
