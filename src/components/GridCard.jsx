@@ -63,7 +63,7 @@ const GridCard = ({ cardData }) => {
             <Link to={cardData.link} aria-label="View">
               <button
                 aria-label="View"
-                className="bg-cta-red hover:bg-cta-hover grid place-items-center rounded-full p-2 text-white shadow-lg transition-all duration-200"
+                className="bg-cta-red hover:bg-cta-hover grid cursor-pointer place-items-center rounded-full p-2 text-white shadow-lg transition-all duration-200"
               >
                 <TbLocation size={20} className="-translate-x-[1px]" />
               </button>

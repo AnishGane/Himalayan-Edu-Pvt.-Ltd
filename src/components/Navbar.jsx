@@ -1,9 +1,8 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { useMediaQuery } from 'react-responsive';
-import { motion, useAnimation } from 'motion/react';
+import { motion } from 'motion/react';
 import { useDisableMotion } from '../hooks/useDisableMotion';
-import { useLocation } from 'react-router-dom';
 
 import { navLinks, socials } from '../constants/data';
 
@@ -20,8 +19,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navRef = useRef(null);
   const MediumDevice = useMediaQuery({ maxWidth: 1037 });
-  const location = useLocation();
-  const controls = useAnimation();
   const isMobile = useDisableMotion();
   const [isMobileWidth, setIsMobileWidth] = useState(false);
 
@@ -63,20 +60,6 @@ const Navbar = () => {
       html.style.overflow = '';
     };
   }, [isMobileMenuOpen]);
-
-  useEffect(() => {
-    controls.stop();
-
-    // Re-run the navbar fade animation when route changes
-    controls.start({
-      opacity: [0, 1],
-      y: [-20, 0],
-      filter: ['blur(4px)', 'blur(0px)'],
-      transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
-    });
-
-    return () => controls.stop(); // cleanup
-  }, [location.pathname]);
 
   const handleDropdownToggle = (index) => {
     setOpenDropdown(openDropdown === index ? null : index);
@@ -123,7 +106,11 @@ const Navbar = () => {
     <>
       <nav ref={navRef} className="fixed z-50 w-full bg-white 2xl:px-36">
         <motion.div
-          {...(!isMobile && { animate: controls })} // only animate on desktop
+          {...(!isMobile && {
+            initial: { opacity: 0, y: -20, filter: 'blur(4px)' },
+            animate: { opacity: 1, y: 0, filter: 'blur(0px)' },
+            transition: { duration: 0.45, ease: [0.25, 0.1, 0.25, 1] },
+          })} // only animate on desktop
           className="relative flex max-w-full flex-row items-center justify-between gap-5 py-3 md:px-5 md:py-3"
         >
           <Link aria-label="Home" to="/">
