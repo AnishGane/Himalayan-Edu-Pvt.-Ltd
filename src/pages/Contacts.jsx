@@ -1,14 +1,17 @@
-import React, { Suspense, useRef, useState } from 'react';
+import React, { Suspense, useEffect, useRef, useState } from 'react';
 import emailjs from '@emailjs/browser';
 
 import StyledHeading from '../components/StyleHeading';
 import PageTitle from '../components/PageTitle';
 import Loading from '../components/Loading';
 import MetaTags from '../components/MetaTags';
+import { replace, useNavigate } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 const Contacts = () => {
   const form = useRef();
   const [status, setStatus] = useState(null); // null | 'sending' | 'success' | 'error'
+  const navigate = useNavigate();
 
   const sendEmail = async (e) => {
     e.preventDefault();
@@ -24,30 +27,34 @@ const Contacts = () => {
       setStatus('success');
       form.current.reset();
 
-      // Hide success message after 4 seconds
-      setTimeout(() => setStatus(null), 4000);
+      setTimeout(() => setStatus(null), 2000);
     } catch (err) {
       console.error('EmailJS error:', err);
       setStatus('error');
-      setTimeout(() => setStatus(null), 4000);
+      setTimeout(() => setStatus(null), 2000);
     }
   };
 
-  const sendMessage = () => {
-    if (status === 'success')
-      return (
-        <p role="status" aria-live="polite" className="font-semibold text-green-600">
-          ✅ Message sent — thank you!
-        </p>
-      );
-    if (status === 'error')
-      return (
-        <p role="alert" aria-live="assertive" className="font-semibold text-red-600">
-          ❌ Oops! Something went wrong.
-        </p>
-      );
-    return null;
-  };
+  useEffect(() => {
+    if (status === 'success') {
+      toast.success('Message sent successfully!', {
+        style: { background: '#23CE6B', color: '#fff' },
+      });
+
+      const timer = setTimeout(() => {
+        navigate('/', { replace: true });
+      }, 2000);
+
+      return () => clearTimeout(timer);
+    }
+
+    if (status === 'error') {
+      toast.error('Oops! Something went wrong.', {
+        style: { background: '#f32f2fee', color: '#fff' },
+      });
+    }
+  }, [status, navigate]);
+
   const title = 'Contact Us - Himalayan Educational Group Service Pvt. Ltd.';
   const description =
     'Get in touch with Himalayan Educational Group Service Pvt. Ltd. for any inquiries or feedback.';
@@ -158,9 +165,7 @@ const Contacts = () => {
               >
                 {status === 'sending' ? 'Sending…' : 'SUBMIT'}
               </button>
-
-              {/* Status Message */}
-              <div className="mb-6">{sendMessage()}</div>
+              {status === 'success' && setTimeout(() => navigate('/', replace), 2000)}
             </form>
           </div>
 

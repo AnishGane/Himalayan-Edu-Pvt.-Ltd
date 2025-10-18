@@ -6,6 +6,7 @@ import Banner from './components/Banner';
 import Navbar from './components/Navbar';
 import Loading from './components/Loading';
 import Footer from './components/Footer';
+import { Toaster } from 'react-hot-toast';
 
 // Main Pages
 const Home = React.lazy(() => import('./pages/Home'));
@@ -59,6 +60,18 @@ const AboutWrapper = () => {
 const App = () => {
   return (
     <main className="w-full overflow-x-hidden">
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          duration: 2000,
+          style: {
+            background: '#333',
+            color: '#fff',
+            letterSpacing: '0.025em',
+          },
+        }}
+      />
       {/* Header */}
       <header className="fixed top-0 left-0 z-50 w-full bg-white">
         <Banner />
