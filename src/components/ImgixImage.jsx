@@ -1,38 +1,44 @@
 import React, { useState } from 'react';
 
-const ImgixBaseURL = 'https://himalayanedu.imgix.net'; // Your Imgix Base URL that is set in Imgix Source
+const IMGIX_BASE_URL = 'https://himalayanedu.imgix.net'; // Your Imgix Base URL that is set in Imgix Source
 
 const ImgixImage = ({
-  src, // e.g. "/images/image_1.webp"
+  src, // eg: 'images/image_1.webp'
   alt = '',
-  width,
-  height,
   className = '',
   fit = 'crop',
   format = 'auto',
   quality = 80,
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw',
+  responsiveWidths = [320, 480, 768, 1024, 1280, 1600],
   lazy = true,
   fallback = true,
   ...props
 }) => {
   const [imgError, setImgError] = useState(false);
 
-  // Construct Imgix URL
-  const imgixUrl = `${ImgixBaseURL}${src.startsWith('/') ? src : `/${src}`}?auto=${format},compress&fit=${fit}&q=${quality}${
-    width ? `&w=${width}` : ''
-  }${height ? `&h=${height}` : ''}`;
+  const basePath = src.startsWith('/') ? src : `/${src}`;
+  const fallbackUrl = `${window.location.origin}${basePath}`;
 
-  // Local fallback (original public image)
-  const fallbackUrl = `${window.location.origin}${src}`;
+  // Build Imgix srcset for responsive sizes
+  const srcSet = responsiveWidths
+    .map(
+      (w) =>
+        `${IMGIX_BASE_URL}${basePath}?auto=${format},compress&fit=${fit}&q=${quality}&w=${w} ${w}w`
+    )
+    .join(', ');
+
+  // Default main URL
+  const mainUrl = `${IMGIX_BASE_URL}${basePath}?auto=${format},compress&fit=${fit}&q=${quality}`;
 
   return (
     <img
-      src={!imgError ? imgixUrl : fallbackUrl}
+      src={!imgError ? mainUrl : fallbackUrl}
+      srcSet={!imgError ? srcSet : undefined}
+      sizes={!imgError ? sizes : undefined}
       alt={alt}
       loading={lazy ? 'lazy' : 'eager'}
       onError={() => fallback && setImgError(true)}
-      width={width}
-      height={height}
       className={className}
       {...props}
     />

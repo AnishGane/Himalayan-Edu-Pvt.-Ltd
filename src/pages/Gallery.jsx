@@ -117,7 +117,7 @@ const Gallery = () => {
         {/* Fullscreen Lightbox */}
         {showFullImage && (
           <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
+            className="fixed inset-0 z-50 flex cursor-zoom-out items-center justify-center bg-black/70 p-4 backdrop-blur-sm"
             role="dialog"
             aria-modal="true"
             aria-label={`Image ${currentIndex + 1} of ${galleryData.length}`}
@@ -136,7 +136,7 @@ const Gallery = () => {
               <button
                 onClick={prevImage}
                 aria-label="Previous image"
-                className="absolute top-1/2 left-1 -translate-y-1/2 text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-left-10"
+                className="absolute top-1/2 left-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-left-10"
               >
                 <IoChevronBack />
               </button>
@@ -145,7 +145,7 @@ const Gallery = () => {
               <button
                 onClick={nextImage}
                 aria-label="Next image"
-                className="absolute top-1/2 right-1 -translate-y-1/2 text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-right-10"
+                className="absolute top-1/2 right-1 -translate-y-1/2 cursor-pointer text-3xl text-white transition hover:text-gray-300 md:text-4xl lg:-right-10"
               >
                 <IoChevronForward />
               </button>
@@ -153,8 +153,9 @@ const Gallery = () => {
               {/* Full Image */}
               <ImgixImage
                 src={galleryData[currentIndex].image}
-                alt={galleryData[currentIndex].alt || `Gallery Image ${currentIndex + 1}`}
-                className="max-h-[80vh] w-full rounded-md object-contain"
+                alt={galleryData[currentIndex].alt}
+                className="max-h-[80vh] w-full cursor-default rounded-md object-contain"
+                responsiveWidths={[800, 1200, 1600, 2000]} // larger sizes
               />
               {/* Image Counter */}
               <p className="mt-2 text-right text-[14px] font-medium text-white sm:text-base">
