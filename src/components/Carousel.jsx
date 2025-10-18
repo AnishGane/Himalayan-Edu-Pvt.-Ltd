@@ -64,6 +64,9 @@ const Carousel = ({ images = [], autoPlay }) => {
                 src={slide.src}
                 alt={`slide-${idx + 1}`}
                 className="h-full w-full object-cover"
+                responsiveWidths={[480, 768, 1024, 1440, 1920]}
+                quality={window.innerWidth < 768 ? 60 : 75}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 100vw"
               />
 
               {/* Dark gradient overlay for readability */}
