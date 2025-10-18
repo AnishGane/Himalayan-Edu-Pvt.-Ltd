@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { RiArrowDropDownLine } from 'react-icons/ri';
 import { motion, AnimatePresence } from 'motion/react';
 
-const ScrollToTop = () => {
+const ScrollToTop = ({ isMobileMenuOpen }) => {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const ScrollToTop = () => {
 
   return (
     <AnimatePresence>
-      {showScrollTop && (
+      {showScrollTop && !isMobileMenuOpen && (
         <motion.button
           key="scrollToTopBtn"
           aria-labelledby="scrollToTopBtn"

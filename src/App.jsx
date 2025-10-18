@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Route, Routes, useLocation, useParams } from 'react-router-dom';
 import ScrollToTop from './components/ScrollToTop';
 
@@ -58,6 +58,7 @@ const AboutWrapper = () => {
 };
 
 const App = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   return (
     <main className="w-full overflow-x-hidden">
       <Toaster
@@ -75,10 +76,10 @@ const App = () => {
       {/* Header */}
       <header className="fixed top-0 left-0 z-50 w-full bg-white">
         <Banner />
-        <Navbar />
+        <Navbar isMobileMenuOpen={isMobileMenuOpen} setIsMobileMenuOpen={setIsMobileMenuOpen} />
       </header>
 
-      <ScrollToTop />
+      <ScrollToTop isMobileMenuOpen={isMobileMenuOpen} />
 
       {/* Scroll to top on route change */}
       <ScrollToTopOnRouteChange />

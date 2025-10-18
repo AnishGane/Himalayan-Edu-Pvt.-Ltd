@@ -14,17 +14,13 @@ import { AiFillInstagram } from 'react-icons/ai';
 import { SiYoutube } from 'react-icons/si';
 import ImgixImage from './ImgixImage';
 
-const Navbar = () => {
+const Navbar = ({ isMobileMenuOpen, setIsMobileMenuOpen }) => {
   const [openDropdown, setOpenDropdown] = useState(null);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const navRef = useRef(null);
   const MediumDevice = useMediaQuery({ maxWidth: 1037 });
   const isMobile = useDisableMotion();
   const [isMobileWidth, setIsMobileWidth] = useState(false);
-
-  useEffect(() => {
-    setIsMobileWidth(window.innerWidth < 768);
-  }, []);
 
   useEffect(() => {
     const handleResize = () => setIsMobileWidth(window.innerWidth < 768);
