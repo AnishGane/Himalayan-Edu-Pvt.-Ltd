@@ -97,10 +97,10 @@ const Gallery = () => {
                 >
                   <ImgixImage
                     src={g.image}
-                    alt={g.alt || `Gallery Image ${index + 1}`}
-                    width={200}
-                    height={300}
+                    alt={g.alt}
                     className="h-full w-full object-cover"
+                    responsiveWidths={[240, 360, 480, 640]} // smaller versions for mobile grid
+                    quality={70}
                   />
                 </button>
                 <span
