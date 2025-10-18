@@ -6,17 +6,18 @@ import { FaLocationDot } from 'react-icons/fa6';
 import { MdPhoneAndroid } from 'react-icons/md';
 import { IoMailUnread } from 'react-icons/io5';
 import { footerLinks } from '../constants/data';
+import ImgixImage from './ImgixImage';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="relative w-full overflow-x-hidden bg-gradient-to-r from-red-400 to-red-600 py-4 2xl:px-40">
-      <img
+      <ImgixImage
         src="/images/background_img_overlay.webp"
-        loading="lazy"
-        className="absolute inset-0 h-full w-full object-cover opacity-20"
         alt="background footer image"
+        className="absolute inset-0 h-full w-full object-cover opacity-20"
+        aria-hidden="true"
       />
       <div className="flex flex-col">
         <div className="grid-links relative z-40 grid w-full grid-cols-1 items-start justify-between gap-10 px-3 py-6 text-[#1A1B25] sm:grid-cols-2 sm:pl-16 lg:grid-cols-[1.2fr_1fr_1fr]">

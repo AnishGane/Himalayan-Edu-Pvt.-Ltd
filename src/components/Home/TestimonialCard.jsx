@@ -3,6 +3,7 @@ import { testimonials } from '../../constants/data';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { motion } from 'motion/react';
 import { useDisableMotion } from '../../hooks/useDisableMotion';
+import ImgixImage from '../ImgixImage';
 
 const TestimonialCard = () => {
   const [current, setCurrent] = useState(0);
@@ -70,7 +71,7 @@ const TestimonialCard = () => {
               </div>
               {/* Right Image */}
               <div className="flex-shrink-0">
-                <img
+                <ImgixImage
                   src={t.image}
                   alt={`Portrait of ${t.name}`}
                   className="h-32 w-32 rounded-full border-4 border-gray-200 object-cover md:h-40 md:w-40"

@@ -1,14 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ImgixImage from '../ImgixImage';
 
 const HeroBanner = () => {
   return (
     <div className="hero_banner relative mx-3 mt-6 h-60 w-auto overflow-hidden rounded-lg bg-gradient-to-r from-red-400 to-red-600 sm:mx-7 sm:mt-10 sm:h-70 md:max-w-4xl lg:mx-auto 2xl:max-w-7xl">
-      <img
+      <ImgixImage
         src="/images/background_img_overlay.webp"
-        loading="lazy"
         className="absolute inset-0 h-full w-full object-cover opacity-40"
-        alt="background pattern"
+        alt="hero banner background image"
       />
       {/* Content */}
       <div className="content relative z-10 flex h-full w-full flex-col items-center justify-center text-center sm:px-12 sm:text-left md:gap-10 lg:flex-row lg:justify-between lg:gap-0">

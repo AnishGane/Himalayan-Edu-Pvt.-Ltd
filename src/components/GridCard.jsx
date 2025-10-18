@@ -3,6 +3,7 @@ import { TbLocation } from 'react-icons/tb';
 import { motion } from 'motion/react';
 import { Link } from 'react-router-dom';
 import { useDisableMotion } from '../hooks/useDisableMotion';
+import ImgixImage from './ImgixImage';
 
 const GridCard = ({ cardData }) => {
   const isMobile = useDisableMotion();
@@ -28,7 +29,7 @@ const GridCard = ({ cardData }) => {
       })}
     >
       <div className="relative overflow-hidden">
-        <img
+        <ImgixImage
           src={cardData.image}
           alt={`${cardData.title || cardData.name} image`}
           className={`aspect-1 w-full rounded-t-sm object-cover transition-transform duration-300 ${

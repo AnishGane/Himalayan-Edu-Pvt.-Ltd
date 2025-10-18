@@ -6,6 +6,7 @@ import Loading from '../Loading';
 import { motion } from 'motion/react';
 import { useDisableMotion } from '../../hooks/useDisableMotion';
 import CheckList from './CheckList';
+import ImgixImage from '../ImgixImage';
 
 const HeroBanner = React.lazy(() => import('./HeroBanner'));
 
@@ -29,11 +30,10 @@ const Hero = () => {
       <div className="div-grid grid grid-cols-1 gap-8 px-3 sm:gap-12 md:grid-cols-2 md:px-6 lg:px-5 2xl:px-0">
         {/* Left div */}
         <div className="z-30 max-w-2xl md:h-[34rem]">
-          <img
+          <ImgixImage
             src="/images/Hero_image.webp"
             alt="hero left image"
             className="aspect-square w-full object-contain md:h-[30rem]"
-            loading="lazy"
           />
         </div>
 

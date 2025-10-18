@@ -2,6 +2,7 @@ import React from 'react';
 
 import StyledHeading from '../../components/StyleHeading';
 import PageTitle from '../../components/PageTitle';
+import ImgixImage from '../../components/ImgixImage';
 
 const MessageFromMD = () => {
   const title = 'Message from MD - Himalayan Educational Group Service Pvt. Ltd.';
@@ -10,18 +11,17 @@ const MessageFromMD = () => {
   return (
     <>
       <PageTitle title="Message from MD - Himalayan Educational Group Service Pvt. Ltd." />
-      <section id="about_messageMD" className="relative p-3.5 md:mt-6 md:p-8 lg:mx-40">
+      <section id="about_messageMD" className="relative p-3.5 md:mt-6 md:p-8 2xl:mx-40">
         <StyledHeading text={'Message from MD'} />
 
         <div className="flex flex-col items-start gap-6 space-x-10 sm:gap-0 lg:mt-6 lg:flex-row 2xl:space-x-16">
           {/* Image */}
           <div className="mb-2 flex w-full flex-shrink-0 justify-center sm:justify-start md:mt-2 md:mb-6 lg:w-1/3">
-            <img
+            <ImgixImage
               title="Our Managing Director"
               src="/images/image_6.webp"
               alt="Managing Director"
               className="h-[400px] w-full rounded-sm object-cover"
-              loading="lazy"
             />
           </div>
 

@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { useDisableMotion } from '../hooks/useDisableMotion';
+import ImgixImage from './ImgixImage';
 
 const AUTO_PLAY_INTERVAL_MS = 4000;
 
@@ -59,12 +60,10 @@ const Carousel = ({ images = [], autoPlay }) => {
         >
           {slides.map((slide, idx) => (
             <div key={idx} className="relative h-full w-full flex-shrink-0">
-              <img
+              <ImgixImage
                 src={slide.src}
                 alt={`slide-${idx + 1}`}
                 className="h-full w-full object-cover"
-                loading="lazy"
-                draggable={false}
               />
 
               {/* Dark gradient overlay for readability */}

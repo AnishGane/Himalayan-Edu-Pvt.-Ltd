@@ -4,6 +4,7 @@ import { IoChevronBack, IoChevronForward, IoClose } from 'react-icons/io5';
 import StyledHeading from '../components/StyleHeading';
 import PageTitle from '../components/PageTitle';
 import MetaTags from '../components/MetaTags';
+import ImgixImage from '../components/ImgixImage';
 
 const Gallery = () => {
   const [showFullImage, setShowFullImage] = useState(false);
@@ -71,7 +72,7 @@ const Gallery = () => {
       <PageTitle title="Gallery - Himalayan Educational Group Service Pvt. Ltd." />
       <section
         id="gallery_section"
-        className="relative p-3.5 md:mt-6 md:p-8 lg:mx-40"
+        className="relative p-3.5 md:p-8 2xl:mx-40"
         aria-labelledby="gallery-heading"
       >
         <StyledHeading text={'Gallery'} id="gallery-heading" />
@@ -85,18 +86,18 @@ const Gallery = () => {
             {galleryData.map((g, index) => (
               <div
                 key={index}
-                className="relative aspect-[4/3] w-full overflow-hidden rounded-sm bg-red-300 transition-all duration-200 hover:scale-[1.012] md:aspect-16/11"
+                className="relative aspect-[4/3] w-full overflow-hidden rounded-sm transition-all duration-200 hover:scale-[1.012] md:aspect-16/11"
                 role="listitem"
+                title="CLick to open image"
               >
                 <button
                   onClick={() => openImage(index)}
                   aria-label={`Open image ${index + 1} of ${galleryData.length}`}
-                  className="h-full w-full cursor-pointer"
+                  className="h-full w-full cursor-crosshair"
                 >
-                  <img
+                  <ImgixImage
                     src={g.image}
                     alt={g.alt || `Gallery Image ${index + 1}`}
-                    loading="lazy"
                     width={200}
                     height={300}
                     className="h-full w-full object-cover"
@@ -126,7 +127,7 @@ const Gallery = () => {
               <button
                 onClick={closeImage}
                 aria-label="Close image"
-                className="absolute -top-8 -right-2 text-3xl text-white transition hover:text-red-500 md:text-4xl lg:-right-8"
+                className="absolute -top-8 -right-2 cursor-pointer text-3xl text-white transition hover:text-red-500 md:text-4xl lg:-right-8"
               >
                 <IoClose />
               </button>
@@ -150,12 +151,11 @@ const Gallery = () => {
               </button>
 
               {/* Full Image */}
-              <img
+              <ImgixImage
                 src={galleryData[currentIndex].image}
                 alt={galleryData[currentIndex].alt || `Gallery Image ${currentIndex + 1}`}
                 className="max-h-[80vh] w-full rounded-md object-contain"
               />
-
               {/* Image Counter */}
               <p className="mt-2 text-right text-[14px] font-medium text-white sm:text-base">
                 {currentIndex + 1} of {galleryData.length}

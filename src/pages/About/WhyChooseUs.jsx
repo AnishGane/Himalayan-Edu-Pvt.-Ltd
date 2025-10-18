@@ -14,7 +14,7 @@ const WhyChooseUs = () => {
     <>
       <MetaTags title={title} description={description} url={url} />
       <PageTitle title={title} />
-      <section id="why_choose_us" className="relative mb-8 p-3.5 md:mt-6 md:mb-16 md:p-8 lg:mx-40">
+      <section id="why_choose_us" className="relative mb-8 p-3.5 md:mt-6 md:mb-16 md:p-8 2xl:mx-40">
         {/* Heading */}
         <StyledHeading text="Why Choose Us" />
 

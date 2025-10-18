@@ -13,6 +13,7 @@ import { RxCross2 } from 'react-icons/rx';
 import { FaFacebook, FaTwitter } from 'react-icons/fa';
 import { AiFillInstagram } from 'react-icons/ai';
 import { SiYoutube } from 'react-icons/si';
+import ImgixImage from './ImgixImage';
 
 const Navbar = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -114,7 +115,7 @@ const Navbar = () => {
           className="relative flex max-w-full flex-row items-center justify-between gap-5 py-3 md:px-5 md:py-3"
         >
           <Link aria-label="Home" to="/">
-            <img
+            <ImgixImage
               src="/images/Logo.webp"
               alt="Himalayan Educational Group Service Pvt. Ltd. Logo"
               className="ml-3 h-auto w-36 border-none object-contain outline-none sm:w-36 md:ml-0"
@@ -124,7 +125,7 @@ const Navbar = () => {
 
           {/* Mobile Menu Button / Hamburger Menu */}
           <button
-            className={`mobile-btn text-main-indigo mr-4 cursor-pointer hover:text-gray-900 focus:text-gray-900 focus:outline-none md:hidden ${MediumDevice ? 'block' : ''}`}
+            className={`mobile-btn text-main-indigo mr-4 cursor-pointer hover:text-gray-900 focus:text-gray-900 focus:outline-none lg:hidden ${MediumDevice ? 'block' : ''}`}
             onClick={handleMobileMenuToggle}
             aria-label={isMobileMenuOpen ? 'Close mobile menu' : 'Open mobile menu'}
             aria-expanded={isMobileMenuOpen}
