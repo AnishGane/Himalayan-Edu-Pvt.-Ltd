@@ -200,7 +200,7 @@ Includes SEO essentials like `sitemap.xml` and `robots.txt` for search engine vi
 
 The **Himalayan Educational Group Service Pvt. Ltd.** website is fully optimized for speed, accessibility, and SEO — ensuring the best experience for both users and search engines.
 
-<img src="./public/images/Insights.png" alt="Lighthouse Performance Report" width="350">
+<img src="./public/images/Insights.png" alt="Lighthouse Performance Report" width="600">
 
 ### 🏆 Summary
 
@@ -212,3 +212,10 @@ The **Himalayan Educational Group Service Pvt. Ltd.** website is fully optimized
 ---
 
 📊 _Performance tested using Google Lighthouse on [Vercel Deployment](https://himalayan-edu-pvt-ltd.vercel.app/)._
+
+---
+
+**Author** - AnishGane
+**email** - anishgane10@gmail.com
+ 
+---
