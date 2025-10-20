@@ -195,3 +195,20 @@ Includes SEO essentials like `sitemap.xml` and `robots.txt` for search engine vi
 | ESLint & Prettier | Code linting & formatting tools | [ESLint Docs](https://eslint.org/docs/latest/) / [Prettier Docs](https://prettier.io/docs/en/) |
 
 ---
+
+## 🚀 Website Performance Report
+
+The **Himalayan Educational Group Service Pvt. Ltd.** website is fully optimized for speed, accessibility, and SEO — ensuring the best experience for both users and search engines.
+
+<img src="./public/images/Insights.png" alt="Lighthouse Performance Report" width="350">
+
+### 🏆 Summary
+
+- 🚀 Fast loading time optimized using **Vite** and **Imgix**.
+- 🧠 High accessibility achieved through **semantic HTML**, **ARIA roles**, and **color contrast**.
+- 🔒 Strong best practices including **HTTPS**, **secure headers**, and **clean code structure**.
+- 🌐 SEO optimized using **meta tags**, **robots.txt**, and **sitemap.xml**.
+
+---
+
+📊 _Performance tested using Google Lighthouse on [Vercel Deployment](https://himalayan-edu-pvt-ltd.vercel.app/)._
