@@ -40,7 +40,7 @@ const Footer = () => {
             </p>
             <div className="group flex w-fit flex-col">
               <Link
-                aria-label="read more about us"
+                aria-label="go to introduction page and read more about us"
                 to="/about/introduction"
                 className="text-sm font-medium tracking-wide text-white uppercase transition-colors duration-300 md:text-[16.5px]"
               >
