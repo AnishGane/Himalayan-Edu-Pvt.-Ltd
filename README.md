@@ -1,3 +1,5 @@
+![Himalayan Educational Group Logo](./images/Logo.webp)
+
 # 🇯🇵 Himalayan Educational Group Service Pvt. Ltd.
 
 **Himalayan Educational Group Service Pvt. Ltd.** is a premier Japanese language learning institute based in Nepal, dedicated to providing high-quality education, cultural exchange, and skill development for students aspiring to study, work, or build their careers in Japan.
