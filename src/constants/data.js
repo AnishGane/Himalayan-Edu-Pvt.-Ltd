@@ -129,7 +129,7 @@ const CarouselSlides = [
     tagline: 'Study in best environment',
     subtitle: 'Guiding you to your dream university',
     headline: 'Fulfill your Dream here.',
-    cta: 'Learn More',
+    cta: 'Learn More About Us',
     href: '/about/introduction',
   },
   {
