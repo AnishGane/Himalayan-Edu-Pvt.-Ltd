@@ -1,4 +1,6 @@
-![Himalayan Educational Group Logo](./public/images/Logo.webp)
+<div align="center">
+  <img src="./public/images/Logo.webp" alt="Logo" width="180">
+</div>
 
 # 🇯🇵 Himalayan Educational Group Service Pvt. Ltd.
 
