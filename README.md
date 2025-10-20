@@ -37,7 +37,7 @@ Structured courses to help students succeed in the **NAT Japanese Test**, recogn
 
 Enhance speaking, listening, and comprehension skills while learning about Japanese traditions, manners, and lifestyle.
 
-### 4. **JLCT & TOP-J Preparation**
+### 4. **JLPT & JFT Preparation**
 
 Prepare for alternative Japanese proficiency exams to maximize your global opportunities.
 
@@ -63,7 +63,7 @@ We help students gain confidence and communication skills to succeed in intervie
 
 ### 🧑‍🏫 Teacher Training
 
-Specialized training sessions for aspiring Japanese language instructors.
+Specialized training sessions for aspiring Japanese language instructors & many more.
 
 ---
 
@@ -86,25 +86,14 @@ Specialized training sessions for aspiring Japanese language instructors.
 
 ---
 
-## 📅 Class Schedule
-
-| Course             | Duration    | Levels            | Mode                  |
-| ------------------ | ----------- | ----------------- | --------------------- |
-| JLPT N5–N1         | 3–12 months | 5 Levels          | In-person / Online    |
-| NAT Test           | 3–6 months  | Beginner–Advanced | In-person / Online    |
-| Conversation Class | Flexible    | All Levels        | In-person             |
-| Study Abroad Prep  | Ongoing     | As required       | Counseling / Training |
-
----
-
 ## 📍 Contact Us
 
 **Himalayan Educational Group Service Pvt. Ltd.**  
-📌 _[Insert your exact address here]_  
-📞 **Phone:** +977-[Insert Number]  
-✉️ **Email:** [Insert Email]  
-🌐 **Website:** [Insert Website URL]  
-📱 **Facebook/Instagram:** [Insert Social Links]
+📌 _Prabhu Bank, Shankhadhar chwok, Naya Thimi Bhaktapur_  
+📞 **Phone:** +977-9811111100  
+✉️ **Email:** himalayanedu@gmail.com  
+🌐 **Website:** https://himalayan-edu-pvt-ltd.vercel.app/
+📱 **Facebook/Instagram:** [Insert Social Links (will post later)]
 
 ---
 
