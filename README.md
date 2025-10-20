@@ -92,7 +92,7 @@ Specialized training sessions for aspiring Japanese language instructors & many 
 📌 _Prabhu Bank, Shankhadhar chwok, Naya Thimi Bhaktapur_  
 📞 **Phone:** +977-9811111100  
 ✉️ **Email:** himalayanedu@gmail.com  
-🌐 **Website:** https://himalayan-edu-pvt-ltd.vercel.app/
+🌐 **Website:** https://himalayan-edu-pvt-ltd.vercel.app
 📱 **Facebook/Instagram:** [Insert Social Links (will post later)]
 
 ---
