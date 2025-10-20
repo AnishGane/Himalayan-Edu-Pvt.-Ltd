@@ -110,7 +110,7 @@ const Carousel = ({ images = [], autoPlay }) => {
                   {slide.cta && (
                     <Link aria-label="Go to page to get started or to learn more" to={slide.href}>
                       <button
-                        aria-label={`${slide.cta}`}
+                        aria-label={`Go to the service or contact us or introduction Page according to ${slide.cta}`}
                         className="animate-fadeIn bg-cta-red hover:bg-cta-hover cursor-pointer rounded-sm px-6 py-4 text-[13px] font-semibold tracking-wider text-white uppercase shadow-lg transition-all duration-300 [animation-delay:600ms] hover:shadow-2xl md:px-9 md:py-5"
                       >
                         {slide.cta}
