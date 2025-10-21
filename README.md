@@ -214,6 +214,6 @@ The **Himalayan Educational Group Service Pvt. Ltd.** website is fully optimized
 📊 _Performance tested using Google Lighthouse on [Vercel Deployment](https://himalayan-edu-pvt-ltd.vercel.app/)._
 
 **Author** - AnishGane <br/>
-**email** - anishgane10@gmail.com
+**Reach Out in** - anishgane10@gmail.com
 
 ---
